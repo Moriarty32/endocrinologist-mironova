@@ -2903,7 +2903,7 @@ dialog::backdrop {
     gap: 30px;
   }
   .hero h1 {
-    max-width: 13.8ch;
+    max-width: 20ch;
   }
   .hero-visual {
     min-height: 748px;
