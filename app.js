@@ -42,6 +42,7 @@
   const header = $("[data-header]");
   const menuToggle = $("[data-menu-toggle]");
   const mobileMenu = $("#mobile-menu");
+  const iconBase = document.body.dataset.base || "";
 
   function setMenu(open) {
     if (!menuToggle || !mobileMenu) return;
@@ -52,7 +53,7 @@
     if (label) label.textContent = open ? "Закрыть меню" : "Открыть меню";
     const icon = $("use", menuToggle);
     if (icon) {
-      icon.setAttribute("href", open ? "assets/icons.svg#icon-close" : "assets/icons.svg#icon-menu");
+      icon.setAttribute("href", `${iconBase}assets/icons.svg#${open ? "icon-close" : "icon-menu"}`);
     }
   }
 
@@ -61,11 +62,12 @@
       setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
     });
     mobileMenu.addEventListener("click", (event) => {
+      if (event.target.closest("[data-mobile-accordion]")) return;
       if (event.target.closest("a, button")) setMenu(false);
     });
     document.addEventListener("click", (event) => {
       if (mobileMenu.hidden) return;
-      if (!header.contains(event.target)) setMenu(false);
+      if (!header.contains(event.target) && !mobileMenu.contains(event.target)) setMenu(false);
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !mobileMenu.hidden) {
@@ -457,20 +459,22 @@
   };
 
   const quizDialog = $("#quiz-dialog");
-  const quizViews = {
-    start: $('[data-quiz-view="start"]', quizDialog),
-    question: $('[data-quiz-view="question"]', quizDialog),
-    result: $('[data-quiz-view="result"]', quizDialog),
-  };
-  const questionTitle = $("[data-quiz-question]", quizDialog);
-  const questionHint = $("[data-quiz-hint]", quizDialog);
-  const optionsHost = $("[data-quiz-options]", quizDialog);
-  const stepLabel = $("[data-quiz-step]", quizDialog);
-  const progress = $("[data-quiz-progress]", quizDialog);
-  const progressBar = $(".quiz-progress", quizDialog);
-  const quizError = $("[data-quiz-error]", quizDialog);
-  const nextButton = $("[data-quiz-next]", quizDialog);
-  const backButton = $("[data-quiz-back]", quizDialog);
+  const quizViews = quizDialog
+    ? {
+        start: $('[data-quiz-view="start"]', quizDialog),
+        question: $('[data-quiz-view="question"]', quizDialog),
+        result: $('[data-quiz-view="result"]', quizDialog),
+      }
+    : { start: null, question: null, result: null };
+  const questionTitle = quizDialog ? $("[data-quiz-question]", quizDialog) : null;
+  const questionHint = quizDialog ? $("[data-quiz-hint]", quizDialog) : null;
+  const optionsHost = quizDialog ? $("[data-quiz-options]", quizDialog) : null;
+  const stepLabel = quizDialog ? $("[data-quiz-step]", quizDialog) : null;
+  const progress = quizDialog ? $("[data-quiz-progress]", quizDialog) : null;
+  const progressBar = quizDialog ? $(".quiz-progress", quizDialog) : null;
+  const quizError = quizDialog ? $("[data-quiz-error]", quizDialog) : null;
+  const nextButton = quizDialog ? $("[data-quiz-next]", quizDialog) : null;
+  const backButton = quizDialog ? $("[data-quiz-back]", quizDialog) : null;
 
   let quizIndex = 0;
   let quizAnswers = Array(QUESTIONS.length).fill(null);
@@ -855,9 +859,9 @@
   });
 
   const docDialog = $("#doc-dialog");
-  const docTitle = $("[data-doc-title]", docDialog);
-  const docPreview = $("[data-doc-preview]", docDialog);
-  const docNote = $("[data-doc-note]", docDialog);
+  const docTitle = docDialog ? $("[data-doc-title]", docDialog) : null;
+  const docPreview = docDialog ? $("[data-doc-preview]", docDialog) : null;
+  const docNote = docDialog ? $("[data-doc-note]", docDialog) : null;
 
   $$("[data-doc]").forEach((card) => {
     card.addEventListener("click", () => {
