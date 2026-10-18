@@ -1874,3 +1874,20 @@ h2 {
     font-size: 11px;
   }
 }
+
+@media (min-width: 1181px) {
+  .ref-hero {
+    background:
+      linear-gradient(90deg, rgba(247, 252, 249, 0.99) 0%, rgba(247, 252, 249, 0.96) 40%, rgba(247, 252, 249, 0.55) 58%, rgba(247, 252, 249, 0.08) 82%, rgba(247, 252, 249, 0) 100%),
+      url("assets/img/hero-wide.webp") center top / cover no-repeat;
+  }
+  .ref-hero-doctor img {
+    display: none;
+  }
+  .ref-hero-doctor::after {
+    display: none;
+  }
+  .ref-quote {
+    background: rgba(255, 255, 255, 0.86);
+  }
+}
