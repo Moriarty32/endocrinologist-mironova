@@ -156,7 +156,7 @@ h2 {
 .ref-hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 640px) 320px;
+  grid-template-columns: minmax(0, 640px) 360px;
   grid-template-rows: auto auto;
   gap: 17px 20px;
   align-items: start;
@@ -1517,7 +1517,7 @@ h2 {
     display: none;
   }
   .ref-hero-grid {
-    grid-template-columns: 340px 280px;
+    grid-template-columns: 360px 280px;
     grid-template-rows: auto auto auto;
     justify-content: center;
     gap: 14px 18px;
@@ -1891,3 +1891,404 @@ h2 {
     background: rgba(255, 255, 255, 0.86);
   }
 }
+/* =========================================================
+   Readable typography pass
+   Standard web sizes: 16px body, 15-16px UI, larger headings.
+   ========================================================= */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+h1 {
+  font-size: clamp(38px, 3.45vw, 50px);
+  line-height: 1.08;
+}
+h2 {
+  font-size: clamp(30px, 2.65vw, 38px);
+  line-height: 1.14;
+}
+.ref-kicker {
+  font-size: 12.5px;
+}
+.ref-hero h1 {
+  max-width: 700px;
+}
+.ref-lead {
+  max-width: 580px;
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.ref-facts {
+  margin-top: 20px;
+}
+.ref-facts li {
+  min-height: 70px;
+  padding: 12px 14px;
+  gap: 10px;
+}
+.ref-fact-icon {
+  width: 34px;
+  height: 34px;
+}
+.ref-fact-icon .icon {
+  width: 19px;
+  height: 19px;
+}
+.ref-facts strong {
+  font-size: 15px;
+}
+.ref-facts small {
+  font-size: 12.5px;
+}
+.ref-quote {
+  width: 250px;
+  padding: 9px 12px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.ref-quote span {
+  font-size: 16px;
+}
+.ref-form-head h2 {
+  font-size: 24px;
+  line-height: 1.16;
+}
+.ref-form {
+  padding: 14px 22px 18px;
+}
+.ref-input {
+  margin-bottom: 10px;
+}
+.ref-input .icon {
+  width: 19px;
+  height: 19px;
+}
+.ref-input input {
+  height: 54px;
+  padding-left: 42px;
+  font-size: 16px;
+}
+.ref-select {
+  margin-bottom: 10px;
+}
+.ref-select label {
+  font-size: 11.5px;
+}
+.ref-select select {
+  height: 54px;
+  font-size: 15px;
+}
+.ref-consent {
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.ref-consent input {
+  width: 15px;
+  height: 15px;
+}
+.ref-submit {
+  min-height: 50px;
+  height: 50px;
+  font-size: 15px;
+}
+.ref-form-price {
+  font-size: 13px;
+}
+.ref-form-note {
+  font-size: 11px;
+}
+.ref-quiz-copy strong {
+  font-size: 15px;
+}
+.ref-quiz-copy p {
+  font-size: 13px;
+}
+.ref-quiz .btn {
+  min-height: 42px;
+  height: 42px;
+  font-size: 14px;
+}
+.ref-head-center p {
+  font-size: 15px;
+}
+.ref-problem h3 {
+  font-size: 20px;
+}
+.ref-list li {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ref-pill {
+  min-height: 35px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+.ref-value-card h3 {
+  font-size: 17px;
+}
+.ref-value-card p {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.ref-about-middle h2 {
+  font-size: clamp(30px, 2.6vw, 38px);
+}
+.ref-role {
+  font-size: 16px;
+}
+.ref-chip {
+  min-height: 44px;
+  font-size: 14.5px;
+}
+.ref-chip .icon {
+  width: 21px;
+  height: 21px;
+}
+.ref-video strong {
+  font-size: 14px;
+}
+.ref-video small {
+  font-size: 12px;
+}
+.ref-approach > h3 {
+  font-size: 18px;
+  line-height: 1.4;
+}
+.ref-approach > p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.ref-credentials strong {
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+.ref-credentials span {
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+.ref-docs-head strong {
+  font-size: 13px;
+}
+.ref-docs-head a {
+  font-size: 12px;
+}
+.ref-doc-caption {
+  font-size: 10.5px;
+}
+.ref-price-left h3 {
+  font-size: 22px;
+}
+.ref-price-left > p {
+  font-size: 14px;
+}
+.ref-price-value {
+  font-size: clamp(42px, 3.6vw, 52px) !important;
+}
+.ref-price-value span {
+  font-size: 13px !important;
+}
+.ref-price-right .ref-list li {
+  font-size: 14px;
+}
+.ref-price-right .btn {
+  min-height: 46px;
+  height: 46px;
+  font-size: 14px;
+}
+.ref-price-side h3 {
+  font-size: 20px;
+}
+.ref-price-side > p {
+  font-size: 12.5px;
+}
+.ref-price-side .ref-price-value {
+  font-size: 38px !important;
+}
+.ref-price-side .ref-list li {
+  font-size: 13.5px;
+}
+.ref-price-side .btn {
+  min-height: 40px;
+  height: 40px;
+  font-size: 13px;
+}
+.ref-step h3 {
+  font-size: 18px;
+}
+.ref-step p {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.ref-step-num {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+.ref-principle h3 {
+  font-size: 16px;
+}
+.ref-principle p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+.ref-faq-aside h2 {
+  max-width: 380px;
+  font-size: clamp(30px, 2.5vw, 36px);
+}
+.ref-faq-aside > p {
+  max-width: 340px;
+  font-size: 15px;
+}
+.ref-faq-aside .ref-pill {
+  min-height: 40px;
+  font-size: 14px;
+}
+.ref-faq-list summary {
+  min-height: 42px;
+  padding: 8px 14px;
+  font-size: 16px;
+}
+.ref-faq-list details > div {
+  padding: 0 38px 10px 14px;
+}
+.ref-faq-list details p {
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.ref-articles-head h2 {
+  font-size: clamp(30px, 2.55vw, 36px);
+}
+.ref-articles-head p {
+  font-size: 14px;
+}
+.ref-all-link {
+  font-size: 13px;
+}
+.ref-article h3 {
+  font-size: 16px;
+}
+.ref-article-body > p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+.ref-category {
+  font-size: 10.5px;
+}
+.ref-article-meta {
+  font-size: 11px;
+}
+.ref-article-meta a {
+  font-size: 11.5px;
+}
+.ref-final-copy h2 {
+  font-size: clamp(32px, 2.9vw, 42px);
+}
+.ref-final-copy p {
+  font-size: 15px;
+}
+.ref-final-form .ref-consent {
+  font-size: 11px;
+}
+.ref-final-actions .btn {
+  min-height: 46px;
+  height: 46px;
+  font-size: 13px;
+}
+.ref-final-actions .btn-primary {
+  font-size: 12.5px;
+}
+.ref-footer .ref-brand .brand-name {
+  font-size: 14px;
+}
+.ref-footer .ref-brand .brand-role {
+  font-size: 13px;
+}
+.ref-footer-brand > p {
+  font-size: 13.5px;
+}
+.ref-footer-col h3 {
+  font-size: 12.5px;
+}
+.ref-footer-col a,
+.ref-footer-col > span {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.ref-socials a {
+  font-size: 12.5px;
+}
+.ref-footer-bottom {
+  font-size: 11px;
+}
+.ref-header .site-nav a {
+  font-size: 14.5px;
+}
+.ref-brand .brand-name {
+  font-size: 14px;
+}
+.ref-brand .brand-role {
+  font-size: 13px;
+}
+.ref-header .header-phone strong {
+  font-size: 14px;
+}
+.ref-header .header-phone small {
+  font-size: 12px;
+}
+.ref-header .header-cta {
+  min-height: 42px;
+  height: 42px;
+  font-size: 14px;
+}
+.ref-form-head,
+.ref-form {
+  /* Preserve the reference card width; increase type only. */
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: clamp(34px, 9vw, 40px);
+  }
+  h2 {
+    font-size: clamp(27px, 7.5vw, 32px);
+  }
+  .ref-lead {
+    font-size: 16px;
+  }
+  .ref-form-head h2 {
+    font-size: 22px;
+  }
+  .ref-input input,
+  .ref-select select {
+    height: 52px;
+    font-size: 16px;
+  }
+  .ref-problem h3 {
+    font-size: 18px;
+  }
+  .ref-list li {
+    font-size: 15px;
+  }
+  .ref-faq-list summary {
+    font-size: 15.5px;
+  }
+  .ref-final-copy h2 {
+    font-size: 32px;
+  }
+}
+/* Readable quiz typography */
+.quiz-lead { font-size: 15px; }
+.quiz-benefits li { font-size: 14px; }
+.quiz-question h2 { font-size: clamp(26px, 2.5vw, 30px); }
+.quiz-option span { font-size: 15px; }
+.quiz-count, .quiz-hint { font-size: 12px; }
+.quiz-footer p { font-size: 11px; }
+.result-memo li, .result-prep li { font-size: 13.5px; }
+.result-doctor strong { font-size: 13.5px; }
+.result-doctor span, .result-doctor p { font-size: 11.5px; }
