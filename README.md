@@ -5,6 +5,8 @@
 **Живая демонстрация:** https://moriarty32.github.io/endocrinologist-mironova/  
 **Аудит и скриншоты «до/после»:** [AUDIT.md](AUDIT.md), [audit/screenshots](audit/screenshots)
 
+Все исходники, изображения, референс и артефакты проверки находятся внутри `D:\Проекты\site`. Абсолютных путей к пользовательским папкам в проекте нет. Референс — `content/reference/reference.png`, исходные скриншоты — `audit/raw/`, итоговые — `audit/screenshots/`.
+
 ## Что реализовано
 
 - Первый экран с H1, преимуществами, полноэкранным фотоблоком врача, формой записи и отдельным входом в квиз.
@@ -53,6 +55,7 @@ python tools/build_site.py
 ```powershell
 python tools/build_site.py
 python tools/check_multipage.py
+python tools/check_assets.py
 python -m http.server 4173
 ```
 
@@ -72,8 +75,12 @@ python -m http.server 4173
 ├── pages.css                      # prose и старые компоненты страниц
 ├── app.js                         # формы, квиз, диалоги, аналитика
 ├── content/site_content.py        # единый источник услуг, болезней, статей и цен
+├── content/reference/reference.png# исходный референс (778×2022)
 ├── tools/build_site.py            # генератор страниц и site-data.js
 ├── tools/check_multipage.py       # ссылки, canonical, H1, описания, id
+├── tools/check_assets.py          # проверка URL ассетов в CSS
+├── audit/raw/                     # исходные скриншоты проверки
+├── audit/screenshots/             # сжатые скриншоты «до/после»
 ├── assets/js/site-data.js         # сгенерированные данные для шапки и цен
 ├── assets/js/site.js              # шапка, mega menu, футер, цены, документы
 ├── uslugi/                        # 7 услуг + индекс
