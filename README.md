@@ -76,6 +76,8 @@ python -m http.server 4173
 ├── app.js                         # формы, квиз, диалоги, аналитика
 ├── content/site_content.py        # единый источник услуг, болезней, статей и цен
 ├── content/reference/reference.png# исходный референс (778×2022)
+├── content/reference/doctor-portrait.png# предоставленный портрет врача (1122×1402)
+├── content/reference/hero-clinic.png# предоставленное фото первого экрана (2172×724)
 ├── tools/build_site.py            # генератор страниц и site-data.js
 ├── tools/check_multipage.py       # ссылки, canonical, H1, описания, id
 ├── tools/check_assets.py          # проверка URL ассетов в CSS
@@ -121,7 +123,7 @@ python -m http.server 4173
 ## Фото и иллюстрации
 
 - Первый экран: используется предоставленное изображение `hero-clinic.webp` (2172×724), исходник — `content/reference/hero-clinic.png`. Для планшета и мобильного — кроп `doctor-hero-clinic.webp`.
-- Остальные портреты: вырезаны из предоставленного макета-референса и используются как временная иллюстрация. Заменить перед запуском.
+- Портреты врача: собраны из предоставленного изображения `doctor-portrait.png`; OG-обложка также собрана из него.
 - Фотопревью статей: вырезаны из предоставленного референса и используются как временные иллюстрации. Заменить на лицензированные фотографии перед запуском.
 - Иконки, документы-заглушки и часть иллюстраций: оригинальные SVG, созданы для этого проекта.
 - Шрифты: [Inter](https://fonts.google.com/specimen/Inter), [Golos Text](https://fonts.google.com/specimen/Golos+Text) и [Lora](https://fonts.google.com/specimen/Lora), лицензия SIL Open Font License; файлы self-hosted.

@@ -329,7 +329,7 @@ def service_page(item: dict) -> None:
         <p>В стоимость входит разбор жалоб и результатов, объяснение показателей, план дальнейших шагов и краткое резюме. Оплата — после согласования времени. <a href="{base}ceny/">Все цены и условия</a>.</p>
       </section>
       <section class="doctor-mini-card">
-        <div class="doctor-mini-photo"><img src="{base}assets/img/doctor-about-660.webp" alt="Анна Викторовна Миронова, врач-эндокринолог" width="660" height="957" loading="lazy"></div>
+        <div class="doctor-mini-photo"><img src="{base}assets/img/doctor-about-660.webp?v=20261020b" alt="Анна Викторовна Миронова, врач-эндокринолог" width="660" height="825" loading="lazy"></div>
         <div>
           <p class="page-kicker">Врач</p>
           <h2>Анна Викторовна Миронова</h2>
@@ -741,7 +741,7 @@ def about_page() -> None:
 <div class="container">
   {breadcrumbs([('Главная', f'{base}index.html'), ('О враче', None)], base)}
   <div class="about-hero">
-    <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp" srcset="{base}assets/img/doctor-hero-340.webp 340w, {base}assets/img/doctor-hero-680.webp 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="974"></div>
+    <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp?v=20261020b" srcset="{base}assets/img/doctor-hero-340.webp?v=20261020b 340w, {base}assets/img/doctor-hero-680.webp?v=20261020b 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="850"></div>
     <div class="about-copy">
       <p class="page-kicker">О враче</p>
       <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
