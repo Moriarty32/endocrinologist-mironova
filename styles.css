@@ -590,7 +590,7 @@ h3 {
   display: none;
 }
 .hero h1 {
-  max-width: 19ch;
+  max-width: 680px;
   color: var(--ink);
 }
 .hero-lead {
@@ -2903,7 +2903,7 @@ dialog::backdrop {
     gap: 30px;
   }
   .hero h1 {
-    max-width: 20ch;
+    max-width: 100%;
   }
   .hero-visual {
     min-height: 748px;
@@ -2966,7 +2966,7 @@ dialog::backdrop {
     border: 1px solid var(--line);
   }
   .hero h1 {
-    max-width: 18ch;
+    max-width: 720px;
   }
   .hero-lead {
     max-width: 65ch;
