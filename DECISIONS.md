@@ -2,14 +2,14 @@
 
 ## Fixed for this prototype
 
-- **Static site, no build step.** Plain HTML/CSS/JS keeps the GitHub Pages deployment simple and the prototype portable. A future CMS can replace content without changing the visual layer.
+- **Reference-matched landing.** `landing.css` is a separate visual layer built from the supplied mockup: three-column hero, mint section bands, white bordered cards, compact Inter typography and the same section order. `styles.css` remains the base for articles and legal pages.
 - **One long landing page plus article/legal pages.** The 12 content blocks stay on the main page; articles and legal documents are separate pages with shared styles.
 - **No backend yet.** Forms validate client-side and save only non-medical contact fields in `sessionStorage` for the demo. A production integration must add a server-side endpoint, anti-spam, consent logging and access control.
 - **Quiz state in `sessionStorage`.** Answers persist for the current tab only. The result is an information memo, never a diagnosis or triage recommendation.
 - **No medical content in analytics.** `window.dataLayer` receives event names and non-medical metadata only. Topic selection is reduced to a boolean.
-- **Placeholder photography.** Portraits are cropped from the supplied reference and are explicitly temporary. Replace with the doctor's real photographs before launch.
+- **Placeholder photography.** Portraits and article thumbnails are cropped from the supplied reference and are explicitly temporary. Replace with licensed photographs before launch.
 - **Document placeholders.** Certificate cards contain no invented numbers, seals or registry data.
-- **Self-hosted fonts.** Golos Text and Lora are shipped as WOFF2 with Cyrillic and Latin subsets.
+- **Self-hosted fonts.** Inter, Golos Text and Lora are shipped as WOFF2 with Cyrillic and Latin subsets.
 - **Native dialogs.** `<dialog>` supplies focus containment and Escape handling; custom JS adds state and scroll management.
 
 ## Open questions before launch

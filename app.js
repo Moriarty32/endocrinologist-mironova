@@ -922,7 +922,7 @@
         });
         updateCta();
       },
-      { rootMargin: "0px 0px -15% 0px", threshold: 0.08 }
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.6 }
     );
     if (booking) observer.observe(booking);
     if (finalSection) observer.observe(finalSection);
