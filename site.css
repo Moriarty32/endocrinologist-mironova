@@ -9,6 +9,16 @@
   --site-border: #e1ece6;
 }
 
+h1,
+h2 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+body.menu-open {
+  overflow: hidden;
+}
 body {
   color: var(--site-ink);
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -16,6 +26,9 @@ body {
   line-height: 1.6;
 }
 
+#site-header:empty {
+  min-height: 74px;
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -90,7 +103,7 @@ body {
   color: #314b47;
   cursor: pointer;
   font: inherit;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
@@ -100,9 +113,14 @@ body {
   background: var(--site-mint);
   color: var(--site-teal);
 }
-.nav-link[aria-expanded="true"] {
+.nav-link[aria-expanded="true"],
+.nav-link.is-active {
   background: var(--site-mint);
   color: var(--site-teal);
+}
+.nav-link.is-active {
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 rgba(23, 107, 101, 0.55);
 }
 .nav-chevron {
   margin-top: 2px;
@@ -142,7 +160,7 @@ body {
 }
 .header-phone small {
   color: var(--site-muted);
-  font-size: 10.5px;
+  font-size: 11px;
 }
 .header-cta.btn {
   min-height: 40px;
@@ -283,14 +301,14 @@ body {
   min-width: 0;
 }
 .mega-link strong {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
   line-height: 1.3;
 }
 .mega-link small {
   margin-top: 2px;
   color: var(--site-muted);
-  font-size: 10.8px;
+  font-size: 11.2px;
   line-height: 1.35;
 }
 .mega-link-compact {
@@ -373,6 +391,7 @@ body {
   height: 100dvh;
   padding: 18px 20px 24px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: #fff;
   box-shadow: -24px 0 60px -20px rgba(18, 60, 55, 0.4);
 }
@@ -532,7 +551,7 @@ body {
 .footer-col a,
 .footer-col span {
   color: var(--site-muted);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.45;
   text-decoration: none;
 }
@@ -733,6 +752,19 @@ body {
     font-size: 11.5px;
   }
   .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 22px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+  .footer-legal {
     grid-template-columns: 1fr;
   }
 }

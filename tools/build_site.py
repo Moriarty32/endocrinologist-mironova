@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261019d"
+VERSION = "20261019g"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
@@ -129,6 +129,7 @@ def page_shell(
 {body}
   </main>
   <div id="site-footer"></div>
+  <p class="sr-only" id="live-region" aria-live="polite"></p>
   <script src="{base}assets/js/site-data.js?v={VERSION}" defer></script>
   <script src="{base}assets/js/site.js?v={VERSION}" defer></script>
   <script src="{base}app.js?v={VERSION}" defer></script>
@@ -209,7 +210,7 @@ def aside_booking(
     <p class="aside-duration">Первичная консультация · 60 минут</p>
     <p>Онлайн по видеосвязи. Время согласуем после заявки.</p>
     <a class="btn btn-primary" href="#booking">Выбрать время</a>
-    <a class="aside-note" href="{base}index.html?quiz=1">Не уверены? Пройти короткий опрос →</a>
+    <a class="aside-note" href="{base}index.html?quiz=1">Не уверены? Ответить на вопросы →</a>
   </div>
   {related_html}
   {toc_html}
@@ -289,13 +290,17 @@ def service_page(item: dict) -> None:
   {breadcrumbs([("Главная", f"{base}index.html"), ("Услуги", f"{base}uslugi/"), (item["title"], None)], base)}
   <header class="page-hero">
     <p class="page-kicker">Услуга</p>
-    <h1>{esc(item['title'])}</h1>
+    <h1>{esc(item.get('h1', item['title']))}</h1>
     <p class="lead">{esc(item['lead'])}</p>
     <div class="page-meta">
       <span>Онлайн</span>
       <span><span data-price="primary">{price('primary')}</span> ₽</span>
       <span>60 минут</span>
       <span>Взрослые</span>
+    </div>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="#booking">Записаться на консультацию</a>
+      <a class="btn btn-ghost" href="{base}index.html?quiz=1">Ответить на вопросы</a>
     </div>
   </header>
   <div class="inner-layout">
@@ -401,8 +406,11 @@ def disease_page(item: dict) -> None:
     <p class="lead">{esc(item['lead'])}</p>
     <div class="page-meta">
       <span>Информационная страница</span>
-      <span>Проверено врачом</span>
       <span>Онлайн-консультация</span>
+    </div>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="#booking">Записаться на консультацию</a>
+      <a class="btn btn-ghost" href="{base}index.html?quiz=1">Ответить на вопросы</a>
     </div>
   </header>
   <div class="inner-layout">
@@ -567,12 +575,12 @@ def article_page(item: dict) -> None:
             "author": {"@type": "Person", "name": C.BRAND["full_name"], "jobTitle": C.BRAND["role"]},
             "publisher": {"@type": "Organization", "name": C.BRAND["full_name"]},
             "mainEntityOfPage": canonical,
-            "image": f"{BASE_URL}/assets/img/{item['image']}",
+            "image": f"{BASE_URL}/assets/img/og-cover.jpg",
         },
     ]
     write(f"stati/{item['slug']}/index.html", page_shell(
         title=title, description=description, canonical=canonical, base=base,
-        body=body, json_ld=ld, og_type="article", image=f"assets/img/{item['image']}",
+        body=body, json_ld=ld, og_type="article", image="assets/img/og-cover.jpg",
     ))
 
 
@@ -733,9 +741,9 @@ def about_page() -> None:
 <div class="container">
   {breadcrumbs([('Главная', f'{base}index.html'), ('О враче', None)], base)}
   <div class="about-hero">
-    <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="974"></div>
+    <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp" srcset="{base}assets/img/doctor-hero-340.webp 340w, {base}assets/img/doctor-hero-680.webp 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="974"></div>
     <div class="about-copy">
-      <p class="page-kicker">Врач-эндокринолог</p>
+      <p class="page-kicker">О враче</p>
       <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
       <p class="role">Онлайн-консультации для взрослых</p>
       <p>Помогаю разобраться в изменениях щитовидной железы, обмена веществ, углеводного обмена и гормональных нарушениях. Работаю с опорой на доказательную медицину и понятное объяснение.</p>
@@ -786,7 +794,7 @@ def prices_page() -> None:
     <a class="btn btn-ghost" href="#booking">Записаться</a>
   </div>
 </div>
-<div class="prose">
+<div class="prose price-prose">
   <h2>Что входит в стоимость</h2>
   <p>В стоимость входит время консультации, разбор предоставленных материалов, объяснение показателей и краткое резюме с планом дальнейших шагов. Стоимость не зависит от количества вопросов, но если вопросов слишком много, может потребоваться повторная встреча.</p>
   <h2>Порядок оплаты</h2>
@@ -830,7 +838,7 @@ def reviews_page() -> None:
 <div class="review-form-wrap">
   <h2>Оставить отзыв</h2>
   <p>Форма демонстрационная: текст сохраняется только в этой вкладке и не отправляется на сервер.</p>
-  <div class="review-success" data-review-success hidden>Спасибо. В рабочей версии отзыв уйдёт на модерацию, а мы свяжемся с вами для подтверждения согласия.</div>
+  <div class="review-success" data-review-success role="status" aria-live="polite" hidden>Спасибо. В рабочей версии отзыв уйдёт на модерацию, а мы свяжемся с вами для подтверждения согласия.</div>
   <form class="page-form" data-review-form>
     <div class="form-row-2">
       <div class="page-field"><label for="review-name">Имя или инициалы</label><input id="review-name" name="review-name" type="text" required placeholder="Как подписать отзыв"></div>

@@ -64,7 +64,7 @@
                 <strong>Не знаете, с чего начать?</strong>
                 <p>Первичная консультация поможет разобраться в ситуации и определить следующие шаги.</p>
                 <a class="btn btn-primary" href="${url("uslugi/endokrinolog-online/")}">Подробнее об услуге</a>
-                <a class="mega-promo-quiz" href="${url("index.html?quiz=1")}">Пройти короткий опрос ${icon("icon-arrow")}</a>
+                <a class="mega-promo-quiz" href="${url("index.html?quiz=1")}">Ответить на вопросы ${icon("icon-arrow")}</a>
               </div>
             </div>
           </div>
@@ -147,6 +147,25 @@
           <p>${data.contact.hours}</p>
         </div>
       </div>`;
+
+    const normalise = (pathname) => pathname.replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+    const currentPath = normalise(window.location.pathname);
+    const homePath = normalise(new URL(url("index.html"), window.location.href).pathname);
+    $$(".site-nav .nav-link", host).forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      const linkPath = normalise(new URL(href, window.location.href).pathname);
+      if (linkPath === currentPath || (linkPath !== homePath && currentPath.startsWith(`${linkPath}/`))) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+    $$("[data-mega-toggle]", host).forEach((button) => {
+      const section = button.dataset.megaToggle === "services" ? "/uslugi" : "/zabolevaniya";
+      if (currentPath.endsWith(section) || currentPath.includes(`${section}/`)) {
+        button.classList.add("is-active");
+      }
+    });
   }
 
   function closeMega(panelKey, restoreFocus) {
@@ -254,7 +273,7 @@
                 <span class="brand-text"><strong>${data.brand.name}</strong><small>${data.brand.role}</small></span>
               </a>
               <p>Онлайн-консультации для взрослых. Доказательная медицина, внимательный разговор и понятный план действий.</p>
-              <a class="footer-quote" href="${url("index.html?quiz=1")}">Не знаете, нужен ли эндокринолог? Пройти опрос ${icon("icon-arrow")}</a>
+              <a class="footer-quote" href="${url("index.html?quiz=1")}">Не знаете, нужен ли эндокринолог? Ответить на вопросы ${icon("icon-arrow")}</a>
             </div>
             <div class="footer-col">
               <h2>Услуги</h2>
@@ -315,6 +334,7 @@
     const dialog = document.createElement("dialog");
     dialog.className = "site-doc-dialog";
     dialog.id = "site-doc-dialog";
+    dialog.setAttribute("aria-label", "Просмотр документа");
     dialog.innerHTML = `
       <div class="site-doc-inner">
         <div class="site-doc-head">

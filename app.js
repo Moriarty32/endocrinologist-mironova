@@ -10,6 +10,8 @@
   const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const liveRegion = $("#live-region");
+  const sitePrices = (window.SITE_DATA && window.SITE_DATA.prices) || { primary: 4500, followup: 3000 };
+  const formatPrice = (value) => new Intl.NumberFormat("ru-RU").format(value);
 
   window.dataLayer = window.dataLayer || [];
 
@@ -48,6 +50,7 @@
     if (!menuToggle || !mobileMenu) return;
     menuToggle.setAttribute("aria-expanded", String(open));
     mobileMenu.hidden = !open;
+    document.body.classList.toggle("menu-open", open);
     menuToggle.classList.toggle("is-open", open);
     const label = $(".sr-only", menuToggle);
     if (label) label.textContent = open ? "Закрыть меню" : "Открыть меню";
@@ -449,7 +452,7 @@
     "Не понимаю, какие документы подготовить":
       "Достаточно того, что уже есть: анализы, заключения, список лекарств и вопросов. Дополнительные исследования не нужно сдавать заранее без обсуждения.",
     "Хочу сначала узнать стоимость":
-      "Первичная консультация — 4 500 ₽ за 60 минут. Стоимость известна до записи, а объём услуги описан в разделе «Стоимость».",
+      `Первичная консультация — ${formatPrice(sitePrices.primary)} ₽ за 60 минут. Стоимость известна до записи, а объём услуги описан в разделе «Стоимость».`,
     "Сомневаюсь, нужен ли эндокринолог":
       "Опрос не определяет, нужен ли врач. Если сомневаетесь, начните с консультации: на ней можно обсудить, относится ли ваш вопрос к эндокринологии.",
     "Не знаю, как проходит консультация":
@@ -816,7 +819,7 @@
           "Как подготовиться:",
           ...result.prep.map((item) => `— ${item}`),
           "",
-          "Первичная консультация — 4 500 ₽ / 60 минут.",
+          `Первичная консультация — ${formatPrice(sitePrices.primary)} ₽ / 60 минут.`,
           "Запись и стоимость: https://moriarty32.github.io/endocrinologist-mironova/#booking",
           "",
           "Опрос носит информационный характер, не является диагнозом и не определяет срочность помощи.",
@@ -904,15 +907,17 @@
   const booking = $("#booking");
   const finalSection = $("#final");
   const footer = $(".site-footer");
+  const quizSection = $(".ref-quiz");
   let bookingVisible = false;
   let finalVisible = false;
   let footerVisible = false;
+  let quizVisible = false;
   let ticking = false;
 
   function updateCta() {
     if (!mobileCta) return;
     const hasDialog = document.body.classList.contains("dialog-open");
-    const show = !bookingVisible && !finalVisible && !footerVisible && !hasDialog;
+    const show = !bookingVisible && !finalVisible && !footerVisible && !quizVisible && !hasDialog;
     mobileCta.classList.toggle("is-hidden", !show);
   }
 
@@ -923,6 +928,7 @@
           if (entry.target === booking) bookingVisible = entry.isIntersecting;
           if (entry.target === finalSection) finalVisible = entry.isIntersecting;
           if (entry.target === footer) footerVisible = entry.isIntersecting;
+          if (entry.target === quizSection) quizVisible = entry.isIntersecting;
         });
         updateCta();
       },
@@ -931,6 +937,7 @@
     if (booking) observer.observe(booking);
     if (finalSection) observer.observe(finalSection);
     if (footer) observer.observe(footer);
+    if (quizSection) observer.observe(quizSection);
   }
 
   function onScroll() {

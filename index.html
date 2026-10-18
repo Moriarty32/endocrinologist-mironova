@@ -10,8 +10,8 @@
   <meta name="color-scheme" content="light">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20261018b">
-  <link rel="stylesheet" href="landing.css?v=20261019a">
-  <link rel="stylesheet" href="site.css?v=20261019d">
+  <link rel="stylesheet" href="landing.css?v=20261019g">
+  <link rel="stylesheet" href="site.css?v=20261019g">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:title" content="Эндокринолог онлайн — Анна Миронова">
@@ -43,7 +43,7 @@
   }
   </script>
 </head>
-<body data-base="">
+<body class="home-page" data-base="">
   <a class="skip-link" href="#main">Перейти к содержанию</a>
 
   <div id="site-header"></div>
@@ -52,13 +52,21 @@
     <section class="ref-hero" id="top">
       <div class="container ref-hero-grid">
         <div class="ref-hero-copy">
-          <p class="ref-kicker">Онлайн-консультация эндокринолога</p>
-          <h1>Онлайн-консультация эндокринолога — разберём ваши анализы, жалобы и определим дальнейшие шаги</h1>
-          <p class="ref-lead">Помогаю при нарушениях работы щитовидной железы, проблемах с весом и обменом веществ, гормональных нарушениях, сахарном диабете. Объясняю результаты анализов простым языком и помогаю понять, что делать дальше.</p>
+          <p class="ref-kicker">Онлайн-приём для взрослых</p>
+          <h1><span class="h1-nowrap">Онлайн-консультация</span> эндокринолога</h1>
+          <p class="ref-lead">Помогу разобраться в результатах анализов, обсудить жалобы и понять, какие дальнейшие шаги могут понадобиться. Работаю с заболеваниями щитовидной железы, нарушениями веса и обмена веществ, предиабетом и диабетом 2 типа.</p>
+          <p class="ref-mobile-price"><span>Первичная консультация</span><strong><span data-price="primary">4 500</span> ₽ / 60 минут</strong></p>
+          <div class="ref-mobile-doctor"><img src="assets/img/doctor-hero-340.webp" width="340" height="487" alt="Анна Викторовна Миронова, врач-эндокринолог" loading="lazy"><div><strong>Анна Викторовна Миронова</strong><span>Врач-эндокринолог · 12 лет практики</span></div></div>
           <ul class="ref-facts" aria-label="Ключевые особенности консультации">
             <li><span class="ref-fact-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-calendar-fill"></use></svg></span><span><strong>12 лет</strong><small>практики</small></span></li>
             <li><span class="ref-fact-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-clock-fill"></use></svg></span><span><strong>60 минут</strong><small>на консультацию</small></span></li>
             <li><span class="ref-fact-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-doc-check-fill"></use></svg></span><span><strong>Понятный план</strong><small>действий</small></span></li>
+          </ul>
+          <p class="ref-includes-label">Что входит в консультацию</p>
+          <ul class="ref-hero-includes" aria-label="Что входит в консультацию">
+            <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-check"></use></svg> Разбор анализов</li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-check"></use></svg> План действий</li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-check"></use></svg> Краткое резюме</li>
           </ul>
         </div>
 
@@ -70,6 +78,7 @@
         <div class="booking-card ref-form-card" id="booking">
           <div class="booking-head ref-form-head">
             <h2>Запишитесь на онлайн-консультацию</h2>
+            <p class="ref-form-sub">Согласуем время. Оплата после подтверждения.</p>
           </div>
           <form class="booking-form ref-form" data-form="hero" novalidate>
             <input type="hidden" name="source" value="hero">
@@ -112,8 +121,8 @@
 
         <div class="ref-quiz">
           <span class="ref-quiz-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-question-fill"></use></svg></span>
-          <div class="ref-quiz-copy"><strong>Не уверены, нужен ли эндокринолог?</strong><p>Пройдите короткий опрос из 5–7 вопросов и получите рекомендации</p></div>
-          <button class="btn btn-primary" type="button" data-quiz-open>Пройти квиз <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></button>
+          <div class="ref-quiz-copy"><strong>Не уверены, нужен ли эндокринолог?</strong><p>Ответьте на 5–7 простых вопросов и узнайте, какие темы можно обсудить с врачом</p></div>
+          <button class="btn btn-primary" type="button" data-quiz-open>Ответить на вопросы <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></button>
         </div>
       </div>
     </section>
@@ -179,7 +188,7 @@
     <section class="ref-about" id="about">
       <div class="container ref-about-grid">
         <figure class="ref-photo">
-          <img src="assets/img/doctor-about-660.webp" width="660" height="957" alt="Анна Викторовна Миронова за рабочим столом" loading="lazy">
+          <img src="assets/img/doctor-about-660.webp" srcset="assets/img/doctor-about-330.webp 330w, assets/img/doctor-about-660.webp 660w" sizes="(max-width: 760px) 300px, 320px" width="660" height="957" alt="Анна Викторовна Миронова за рабочим столом" loading="lazy">
         </figure>
 
         <div class="ref-about-middle">
@@ -196,12 +205,11 @@
 
         <div class="ref-approach">
           <h3>Мой подход — это внимательность, доказательная медицина и уважение к каждому пациенту.</h3>
-          <p>Я верю, что качественная медицинская помощь начинается с внимательного диалога. На консультации мы подробно разберём вашу ситуацию, оценим результаты анализов и вместе определим дальнейшие шаги. Я объясняю сложные вещи простым языком и всегда на связи, если возникают вопросы.</p>
+          <p>Я верю, что качественная медицинская помощь начинается с внимательного диалога. На консультации мы подробно разберём вашу ситуацию, оценим результаты анализов и вместе определим дальнейшие шаги. Я объясняю сложные вещи простым языком и стараюсь отвечать на вопросы, которые возникают.</p>
           <div class="ref-credentials">
             <div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-graduation"></use></svg><strong>Первый МГМУ им. И.М. Сеченова</strong><span>Лечебное дело</span></div>
             <div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-award-fill"></use></svg><strong>Ординатура</strong><span>по эндокринологии<br>2010–2012</span></div>
             <div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-doc-check-fill"></use></svg><strong>Аккредитация специалиста</strong><span>действует</span></div>
-            <div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-book-fill"></use></svg><strong>Повышение квалификации</strong><span>регулярно</span></div>
           </div>
           <div class="ref-docs" id="documents">
             <div class="ref-docs-head"><strong>Дипломы и сертификаты</strong><a href="dokumenty/">Образование и квалификация <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></a></div>
@@ -217,10 +225,6 @@
               <button class="ref-doc" type="button" data-doc="Сертификат специалиста" data-doc-note="Сертификат специалиста. Демонстрационный макет — заменить реальным документом.">
                 <span class="doc-sheet"><span class="doc-sheet-top">СЕРТИФИКАТ</span><span class="doc-sheet-title">СПЕЦИАЛИСТ</span><span class="doc-sheet-lines"></span><span class="doc-sheet-seal">АМ</span><span class="doc-sheet-note">Образец</span></span>
                 <span class="ref-doc-caption">Сертификат специалиста</span>
-              </button>
-              <button class="ref-doc" type="button" data-doc="Повышение квалификации" data-doc-note="Документ о повышении квалификации. Демонстрационный макет — заменить реальным сертификатом.">
-                <span class="doc-sheet"><span class="doc-sheet-top">ДОПОЛНИТЕЛЬНОЕ ОБРАЗОВАНИЕ</span><span class="doc-sheet-title">ПОВЫШЕНИЕ КВАЛИФИКАЦИИ</span><span class="doc-sheet-lines"></span><span class="doc-sheet-seal">АМ</span><span class="doc-sheet-note">Образец</span></span>
-                <span class="ref-doc-caption">Повышение квалификации</span>
               </button>
             </div>
           </div>
@@ -273,7 +277,7 @@
 
     <section class="ref-principles">
       <div class="container">
-        <div class="ref-head ref-head-center"><h2>Почему пациентам важно получать понятные медицинские объяснения</h2><p>Я стремлюсь к тому, чтобы каждая консультация была не только полезной, но и комфортной для вас.</p></div>
+        <div class="ref-head ref-head-center"><h2>Почему пациентам важны понятные объяснения</h2><p>Я стремлюсь к тому, чтобы каждая консультация была не только полезной, но и комфортной для вас.</p></div>
         <div class="ref-principles-grid">
           <article class="ref-principle"><span class="ref-value-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-shield-fill"></use></svg></span><div><h3>Без лишних обследований</h3><p>Назначаю только то, что действительно необходимо в вашей ситуации.</p></div></article>
           <article class="ref-principle"><span class="ref-value-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-chart-fill"></use></svg></span><div><h3>На основе доказательной медицины</h3><p>Использую актуальные клинические рекомендации и современные данные.</p></div></article>
@@ -293,7 +297,7 @@
         </div>
         <div class="ref-faq-list">
           <details open><summary><span>Можно ли обратиться онлайн, если у меня ещё нет диагноза?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Да, можно. Мы обсудим ваши жалобы, симптомы и имеющиеся данные, при необходимости и подскажу, какие анализы стоит сдать для уточнения диагноза.</p></div></details>
-          <details open><summary><span>Можно ли расшифровать анализы?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Да, это одна из самых частых причин обращения. Я подробно объясню, что означают ваши показатели и как они связаны с вашим состоянием.</p></div></details>
+          <details><summary><span>Можно ли расшифровать анализы?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Да, это одна из самых частых причин обращения. Я подробно объясню, что означают ваши показатели и как они связаны с вашим состоянием.</p></div></details>
           <details><summary><span>Какие анализы нужно сдать до консультации?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Не нужно сдавать всё заранее. Если анализы уже есть — подготовьте их. Необходимость дополнительных исследований обсудим индивидуально.</p></div></details>
           <details><summary><span>Можно ли получить назначение лечения онлайн?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Возможности дистанционного назначения лечения зависят от законодательства и клинической ситуации. При необходимости я направлю вас на очный приём.</p></div></details>
           <details><summary><span>Можно ли проконсультироваться, если я живу в другом городе?</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-plus"></use></svg></summary><div><p>Да, технически это возможно. Доступность услуги определяется правовыми требованиями и вашим местонахождением.</p></div></details>
@@ -312,15 +316,15 @@
         </div>
         <div class="ref-articles-grid">
           <article class="ref-article">
-            <a class="ref-article-img" href="stati/povyshen-ttg/"><img src="assets/img/article-neck.jpg" width="365" height="395" alt=""></a>
+            <a class="ref-article-img" href="stati/povyshen-ttg/"><img src="assets/img/article-neck.jpg" width="365" height="395" alt="" loading="lazy"></a>
             <div class="ref-article-body"><span class="ref-category">Щитовидная железа</span><h3><a href="stati/povyshen-ttg/">Повышен ТТГ: что может означать результат анализа?</a></h3><p>Разбираем основные причины повышения ТТГ и что делать дальше.</p><div class="ref-article-meta"><time datetime="2026-02-12">12 февраля 2026</time><a href="stati/povyshen-ttg/">Читать <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></a></div></div>
           </article>
           <article class="ref-article">
-            <a class="ref-article-img" href="stati/insulinorezistentnost/"><img src="assets/img/article-food.jpg" width="365" height="395" alt=""></a>
+            <a class="ref-article-img" href="stati/insulinorezistentnost/"><img src="assets/img/article-food.jpg" width="365" height="395" alt="" loading="lazy"></a>
             <div class="ref-article-body"><span class="ref-category">Обмен веществ</span><h3><a href="stati/insulinorezistentnost/">Инсулинорезистентность: что это и когда нужно обследование?</a></h3><p>Понятно о причинах, рисках и методах диагностики.</p><div class="ref-article-meta"><time datetime="2026-03-03">3 марта 2026</time><a href="stati/insulinorezistentnost/">Читать <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></a></div></div>
           </article>
           <article class="ref-article">
-            <a class="ref-article-img" href="stati/voprosy-endokrinologu/"><img src="assets/img/article-notes.jpg" width="365" height="395" alt=""></a>
+            <a class="ref-article-img" href="stati/voprosy-endokrinologu/"><img src="assets/img/article-notes.jpg" width="365" height="395" alt="" loading="lazy"></a>
             <div class="ref-article-body"><span class="ref-category">Полезное</span><h3><a href="stati/voprosy-endokrinologu/">Какие вопросы задать эндокринологу на первом приёме?</a></h3><p>Чек-лист, который поможет получить максимально полезную консультацию.</p><div class="ref-article-meta"><time datetime="2026-03-18">18 марта 2026</time><a href="stati/voprosy-endokrinologu/">Читать <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></a></div></div>
           </article>
         </div>
@@ -332,7 +336,7 @@
       <svg class="ref-leaf ref-leaf-right" viewBox="0 0 180 260" fill="none" aria-hidden="true"><path d="M170 250c-25-75-68-138-140-188" stroke="#8fc4ae" stroke-width="2"/><path d="M118 178c34-2 52-20 56-50-31-2-52 16-56 50Z" fill="#c9e5d8"/><path d="M86 138c4-30-10-50-40-58-9 28 5 49 40 58Z" fill="#b9ddcd"/><path d="M53 102c0-25-14-42-40-48-6 24 7 41 40 48Z" fill="#d6ebe0"/></svg>
       <div class="container ref-final-grid">
         <div class="ref-final-copy">
-          <h2>Получите профессиональные ответы на вопросы о вашем эндокринном здоровье</h2>
+          <h2>Обсудим вашу ситуацию на онлайн-консультации</h2>
           <p>Оставьте заявку, и я свяжусь с вами для записи на онлайн-консультацию. Если вы не уверены, нужен ли приём — пройдите короткий опрос.</p>
         </div>
         <div class="final-form-card ref-final-form">
@@ -347,7 +351,7 @@
             <p class="form-error" data-form-error hidden>Проверьте имя, телефон и согласие на обработку данных.</p>
             <div class="ref-final-actions">
               <button class="btn btn-primary" type="submit">Записаться на онлайн-консультацию <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></button>
-              <button class="btn btn-outline" type="button" data-quiz-open>Пройти короткий опрос</button>
+              <button class="btn btn-outline" type="button" data-quiz-open>Ответить на вопросы</button>
             </div>
             <p class="form-topic" data-topic-label hidden></p>
           </form>
@@ -359,7 +363,7 @@
 
   <div id="site-footer"></div>
 
-  <div class="mobile-cta" data-mobile-cta><a class="btn btn-primary" href="#booking">Записаться</a><button class="btn btn-quiz" type="button" data-quiz-open>Опрос</button></div>
+  <div class="mobile-cta" data-mobile-cta><a class="btn btn-primary" href="#booking">Записаться</a><button class="btn btn-quiz" type="button" data-quiz-open aria-label="Ответить на вопросы">Ответить</button></div>
 
   <dialog class="quiz-dialog" id="quiz-dialog" aria-labelledby="quiz-title">
     <div class="quiz-shell">
@@ -381,7 +385,7 @@
             <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-check"></use></svg> Без регистрации и обязательного указания телефона</li>
             <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-check"></use></svg> Результат — памятка, а не диагноз</li>
           </ul>
-          <button class="btn btn-primary btn-lg" type="button" data-quiz-start>Начать опрос</button>
+          <button class="btn btn-primary btn-lg" type="button" data-quiz-start>Ответить на вопросы</button>
           <p class="quiz-disclaimer">Опрос носит информационный характер и не заменяет медицинскую консультацию.</p>
         </div>
 
@@ -394,7 +398,7 @@
           <p class="quiz-error" data-quiz-error hidden>Выберите хотя бы один вариант, чтобы продолжить.</p>
           <div class="quiz-nav">
             <button class="btn btn-quiet" type="button" data-quiz-back><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-chevron-left"></use></svg> Назад</button>
-            <button class="btn btn-primary" type="button" data-quiz-next>Далее <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></button>
+            <button class="btn btn-primary" type="button" data-quiz-next>Следующий вопрос <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#icon-arrow-right"></use></svg></button>
           </div>
         </div>
 
@@ -455,8 +459,8 @@
   
 
   <p class="sr-only" aria-live="polite" id="live-region"></p>
-  <script src="assets/js/site-data.js?v=20261019d" defer></script>
-  <script src="assets/js/site.js?v=20261019d" defer></script>
-  <script src="app.js?v=20261019d" defer></script>
+  <script src="assets/js/site-data.js?v=20261019g" defer></script>
+  <script src="assets/js/site.js?v=20261019g" defer></script>
+  <script src="app.js?v=20261019g" defer></script>
 </body>
 </html>
