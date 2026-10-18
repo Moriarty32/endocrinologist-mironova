@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="t2">
+  <title id="t2">Иллюстрация: кривая глюкозы и чувствительность к инсулину</title>
+  <rect width="800" height="560" fill="#E9F1EC"/>
+  <path d="M0 0h800v560H0Z" fill="#E9F1EC"/>
+  <circle cx="175" cy="285" r="150" fill="#F8FBF9"/>
+  <circle cx="175" cy="285" r="112" fill="none" stroke="#C8DCCF" stroke-width="2" stroke-dasharray="4 8"/>
+  <g fill="none" stroke="#15554E" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="175" cy="285" r="76" stroke-width="4"/>
+    <path d="M126 285h98M175 236v98" stroke-width="2.5" opacity=".5"/>
+    <path d="M143 315c15-41 42-53 64-18" stroke-width="4"/>
+    <path d="M143 315h64" stroke-width="4"/>
+  </g>
+  <g font-family="Georgia, serif">
+    <text x="355" y="112" fill="#15554E" font-size="20" letter-spacing="2">ОБМЕН ВЕЩЕСТВ</text>
+    <text x="355" y="160" fill="#203238" font-size="37">Глюкоза, инсулин</text>
+    <text x="355" y="202" fill="#203238" font-size="37">и чувствительность</text>
+  </g>
+  <g fill="none" stroke="#15554E" stroke-width="3" stroke-linecap="round">
+    <path d="M355 465V288h390" opacity=".45"/>
+    <path d="M355 426c45-4 56-76 103-76s53 50 96 50 48-72 96-72 40 42 95 42" stroke="#B7664A" stroke-width="4"/>
+  </g>
+  <g fill="#B7664A">
+    <circle cx="458" cy="350" r="5"/>
+    <circle cx="554" cy="400" r="5"/>
+    <circle cx="650" cy="328" r="5"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#5A7167">
+    <text x="348" y="509">время после еды</text>
+    <text x="606" y="278">норма</text>
+  </g>
+  <g fill="none" stroke="#15554E" stroke-width="2" opacity=".5">
+    <path d="M592 318c20-26 49-26 69 0M632 330v34M620 350h24"/>
+  </g>
+  <g fill="#15554E" opacity=".38">
+    <circle cx="690" cy="490" r="3"/><circle cx="718" cy="490" r="3"/><circle cx="746" cy="490" r="3"/>
+  </g>
+</svg>
