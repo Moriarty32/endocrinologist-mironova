@@ -11,10 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 IMG = ROOT / "assets" / "img"
 IMG.mkdir(parents=True, exist_ok=True)
 
-REFERENCE = Path(
-    r"C:\Users\TSBEA\.dsh\attachments\v1\objects\e1"
-    r"\e1c27730caf60caaed08ecf78019252068c10496b7b169488ecb816dc35da5c4"
-)
+REFERENCE = ROOT / "content" / "reference" / "reference.png"
 
 
 def crop_upscale(box: tuple[int, int, int, int], widths: tuple[int, int], name: str) -> None:

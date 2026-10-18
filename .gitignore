@@ -3,3 +3,5 @@ Thumbs.db
 *.log
 .playwright-mcp/
 node_modules/
+__pycache__/
+*.pyc

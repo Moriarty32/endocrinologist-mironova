@@ -2,8 +2,9 @@
 from pathlib import Path
 from PIL import Image
 
-src = Path(r"C:\Users\TSBEA\.dsh\profiles\desktop")
-out = Path("audit/screenshots")
+ROOT = Path(__file__).resolve().parents[1]
+src = ROOT / "audit" / "raw"
+out = ROOT / "audit" / "screenshots"
 out.mkdir(parents=True, exist_ok=True)
 
 pairs = [
