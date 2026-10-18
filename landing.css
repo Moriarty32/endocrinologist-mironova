@@ -1890,8 +1890,8 @@ h2 {
   }
   .ref-hero {
     background:
-      linear-gradient(90deg, rgba(247, 252, 249, 0.99) 0%, rgba(247, 252, 249, 0.96) 40%, rgba(247, 252, 249, 0.55) 58%, rgba(247, 252, 249, 0.08) 82%, rgba(247, 252, 249, 0) 100%),
-      url("assets/img/hero-wide.webp") center top / cover no-repeat;
+      linear-gradient(90deg, rgba(247, 252, 249, 0.97) 0%, rgba(247, 252, 249, 0.93) 36%, rgba(247, 252, 249, 0.45) 49%, rgba(247, 252, 249, 0) 56%),
+      url("assets/img/hero-clinic.webp") center top / cover no-repeat;
   }
   .ref-hero-doctor img {
     display: none;
@@ -1900,7 +1900,7 @@ h2 {
     display: none;
   }
   .ref-quote {
-    background: rgba(255, 255, 255, 0.86);
+    display: none;
   }
 }
 /* =========================================================

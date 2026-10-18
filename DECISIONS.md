@@ -10,7 +10,7 @@
 - **No backend yet.** Forms validate client-side and save only non-medical contact fields in `sessionStorage` for the demo. A production integration must add a server-side endpoint, anti-spam, consent logging and access control.
 - **Quiz state in `sessionStorage`.** Answers persist for the current tab only. The result is an information memo, never a diagnosis or triage recommendation.
 - **No medical content in analytics.** `window.dataLayer` receives event names and non-medical metadata only. Topic selection is reduced to a boolean.
-- **Placeholder photography.** Portraits and article thumbnails are cropped from the supplied reference and are explicitly temporary. The hero uses a wide composite so the doctor remains visible across the full block. Replace with licensed source photography before launch.
+- **Hero photography.** The first screen uses the supplied wide image `hero-clinic.webp` (with `doctor-hero-clinic.webp` as its responsive crop). About and quiz portraits plus article thumbnails remain temporary crops from the reference and must be replaced before launch.
 - **Document placeholders.** Certificate cards contain no invented numbers, seals or registry data.
 - **Self-hosted fonts.** Inter, Golos Text and Lora are shipped as WOFF2 with Cyrillic and Latin subsets.
 - **Native dialogs.** `<dialog>` supplies focus containment and Escape handling; custom JS adds state and scroll management.
