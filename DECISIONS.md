@@ -7,6 +7,7 @@
 - **Single content source.** `content/site_content.py` defines services, diseases, articles, prices, contacts and navigation groups. `tools/build_site.py` generates pages, `assets/js/site-data.js`, sitemap and legacy redirects. Generated directories should not be edited by hand.
 - **Shared shell.** `assets/js/site.js` renders the sticky header, desktop Mega Menu, mobile accordion drawer, footer and price values. The header is intentionally data-driven so changing a title or URL in the source updates every page.
 - **Static CMS prototype.** The data structure mirrors future CMS entities, but there is no admin UI. A production CMS would expose the same fields and regenerate or server-render pages.
+- **Booking page is a scheduler prototype.** `/zapis/` builds the next seven days in Europe/Moscow, disables Sunday and past/too-soon slots, and sends the selected date/time into the same demo lead form. There is no calendar sync or reservation backend; the page states that the slot is confirmed manually.
 - **No backend yet.** Forms validate client-side and save only non-medical contact fields in `sessionStorage` for the demo. A production integration must add a server-side endpoint, anti-spam, consent logging and access control.
 - **Quiz state in `sessionStorage`.** Answers persist for the current tab only. The result is an information memo, never a diagnosis or triage recommendation.
 - **No medical content in analytics.** `window.dataLayer` receives event names and non-medical metadata only. Topic selection is reduced to a boolean.

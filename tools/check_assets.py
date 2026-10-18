@@ -4,7 +4,7 @@ import re
 
 root = Path(__file__).resolve().parents[1]
 missing = []
-for css in ["styles.css", "landing.css", "inner.css", "site.css"]:
+for css in ["styles.css", "pages.css", "landing.css", "inner.css", "site.css", "booking.css"]:
     text = (root / css).read_text(encoding="utf-8")
     for raw in re.findall(r"url\(([^)]+)\)", text):
         value = raw.strip("\"' ")

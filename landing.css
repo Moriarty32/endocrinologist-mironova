@@ -2539,3 +2539,14 @@ h2 {
     display: none;
   }
 }
+.ref-form-schedule {
+  margin: 7px 0 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.ref-form-schedule a {
+  color: var(--site-teal, #176b65);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

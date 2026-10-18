@@ -14,7 +14,7 @@
     `<svg class="icon ${className}" aria-hidden="true"><use href="${url("assets/icons.svg")}#${name}"></use></svg>`;
   const chevron = '<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const formatPrice = (value) => new Intl.NumberFormat("ru-RU").format(value);
-  const bookingHref = document.getElementById("booking") ? "#booking" : `${url("index.html")}#booking`;
+  const bookingHref = document.body.classList.contains("booking-page") ? "#booking-form" : url("zapis/");
 
   const services = data.services || [];
   const diseases = data.diseases || [];
@@ -46,6 +46,7 @@
     const nav = `
       <nav class="site-nav" aria-label="Основная навигация">
         <a class="nav-link" href="${url("index.html")}">Главная</a>
+        <a class="nav-link nav-link-booking" href="${url("zapis/")}">Запись</a>
         <div class="nav-item nav-item-mega">
           <button class="nav-link nav-mega-toggle" type="button" data-mega-toggle="services" aria-expanded="false" aria-controls="mega-services" aria-haspopup="true">Услуги${chevron}</button>
           <div class="mega-panel" id="mega-services" data-mega-panel="services" hidden>
@@ -120,6 +121,7 @@
         </div>
         <nav class="mobile-nav" aria-label="Мобильная навигация">
           <a href="${url("index.html")}">Главная</a>
+          <a href="${url("zapis/")}">Онлайн-запись</a>
           <div class="mobile-group">
             <button type="button" class="mobile-group-toggle" data-mobile-accordion aria-expanded="false" aria-controls="mobile-services">Услуги${chevron}</button>
             <div class="mobile-submenu" id="mobile-services" hidden>
@@ -287,6 +289,7 @@
               <a href="${url("o-vrache/")}">О враче</a>
               <a href="${url("zabolevaniya/")}">Заболевания</a>
               <a href="${url("ceny/")}">Цены</a>
+              <a href="${url("zapis/")}">Онлайн-запись</a>
               <a href="${url("otzyvy/")}">Отзывы</a>
               <a href="${url("stati/")}">Статьи</a>
               <a href="${url("faq/")}">Вопросы и ответы</a>

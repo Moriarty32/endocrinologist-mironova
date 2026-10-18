@@ -186,9 +186,16 @@
     const nameInput = $('input[name="name"]', form);
     const phoneInput = $('input[name="phone"]', form);
     const consent = $('input[name="consent"]', form);
+    const dateInput = $('input[name="date"]', form);
+    const timeInput = $('input[name="time"]', form);
+    const slotRequired = form.dataset.requiresSlot === "true";
+    const slotErrors = $$("[data-slot-error-form]", form);
 
     function clearError() {
       if (error) error.hidden = true;
+      slotErrors.forEach((slotError) => {
+        slotError.hidden = true;
+      });
       [nameInput, phoneInput].forEach((input) => {
         if (input) input.removeAttribute("aria-invalid");
       });
@@ -210,15 +217,23 @@
       const nameValid = nameInput.value.trim().length >= 2;
       const phoneValid = isValidPhone(phoneInput.value);
       const consentValid = consent.checked;
+      const slotValid = !slotRequired || Boolean(dateInput?.value && timeInput?.value);
 
       if (!nameValid) nameInput.setAttribute("aria-invalid", "true");
       if (!phoneValid) phoneInput.setAttribute("aria-invalid", "true");
       if (!consentValid) consent.setAttribute("aria-invalid", "true");
+      slotErrors.forEach((slotError) => {
+        slotError.hidden = slotValid;
+      });
 
-      if (!nameValid || !phoneValid || !consentValid) {
-        if (error) error.hidden = false;
-        const firstInvalid = !nameValid ? nameInput : !phoneValid ? phoneInput : consent;
-        firstInvalid.focus();
+      if (!nameValid || !phoneValid || !consentValid || !slotValid) {
+        if (error) error.hidden = nameValid && phoneValid && consentValid;
+        if (!slotValid) {
+          $("[data-booking-days] button:not(:disabled)")?.focus();
+        } else {
+          const firstInvalid = !nameValid ? nameInput : !phoneValid ? phoneInput : consent;
+          firstInvalid.focus();
+        }
         track("form_error", { form: form.dataset.form });
         return;
       }
@@ -228,6 +243,9 @@
         name: String(data.get("name") || "").trim().slice(0, 80),
         phone: String(data.get("phone") || "").trim(),
         contact: String(data.get("contact") || "Телефон"),
+        date: String(data.get("date") || "").trim(),
+        time: String(data.get("time") || "").trim(),
+        weekday: String(data.get("weekday") || "").trim(),
         source: String(data.get("source") || form.dataset.form || "unknown"),
         createdAt: new Date().toISOString(),
       };
@@ -243,6 +261,7 @@
         form: data.get("source") || form.dataset.form,
         contact: lead.contact,
         topic_selected: Boolean(data.get("topic")),
+        has_slot: Boolean(lead.date && lead.time),
       });
 
       form.hidden = true;
