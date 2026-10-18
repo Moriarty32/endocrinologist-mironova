@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261020d"
+VERSION = "20261020g"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
@@ -123,6 +123,7 @@ def page_shell(
   <link rel="stylesheet" href="{base}site.css?v={VERSION}">
   <link rel="stylesheet" href="{base}inner.css?v={VERSION}">
   {extra_head}
+  <link rel="stylesheet" href="{base}typography.css?v={VERSION}">
   {ld}
 </head>
 <body class="{esc(body_class)}" data-base="{esc(base)}">

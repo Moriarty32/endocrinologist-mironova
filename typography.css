@@ -1,0 +1,456 @@
+/* Readability pass: larger body copy, UI labels and compact metadata. */
+
+body {
+  font-size: 18px !important;
+  line-height: 1.65;
+}
+
+/* Shared header and footer */
+.brand-text strong {
+  font-size: 16px !important;
+}
+.brand-text small {
+  font-size: 12.5px !important;
+}
+.site-header .site-nav .nav-link {
+  padding-inline: 6px;
+  font-size: 14.5px !important;
+}
+.header-phone strong {
+  font-size: 14.5px !important;
+}
+.header-phone small {
+  font-size: 12px !important;
+}
+.header-cta.btn {
+  font-size: 14px !important;
+}
+.btn {
+  font-size: 14.5px !important;
+}
+.btn-sm {
+  font-size: 12.5px !important;
+}
+.mega-kicker {
+  font-size: 13px !important;
+}
+.mega-column-title {
+  font-size: 12.5px !important;
+}
+.mega-link strong {
+  font-size: 14.5px !important;
+}
+.mega-link small,
+.mega-all,
+.mega-cta p {
+  font-size: 13px !important;
+}
+.footer-col h2 {
+  font-size: 13.5px !important;
+}
+.footer-col a,
+.footer-col span {
+  font-size: 15px !important;
+}
+.footer-quote {
+  font-size: 14px !important;
+}
+.footer-legal p,
+.footer-copy {
+  font-size: 13.5px !important;
+}
+.footer-legal-links a {
+  font-size: 13px !important;
+}
+
+/* Home */
+.ref-kicker {
+  font-size: 14px !important;
+}
+.ref-lead {
+  font-size: 19.5px !important;
+  line-height: 1.6;
+}
+.ref-facts strong {
+  font-size: 16.5px !important;
+}
+.ref-facts span {
+  font-size: 17px !important;
+}
+.ref-includes-label {
+  font-size: 13px !important;
+}
+.ref-hero-includes li {
+  font-size: 14px !important;
+}
+.ref-form-head h2 {
+  font-size: 25px !important;
+}
+.ref-form-sub {
+  font-size: 13.5px !important;
+}
+.ref-input input,
+.ref-select select {
+  font-size: 16.5px !important;
+}
+.ref-select label {
+  font-size: 13.5px !important;
+}
+.ref-consent {
+  font-size: 13.5px !important;
+  line-height: 1.5;
+}
+.ref-form-note {
+  font-size: 13px !important;
+}
+.ref-form-price {
+  font-size: 14.5px !important;
+}
+.ref-form-schedule {
+  font-size: 13px !important;
+}
+.ref-quiz-copy strong {
+  font-size: 17.5px !important;
+}
+.ref-quiz-copy p {
+  font-size: 14.5px !important;
+}
+.ref-quiz .btn {
+  font-size: 14px !important;
+}
+.ref-head-center p {
+  font-size: 16px !important;
+}
+.ref-problem h3 {
+  font-size: 21px !important;
+}
+.ref-problem li {
+  font-size: 16px !important;
+}
+.ref-pill {
+  font-size: 14px !important;
+}
+.ref-value-card h3 {
+  font-size: 18px !important;
+}
+.ref-value-card p {
+  font-size: 15.5px !important;
+}
+.ref-role {
+  font-size: 15px !important;
+}
+.ref-chip {
+  font-size: 14px !important;
+}
+.ref-video strong {
+  font-size: 13.5px !important;
+}
+.ref-video small {
+  font-size: 12.5px !important;
+}
+.ref-approach > h3 {
+  font-size: 20px !important;
+}
+.ref-approach > p {
+  font-size: 17px !important;
+}
+.ref-credentials strong {
+  font-size: 13px !important;
+}
+.ref-credentials span {
+  font-size: 12px !important;
+}
+.ref-docs-head strong {
+  font-size: 15px !important;
+}
+.ref-docs-head a {
+  font-size: 13.5px !important;
+}
+.ref-doc-caption {
+  font-size: 13px !important;
+}
+.ref-tag {
+  font-size: 13px !important;
+}
+.ref-price-left > p:not(.ref-price-value) {
+  font-size: 15px !important;
+}
+.ref-price-side > p:not(.ref-price-value) {
+  font-size: 14px !important;
+}
+.ref-price-right .ref-list li,
+.ref-price-side .ref-list li {
+  font-size: 16px !important;
+}
+.ref-step-num {
+  font-size: 12px !important;
+}
+.ref-step h3 {
+  font-size: 18px !important;
+}
+.ref-step p {
+  font-size: 16px !important;
+}
+.ref-principle h3 {
+  font-size: 17px !important;
+}
+.ref-principle p {
+  font-size: 15px !important;
+}
+.ref-faq-list summary {
+  font-size: 17.5px !important;
+}
+.ref-faq-list details p {
+  font-size: 16px !important;
+}
+.ref-articles-head p {
+  font-size: 15px !important;
+}
+.ref-all-link {
+  font-size: 14px !important;
+}
+.ref-article h3 {
+  font-size: 17px !important;
+}
+.ref-article-body > p {
+  font-size: 15px !important;
+  line-height: 1.5;
+}
+.ref-category {
+  font-size: 13px !important;
+}
+.ref-article-meta {
+  font-size: 13px !important;
+}
+.ref-article-meta a {
+  font-size: 13px !important;
+}
+.ref-final-copy p {
+  font-size: 16.5px !important;
+}
+
+/* Inner pages */
+.page-hero .lead,
+.booking-hero .lead {
+  font-size: 19px !important;
+  line-height: 1.6;
+}
+.page-kicker {
+  font-size: 13.5px !important;
+}
+.page-meta span,
+.breadcrumbs {
+  font-size: 13.5px !important;
+}
+.prose p,
+.prose li {
+  font-size: 17.5px !important;
+  line-height: 1.7;
+}
+.prose h2 {
+  font-size: 32px !important;
+}
+.prose h3 {
+  font-size: 23px !important;
+}
+.service-card h3 {
+  font-size: 18px !important;
+}
+.service-card p {
+  font-size: 15.5px !important;
+}
+.card-foot {
+  font-size: 13px !important;
+}
+.aside-card > p,
+.aside-card .aside-duration,
+.aside-links a {
+  font-size: 14px !important;
+}
+.aside-note {
+  font-size: 12.5px !important;
+}
+.page-form-card h2 {
+  font-size: 24px !important;
+}
+.page-form-card .form-sub {
+  font-size: 13.5px !important;
+}
+.page-field label {
+  font-size: 14px !important;
+}
+.page-field input,
+.page-field select,
+.page-field textarea {
+  font-size: 16.5px !important;
+}
+.consent-line {
+  font-size: 13.5px !important;
+  line-height: 1.5;
+}
+.form-note {
+  font-size: 13px !important;
+}
+.about-copy p,
+.about-bio p {
+  font-size: 17px !important;
+}
+.about-facts strong {
+  font-size: 17px !important;
+}
+.about-facts span {
+  font-size: 14px !important;
+}
+.doc-caption {
+  font-size: 12.5px !important;
+}
+.review-policy p,
+.review-policy li {
+  font-size: 15px !important;
+}
+.legal-layout .prose p,
+.legal-layout .prose li {
+  font-size: 17px !important;
+}
+
+/* Booking page */
+.booking-hero .lead {
+  font-size: 19.5px !important;
+}
+.booking-meta span {
+  font-size: 13.5px !important;
+}
+.booking-hero-note {
+  font-size: 14.5px !important;
+}
+.booking-hero-name {
+  font-size: 16.5px !important;
+}
+.booking-hero-role {
+  font-size: 13.5px !important;
+}
+.booking-hero-card-note {
+  font-size: 13.5px !important;
+}
+.booking-tz {
+  font-size: 12px !important;
+}
+.booking-day-name {
+  font-size: 11.5px !important;
+}
+.booking-day strong {
+  font-size: 25px !important;
+}
+.booking-day-month {
+  font-size: 11.5px !important;
+}
+.booking-day-tag {
+  font-size: 10.5px !important;
+}
+.booking-times-head h3 {
+  font-size: 19px !important;
+}
+.booking-available {
+  font-size: 13.5px !important;
+}
+.booking-slot-group h4 {
+  font-size: 12px !important;
+}
+.booking-slot {
+  font-size: 17px !important;
+}
+.booking-slot small {
+  font-size: 12px !important;
+}
+.booking-legend {
+  font-size: 13px !important;
+}
+.booking-demo-note {
+  font-size: 13px !important;
+}
+.booking-empty,
+.booking-slot-error {
+  font-size: 13.5px !important;
+}
+.booking-summary-top {
+  font-size: 12px !important;
+}
+.booking-summary-top strong {
+  font-size: 16.5px !important;
+}
+.booking-summary-date {
+  font-size: 20px !important;
+}
+.booking-summary-time {
+  font-size: 16px !important;
+}
+.booking-summary-meta {
+  font-size: 13px !important;
+}
+.booking-page-card h2 {
+  font-size: 27px !important;
+}
+.booking-page-card .form-sub {
+  font-size: 14px !important;
+}
+.booking-page-card .page-field label {
+  font-size: 14px !important;
+}
+.booking-page-card .page-field input,
+.booking-page-card .page-field select,
+.booking-page-card .page-field textarea {
+  font-size: 16.5px !important;
+}
+.booking-page-card .consent-line,
+.booking-page-card .form-note {
+  font-size: 13px !important;
+}
+.booking-step h3 {
+  font-size: 17px !important;
+}
+.booking-step p {
+  font-size: 14px !important;
+}
+.booking-prep-card h3 {
+  font-size: 17px !important;
+}
+.booking-prep-card p {
+  font-size: 14px !important;
+}
+.booking-info-card h2,
+.booking-faq h2 {
+  font-size: 30px !important;
+}
+.booking-info-card .check-list li {
+  font-size: 15px !important;
+}
+.booking-emergency {
+  font-size: 13px !important;
+}
+.booking-faq summary {
+  font-size: 15.5px !important;
+}
+.booking-faq details p {
+  font-size: 14.5px !important;
+}
+.booking-help p:last-child {
+  font-size: 14.5px !important;
+}
+.booking-format-note {
+  font-size: 13.5px !important;
+}
+
+@media (max-width: 760px) {
+  .booking-day strong {
+    font-size: 22px !important;
+  }
+  .booking-slot {
+    font-size: 16px !important;
+  }
+  .booking-page-card h2 {
+    font-size: 24px !important;
+  }
+  .booking-summary-date {
+    font-size: 19px !important;
+  }
+}
