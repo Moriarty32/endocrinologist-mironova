@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261019g"
+VERSION = "20261019h"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
