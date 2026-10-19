@@ -45,6 +45,8 @@
 
     const nav = `
       <nav class="site-nav" aria-label="Основная навигация">
+        <a class="nav-link" href="${url("index.html")}">Главная</a>
+        <a class="nav-link nav-link-booking" href="${url("zapis/")}">Запись</a>
         <div class="nav-item nav-item-mega">
           <button class="nav-link nav-mega-toggle" type="button" data-mega-toggle="services" aria-expanded="false" aria-controls="mega-services" aria-haspopup="true">Услуги${chevron}</button>
           <div class="mega-panel" id="mega-services" data-mega-panel="services" hidden>
@@ -117,6 +119,8 @@
           <button class="mobile-close" type="button" data-menu-close aria-label="Закрыть меню">${icon("icon-close")}</button>
         </div>
         <nav class="mobile-nav" aria-label="Мобильная навигация">
+          <a href="${url("index.html")}">Главная</a>
+          <a href="${url("zapis/")}">Онлайн-запись</a>
           <div class="mobile-group">
             <button type="button" class="mobile-group-toggle" data-mobile-accordion aria-expanded="false" aria-controls="mobile-services">Услуги${chevron}</button>
             <div class="mobile-submenu" id="mobile-services" hidden>
