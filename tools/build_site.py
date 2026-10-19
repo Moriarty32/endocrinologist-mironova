@@ -892,56 +892,93 @@ def articles_index() -> None:
 
 def about_page() -> None:
     base = "../"
+    profile = C.ABOUT_PROFILE
+    icon_sprite = (ROOT / "assets/icons.svg").read_text(encoding="utf-8").replace(
+        '<svg xmlns=', '<svg class="profile-icon-sprite" aria-hidden="true" xmlns=', 1
+    )
+
+    def icon(name: str) -> str:
+        return f'<svg aria-hidden="true"><use href="#{esc(name)}"></use></svg>'
+
     docs = [
-        ("Диплом врача", "Лечебное дело"),
-        ("Аккредитация", "Эндокринология"),
-        ("Сертификат специалиста", "Эндокринология"),
-        ("Повышение квалификации", "Регулярное обучение"),
+        ("Диплом", "о высшем образовании"),
+        ("Ординатура", "по эндокринологии"),
+        ("Аккредитация", "по специальности"),
+        ("Обучение", "повышение квалификации"),
     ]
-    doc_cards = "".join(f"""
-<button class="doc-card" type="button" data-doc-preview data-doc-title="{esc(title)}" data-doc-card>
-  <span class="doc-sheet"><span>РОССИЙСКАЯ ФЕДЕРАЦИЯ</span><strong>{esc(title)}</strong><small>{esc(subtitle)}</small></span>
-  <span class="doc-caption">{esc(title)}</span>
-</button>""" for title, subtitle in docs)
+    doc_cards = "".join(
+        f'<a class="profile-doc" href="{base}dokumenty/" aria-label="Подробнее: {esc(title)}">'
+        f'<span class="profile-doc-paper"><img src="{base}assets/img/about-document-0{index}.webp" width="235" height="345" alt="" loading="lazy"><span>ОБРАЗЕЦ</span><strong>{esc(title)}</strong><small>{esc(subtitle)}</small></span>'
+        f'<b>{esc(title)}</b><small>{esc(subtitle)}</small></a>'
+        for index, (title, subtitle) in enumerate(docs, start=1)
+    )
+    principle_cards = "".join(
+        f'<div class="profile-principle"><span>{icon(symbol)}</span><b>{esc(label)}</b></div>'
+        for symbol, label in profile["principles"]
+    )
+    experience_cards = "".join(
+        f'<li><strong>{esc(title)}</strong><span>{esc(description)}</span></li>'
+        for title, description in profile["experience"]
+    )
+    education_cards = "".join(
+        f'<div class="profile-education-item"><span>{icon(symbol)}</span><div><strong>{esc(title)}</strong><small>{esc(description)}</small></div></div>'
+        for symbol, title, description in profile["education"]
+    )
+    interest_cards = "".join(
+        f'<div class="profile-interest"><span>{icon(symbol)}</span><p>{esc(label)}</p></div>'
+        for symbol, label in profile["interests"]
+    )
     body = f"""
-<div class="container">
-  {breadcrumbs([('Главная', f'{base}index.html'), ('О враче', None)], base)}
-  <div class="about-hero">
-    <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp?v=20261020b" srcset="{base}assets/img/doctor-hero-340.webp?v=20261020b 340w, {base}assets/img/doctor-hero-680.webp?v=20261020b 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="850"></div>
-    <div class="about-copy">
-      <div class="about-intro">
-        <p class="page-kicker">О враче</p>
-        <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
-        <p class="role">Онлайн-консультации для взрослых</p>
+{icon_sprite}
+<section class="profile-hero" aria-labelledby="profile-title">
+  <div class="container profile-hero-inner">
+    {breadcrumbs([('Главная', f'{base}index.html'), ('О враче', None)], base)}
+    <div class="profile-hero-copy">
+      <h1 id="profile-title">Анна Викторовна <br>Миронова — <br><em>врач-эндокринолог</em></h1>
+      <p>{esc(profile['hero_lead'])}</p>
+      <div class="profile-facts">
+        <span>{icon('icon-video')}<span><strong>Онлайн</strong><small>для взрослых</small></span></span>
+        <span>{icon('icon-calendar')}<span><strong>12 лет</strong><small>практики</small></span></span>
+        <span>{icon('icon-clock')}<span><strong>60 минут</strong><small>первая консультация</small></span></span>
       </div>
-      <div class="about-bio">
-        <p>Помогаю разобраться в изменениях щитовидной железы, обмена веществ, углеводного обмена и гормональных нарушениях. Работаю с опорой на доказательную медицину и понятное объяснение.</p>
-        <p>Моя задача — не назначить как можно больше обследований, а помочь понять, что происходит, какие данные действительно важны и какие шаги имеют смысл.</p>
-        <div class="about-facts">
-          <div class="about-fact"><strong>12 лет</strong><span>клинической практики</span></div>
-          <div class="about-fact"><strong>60 минут</strong><span>первичная консультация</span></div>
-          <div class="about-fact"><strong>Онлайн</strong><span>для взрослых</span></div>
-        </div>
-        <a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию</a>
-      </div>
+      <div class="profile-hero-actions"><a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию →</a><a class="btn btn-outline" href="{base}kontakty/">Связаться</a></div>
     </div>
   </div>
-  <div class="about-grid">
-    <section class="about-block"><h2>Биография и опыт</h2><p>Врач-эндокринолог, консультирую взрослых по вопросам щитовидной железы, метаболических и гормональных нарушений. В работе сочетаю клиническую оценку, интерпретацию анализов и внимание к контексту пациента.</p><p>Принимаю онлайн, чтобы консультация была доступна из разных городов. Если для решения вопроса нужен очный осмотр, объясняю, к кому и как обратиться.</p></section>
-    <section class="about-block"><h2>Образование и квалификация</h2><ul><li>Высшее медицинское образование, лечебное дело.</li><li>Ординатура по эндокринологии.</li><li>Действующая аккредитация по специальности «Эндокринология».</li><li>Регулярное повышение квалификации по профилю.</li></ul><p class="form-note">Реквизиты диплома и аккредитации уточняются; документы доступны по запросу.</p></section>
+</section>
+<div class="container profile-content">
+  <section class="profile-intro profile-card" aria-labelledby="profile-about-title">
+    <div class="profile-bio"><h2 id="profile-about-title">Обо мне</h2><span class="profile-heading-line"></span>{''.join(f'<p>{esc(paragraph)}</p>' for paragraph in profile['about_paragraphs'])}</div>
+    <div class="profile-principles"><blockquote>{icon('icon-quote')}<p>Внимательно слушаю, подробно объясняю, помогаю найти решение.</p></blockquote><h3>Мои главные принципы</h3><div class="profile-principles-grid">{principle_cards}</div></div>
+  </section>
+
+  <section class="profile-experience profile-card" aria-labelledby="profile-experience-title">
+    <div><h2 id="profile-experience-title">Клинический опыт</h2><ol>{experience_cards}</ol></div>
+    <div class="profile-experience-badge">{icon('icon-calendar')}<strong>12 лет</strong><span>клинической практики</span></div>
+  </section>
+
+  <div class="profile-pair">
+    <section class="profile-education profile-card" aria-labelledby="profile-education-title"><h2 id="profile-education-title">Образование и квалификация</h2><div class="profile-education-grid">{education_cards}</div></section>
+    <section class="profile-approach profile-card" aria-labelledby="profile-approach-title"><h2 id="profile-approach-title">Мой подход к работе</h2><blockquote>{icon('icon-quote')}<p>{esc(profile['approach_quote'])}</p></blockquote><div class="profile-approach-tags"><span>{icon('icon-heart-hand')}Внимательное отношение</span><span>{icon('icon-shield')}Обоснованные решения</span></div></section>
   </div>
-  <section class="page-section"><h2>Подход к работе</h2><div class="prose"><p>Я стараюсь объяснять сложные вещи простым языком и не оставлять вопросы без ответа. В консультации важны не только цифры анализов, но и жалобы, история, образ жизни и то, что для вас действительно важно.</p><p>Не обещаю быстрых результатов и не назначаю лечение «на всякий случай». Если вопрос выходит за пределы моей компетенции, говорю об этом прямо и предлагаю следующий шаг.</p></div></section>
-  <section class="page-section"><h2>Профессиональные интересы</h2><div class="prose"><ul><li>Заболевания щитовидной железы и наблюдение узлов.</li><li>Предиабет, диабет 2 типа и метаболический синдром.</li><li>Инсулинорезистентность и вопросы веса.</li><li>Гормональные нарушения в пределах эндокринологии.</li><li>Объяснение анализов и подготовка к очному приёму.</li></ul></div></section>
-  <section class="page-section" id="documents"><h2>Документы</h2><p>Демонстрационные карточки. Нажмите, чтобы открыть увеличенный просмотр. Оригиналы предоставляются по запросу.</p><div class="doc-grid">{doc_cards}</div><p class="form-note">Перед публикацией сайта замените демонстрационные изображения на реальные сканы с проверенными данными.</p></section>
-  <section class="page-section"><h2>Видеообращение</h2><div class="cta-band"><div><h2>Видеообращение врача</h2><p>Видео можно добавить после записи. Сейчас доступна текстовая информация и онлайн-консультация.</p></div><a class="btn btn-ghost" href="{base}kontakty/">Связаться</a></div></section>
-  <section class="page-section"><h2>Отзывы</h2><p>Раздел отзывов работает без вымышленных оценок. Ознакомьтесь с порядком публикации и оставьте обратную связь.</p><a class="btn btn-ghost" href="{base}otzyvy/">Перейти к отзывам</a></section>
-  <section class="page-booking" id="booking"><div class="container page-booking-grid"><div class="page-booking-copy"><p class="page-kicker">Запись</p><h2>Записаться на консультацию</h2><p>Оставьте контакт — согласуем время и формат.</p>{lead_list(['Первичная консультация — 60 минут', 'Повторная — 30 минут', 'Оплата после подтверждения времени'])}</div>{booking_form('o-vrache', 'Консультация', base)}</div></section>
+
+  <section class="profile-interests profile-card" aria-labelledby="profile-interests-title"><div><h2 id="profile-interests-title">Профессиональные интересы</h2><span class="profile-heading-line"></span><p>{esc(profile['interests_intro'])}</p></div><div class="profile-interest-grid">{interest_cards}</div></section>
+
+  <section class="profile-documents profile-card" id="documents" aria-labelledby="profile-documents-title"><div><h2 id="profile-documents-title">Документы</h2><p>{esc(profile['documents_note'])}</p><a href="{base}dokumenty/">Подробнее о документах →</a></div><div class="profile-doc-grid">{doc_cards}</div></section>
+
+  <div class="profile-pair profile-media-row">
+    <section class="profile-video profile-card" aria-labelledby="profile-video-title"><div><h2 id="profile-video-title">Видеообращение врача</h2><p>{esc(profile['video_note'])}</p><a href="{base}kontakty/">Задать вопрос →</a></div><img src="{base}assets/img/doctor-about-330.webp" width="330" height="412" alt="Портрет врача-эндокринолога" loading="lazy"></section>
+    <section class="profile-reviews profile-card" aria-labelledby="profile-reviews-title"><h2 id="profile-reviews-title">Отзывы пациентов</h2><p>{esc(profile['reviews_note'])}</p><a class="btn btn-outline" href="{base}otzyvy/">Перейти к отзывам →</a></section>
+  </div>
+
+  <section class="profile-booking" id="booking" aria-labelledby="profile-booking-title"><div class="profile-booking-copy"><h2 id="profile-booking-title">Записаться<br>на консультацию</h2><p>Выберите удобное время на странице записи или оставьте контакт здесь.</p><p>Первичная консультация — 60 минут. Оплата после подтверждения времени.</p></div>{booking_form('o-vrache', 'Консультация', base)}</section>
 </div>
 """
     write("o-vrache/index.html", page_shell(
         title="Анна Викторовна Миронова — врач-эндокринолог | Биография и образование",
         description="Биография, специализация, образование и подход к работе врача-эндокринолога Анны Мироновой.",
         canonical=page_url("o-vrache"), base=base, body=body,
+        body_class="inner-page about-profile-page",
+        extra_head=f'  <link rel="stylesheet" href="{base}about-profile.css?v=20261020c">',
     ))
 
 

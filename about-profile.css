@@ -1,0 +1,126 @@
+/* Doctor profile; header and footer remain the shared site components. */
+.about-profile-page {--profile-ink:#10354a;--profile-teal:#087e73;--profile-line:#deece9;color:var(--profile-ink)}
+.about-profile-page .page-main {padding:0 0 54px;background:linear-gradient(180deg,#fff 0%,#f5fbf9 65%,#fff 100%)}
+.about-profile-page .page-main .container {width:min(100% - 64px,1200px);max-width:none}
+.about-profile-page .page-main h1,.about-profile-page .page-main h2,.about-profile-page .page-main h3 {color:var(--profile-ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.035em}
+.about-profile-page .page-main h2 {margin:0;font-size:clamp(27px,2.8vw,35px);font-weight:700;line-height:1.15}
+.about-profile-page .page-main p {line-height:1.52}
+.about-profile-page .page-main .btn {min-height:47px;border-radius:9px;font-size:14px}
+.about-profile-page .page-main .btn-primary {background:#087e73;color:#fff}
+.about-profile-page .page-main .btn-primary:hover {background:#07675e}
+.about-profile-page .page-main .btn-outline {border-color:#a8d4cb;background:#fff;color:#087e73}
+.profile-icon-sprite {position:absolute;width:0;height:0;overflow:hidden}
+.profile-hero {min-height:435px;background:linear-gradient(90deg,rgba(250,254,253,.96) 0%,rgba(250,254,253,.78) 36%,rgba(250,254,253,.03) 61%,rgba(250,254,253,.04) 100%),url("assets/img/about-hero-v2.webp") center 25%/cover no-repeat}
+.profile-hero-inner {display:flex;flex-direction:column;min-height:435px}
+.about-profile-page .profile-hero .breadcrumbs {margin:16px 0 0;font-size:12px}
+.profile-hero-copy {display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;width:min(59%,650px);padding:26px 0 33px}
+.profile-hero h1 {margin:0;font-size:clamp(39px,4.05vw,56px);font-weight:730;line-height:1.03;text-wrap:balance}
+.profile-hero h1 em {color:#087e73;font-style:normal}
+.profile-hero-copy>p {max-width:580px;margin:13px 0 0;color:#375969;font-size:16px;line-height:1.43!important}
+.profile-facts {display:flex;flex-wrap:wrap;gap:13px;margin:21px 0 0}
+.profile-facts>span {display:flex;align-items:center;gap:7px;color:#103c4f}
+.profile-facts svg {width:31px;height:31px;flex:none;padding:6px;border-radius:50%;background:#e8f6f2;color:#087e73;fill:none;stroke:currentColor;stroke-width:1.8}
+.profile-facts>span>span {display:grid;gap:1px}
+.profile-facts strong {font-size:12px;line-height:1.2}
+.profile-facts small {font-size:10px;line-height:1.2}
+.profile-hero-actions {display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.profile-hero-actions .btn {padding-inline:22px}
+.profile-content {display:grid;gap:14px;padding-top:16px}
+.profile-card {min-width:0;border:1px solid var(--profile-line);border-radius:14px;background:#fff;box-shadow:0 8px 25px rgba(32,83,78,.035)}
+.profile-heading-line {display:block;width:38px;height:2px;margin:12px 0 16px;background:#10a194}
+.profile-intro {display:grid;grid-template-columns:1fr 1fr;gap:36px;min-height:286px;padding:25px 28px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.9) 54%,rgba(234,247,244,.55) 100%),url("assets/img/about-botanical-v2.webp") center/cover no-repeat}
+.profile-bio p {margin:0 0 12px;color:#526979;font-size:14px}
+.profile-principles {display:flex;flex-direction:column;justify-content:center}
+.profile-principles blockquote {display:flex;align-items:flex-start;gap:12px;margin:0 0 18px;padding:18px;border:1px solid #e0eeeb;border-radius:12px;background:rgba(255,255,255,.72)}
+.profile-principles blockquote svg {width:28px;height:28px;flex:none;color:#088b80;fill:none;stroke:currentColor;stroke-width:1.7}
+.profile-principles blockquote p {margin:0;color:#244d62;font-family:Georgia,serif;font-size:21px;font-style:italic;line-height:1.25!important}
+.profile-principles h3 {margin:0 0 10px;font-size:18px}
+.profile-principles-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.profile-principle {display:grid;justify-items:center;gap:7px;padding:12px 6px;border-radius:9px;background:rgba(241,250,247,.83);text-align:center}
+.profile-principle span {display:grid;place-items:center;width:43px;height:43px;border-radius:50%;background:#dff2ee;color:#087e73}
+.profile-principle svg {width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7}
+.profile-principle b {font-size:11px;line-height:1.22}
+.profile-experience {display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:18px;align-items:center;padding:23px 28px;background:linear-gradient(90deg,#fff 60%,rgba(255,255,255,.85) 100%),url("assets/img/about-botanical-v2.webp") right center/cover no-repeat}
+.profile-experience h2 {margin-bottom:19px!important}
+.profile-experience ol {position:relative;display:grid;gap:13px;margin:0;padding:0 0 0 23px;list-style:none}
+.profile-experience ol:before {position:absolute;top:10px;bottom:10px;left:6px;width:2px;background:#b5ddd4;content:""}
+.profile-experience li {position:relative;display:grid;grid-template-columns:190px minmax(0,1fr);gap:13px;align-items:start;color:#526a77;font-size:13px;line-height:1.35}
+.profile-experience li:before {position:absolute;top:3px;left:-22px;width:11px;height:11px;border:3px solid #a7ded3;border-radius:50%;background:#087e73;content:""}
+.profile-experience li strong {color:#143e50;font-size:15px}
+.profile-experience-badge {display:grid;justify-items:center;align-content:center;gap:5px;min-height:150px;padding:15px;border-radius:13px;background:#edf8f5;text-align:center}
+.profile-experience-badge svg {width:42px;height:42px;padding:7px;border-radius:50%;background:#d7eee8;color:#087e73;fill:none;stroke:currentColor;stroke-width:1.8}
+.profile-experience-badge strong {font-size:25px;line-height:1.05}
+.profile-experience-badge span {max-width:110px;color:#55707b;font-size:12px;line-height:1.25}
+.profile-pair {display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.profile-education,.profile-approach {min-height:252px;padding:24px}
+.profile-education h2,.profile-approach h2 {margin-bottom:16px!important;font-size:25px!important}
+.profile-education-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.profile-education-item {display:flex;align-items:center;gap:10px;min-height:76px;padding:10px;border-radius:9px;background:#f2f9f7}
+.profile-education-item>span {display:grid;place-items:center;width:39px;height:39px;flex:none;border-radius:50%;background:#e0f2ed;color:#087e73}
+.profile-education-item svg {width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7}
+.profile-education-item strong,.profile-education-item small {display:block;line-height:1.25}
+.profile-education-item strong {font-size:12px}
+.profile-education-item small {margin-top:3px;color:#5b7480;font-size:11px}
+.profile-approach {display:flex;flex-direction:column;background:linear-gradient(105deg,rgba(0,67,71,.88),rgba(2,96,91,.74)),url("assets/img/about-dark-botanical-v2.webp") center/cover no-repeat}
+.profile-approach h2 {color:#fff!important}
+.profile-approach blockquote {display:flex;gap:12px;margin:0}
+.profile-approach blockquote svg {width:30px;height:30px;flex:none;color:#c8ede5;fill:none;stroke:currentColor;stroke-width:1.5}
+.profile-approach blockquote p {margin:0;color:#eaf9f5;font-size:15px;line-height:1.47!important}
+.profile-approach-tags {display:flex;flex-wrap:wrap;gap:11px;margin-top:auto;padding-top:18px}
+.profile-approach-tags span {display:flex;align-items:center;gap:6px;color:#e4f5f1;font-size:11px}
+.profile-approach-tags svg {width:27px;height:27px;padding:5px;border-radius:50%;background:#eaf8f3;color:#087e73;fill:none;stroke:currentColor;stroke-width:1.7}
+.profile-interests {display:grid;grid-template-columns:.72fr 1.28fr;gap:25px;padding:25px 28px;background:linear-gradient(90deg,#eff9f7,#fff)}
+.profile-interests p {margin:0;color:#536e78;font-size:14px}
+.profile-interest-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.profile-interest {display:flex;align-items:center;gap:10px;min-height:59px;padding:9px;border-radius:9px;background:rgba(255,255,255,.85)}
+.profile-interest span {display:grid;place-items:center;width:39px;height:39px;flex:none;border-radius:50%;background:#e0f3ee;color:#087e73}
+.profile-interest svg {width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7}
+.profile-interest p {font-size:12px;line-height:1.25!important}
+.profile-documents {display:grid;grid-template-columns:.52fr 1.48fr;gap:20px;padding:23px 25px}
+.profile-documents>div:first-child p {margin:9px 0;color:#59707d;font-size:12px}
+.profile-documents a:not(.profile-doc) {color:#087e73;font-size:13px;font-weight:650;text-decoration:underline;text-underline-offset:2px}
+.profile-doc-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.profile-doc {display:grid;justify-items:center;padding:7px;border:1px solid #e1edea;border-radius:9px;background:#fdfefe;color:#173e51;text-align:center;text-decoration:none}
+.profile-doc:hover {border-color:#8ac7bc}
+.profile-doc-paper {position:relative;display:grid;justify-items:center;align-content:center;gap:8px;width:min(100%,101px);height:134px;overflow:hidden;background:#fff;font-family:Georgia,serif}
+.profile-doc-paper img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.profile-doc-paper>span,.profile-doc-paper strong,.profile-doc-paper small {position:relative;z-index:1;padding:1px 3px;background:rgba(255,255,255,.68)}
+.profile-doc-paper>span {color:#6c848b;font-family:Inter,sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em}
+.profile-doc-paper strong {font-size:13px;line-height:1.1}
+.profile-doc-paper small {font-size:8px}
+.profile-doc>b {margin-top:6px;font-size:12px}
+.profile-doc>small {color:#66808b;font-size:10px}
+.profile-media-row {grid-template-columns:1.15fr .85fr}
+.profile-video,.profile-reviews {min-height:188px;padding:20px}
+.profile-video {position:relative;overflow:hidden;background:#f1f9f7}
+.profile-video>div {position:relative;z-index:1;max-width:61%}
+.profile-video h2,.profile-reviews h2 {margin:0 0 10px!important;font-size:23px!important}
+.profile-video p,.profile-reviews p {margin:0 0 13px;color:#5a717e;font-size:13px}
+.profile-video a {color:#087e73;font-size:13px;font-weight:650;text-decoration:underline;text-underline-offset:2px}
+.profile-video img {position:absolute;right:0;bottom:-55px;width:35%;height:230px;object-fit:cover;object-position:center top;mask-image:linear-gradient(90deg,transparent,#000 24%)}
+.profile-reviews {display:flex;flex-direction:column;align-items:flex-start}
+.profile-reviews .btn {margin-top:auto}
+.profile-booking {display:grid;grid-template-columns:.82fr 1.18fr;gap:25px;align-items:start;padding:28px;border-radius:14px;background:linear-gradient(110deg,rgba(1,69,72,.88),rgba(2,103,94,.75)),url("assets/img/about-dark-botanical-v2.webp") center/cover no-repeat}
+.profile-booking-copy h2 {margin:0 0 14px!important;color:#fff!important;font-size:32px!important}
+.profile-booking-copy p {max-width:320px;margin:0 0 13px;color:#e1f5ee;font-size:14px}
+.profile-booking .page-form-card.final-form-card {padding:20px;border:0;border-radius:11px;box-shadow:0 12px 35px rgba(0,32,33,.13)}
+.profile-booking .page-form-card h2 {font-size:20px!important}
+.profile-booking .page-form-card .form-note {margin:0;color:#738990;font-size:11px}
+.profile-booking .page-form-card .btn-primary {width:100%}
+@media(max-width:1000px){.profile-hero{background-position:57% 25%}.profile-hero-copy{width:62%}.profile-intro{gap:20px}.profile-experience li{grid-template-columns:150px minmax(0,1fr)}.profile-documents{grid-template-columns:.58fr 1.42fr}}
+@media(max-width:800px){.about-profile-page .page-main .container{width:min(100% - 40px,720px)}.profile-hero{background-position:61% center}.profile-hero-copy{width:70%}.profile-hero h1{font-size:clamp(37px,5vw,46px)}.profile-intro,.profile-interests,.profile-documents{grid-template-columns:1fr}.profile-principles{max-width:none}.profile-pair{grid-template-columns:1fr}.profile-education,.profile-approach{min-height:0}.profile-documents{gap:15px}.profile-booking{grid-template-columns:1fr}.profile-booking-copy p{max-width:none}}
+@media(max-width:600px){.about-profile-page .page-main .container{width:min(100% - 32px,540px)}.profile-hero{background:#eff8f6}.profile-hero-inner{min-height:0}.profile-hero-inner:after{display:none}.profile-hero-copy{width:100%;padding:248px 0 30px;position:relative}.profile-hero-copy:before{position:absolute;top:0;right:-16px;left:-16px;height:225px;background:url("assets/img/about-hero-v2.webp") 65% 18%/cover no-repeat;content:""}.profile-hero h1{font-size:clamp(36px,8vw,44px)}.profile-hero-copy>p{font-size:15px}.profile-facts{gap:10px 15px}.profile-facts>span{width:calc(50% - 8px)}.profile-hero-actions{width:100%}.profile-hero-actions .btn:first-child{flex:1}.profile-content{gap:12px}.profile-intro,.profile-experience,.profile-education,.profile-approach,.profile-interests,.profile-documents,.profile-video,.profile-reviews,.profile-booking{padding:18px}.profile-intro{gap:14px}.profile-principles blockquote p{font-size:18px}.profile-experience{grid-template-columns:1fr}.profile-experience-badge{display:flex;justify-content:center;align-items:center;min-height:0}.profile-experience-badge span{max-width:none}.profile-interest-grid{grid-template-columns:1fr}.profile-media-row{grid-template-columns:1fr}.profile-doc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.profile-facts>span{width:100%}.profile-hero-actions .btn{width:100%}.profile-principles-grid{grid-template-columns:1fr}.profile-principle{display:flex;align-items:center;text-align:left}.profile-experience li{grid-template-columns:1fr;gap:3px}.profile-education-grid{grid-template-columns:1fr}.profile-video>div{max-width:70%}.profile-video img{width:40%}}
+
+/* The doctor sits at 52-58% of the hero photo: on tablet widths the copy column has to
+   stop left of that, otherwise the lead runs across her face. */
+@media(min-width:601px) and (max-width:1200px){
+  .profile-hero{background-position:42% 25%}
+  .profile-hero-copy{width:54%}
+  .profile-hero-copy>p{max-width:470px}
+}
+@media(min-width:601px) and (max-width:800px){
+  .profile-hero{background-position:50% center}
+  .profile-hero-copy{width:55%}
+  .profile-hero-copy>p{max-width:400px}
+}

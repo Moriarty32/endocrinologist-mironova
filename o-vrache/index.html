@@ -23,62 +23,346 @@
   <link rel="stylesheet" href="../inner.css?v=20261020j">
   <link rel="stylesheet" href="../typography.css?v=20261020j">
   <link rel="stylesheet" href="../inner-theme.css?v=20261020j">
-  
+    <link rel="stylesheet" href="../about-profile.css?v=20261020c">
   
 </head>
-<body class="inner-page" data-base="../">
+<body class="inner-page about-profile-page" data-base="../">
   <a class="skip-link" href="#main">Перейти к содержанию</a>
   <div id="site-header"></div>
   <main id="main" class="page-main">
 
-<div class="container">
-  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="../index.html">Главная</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">О враче</span></nav>
-  <div class="about-hero">
-    <div class="about-photo"><img src="../assets/img/doctor-hero-680.webp?v=20261020b" srcset="../assets/img/doctor-hero-340.webp?v=20261020b 340w, ../assets/img/doctor-hero-680.webp?v=20261020b 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="850"></div>
-    <div class="about-copy">
-      <div class="about-intro">
-        <p class="page-kicker">О враче</p>
-        <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
-        <p class="role">Онлайн-консультации для взрослых</p>
+<svg class="profile-icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-thyroid" viewBox="0 0 24 24">
+    <path d="M12 9.2c-.9-1.7-2.6-2.9-4.6-2.6-2.2.3-3.7 2.4-3.4 4.8.4 3 2.7 6.2 5 6.2 1.6 0 2.4-1.2 3-2.3.6 1.1 1.4 2.3 3 2.3 2.3 0 4.6-3.2 5-6.2.3-2.4-1.2-4.5-3.4-4.8-2-.3-3.7.9-4.6 2.6Z"/>
+    <path d="M12 9.2V5.6M10.3 5.6h3.4"/>
+  </symbol>
+  <symbol id="icon-scale" viewBox="0 0 24 24">
+    <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/>
+    <path d="M8.2 14.6a4.4 4.4 0 0 1 7.6 0M12 7.8v2.4M9.7 9.2h4.6"/>
+  </symbol>
+  <symbol id="icon-glucose" viewBox="0 0 24 24">
+    <path d="M12 3.2S6.7 9.2 6.7 13a5.3 5.3 0 0 0 10.6 0C17.3 9.2 12 3.2 12 3.2Z"/>
+    <path d="M8.9 14.2h2.2l1.1-2.2 1.6 4.1 1.1-1.9h1.2"/>
+  </symbol>
+  <symbol id="icon-hormones" viewBox="0 0 24 24">
+    <path d="M9 3.5h6M10 3.5v5.1L5.8 16a3.2 3.2 0 0 0 2.8 4.5h6.8a3.2 3.2 0 0 0 2.8-4.5L14 8.6V3.5"/>
+    <path d="M7.4 14.5h9.2M9.6 17.6h.1M13.2 18.4h.1"/>
+  </symbol>
+  <symbol id="icon-pulse" viewBox="0 0 24 24">
+    <path d="M3 12h3.2l2.1-5.4 3.8 10.8 2.3-6.4 1.5 3h5.1"/>
+  </symbol>
+  <symbol id="icon-file-search" viewBox="0 0 24 24">
+    <path d="M14 3.5H6.8A1.8 1.8 0 0 0 5 5.3v13.4a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8V8Z"/>
+    <path d="M14 3.5V8h5M8.2 11.4h5.2M8.2 14.1h3.1"/>
+    <circle cx="15.6" cy="16.3" r="2.5"/>
+    <path d="m17.5 18.2 2 2"/>
+  </symbol>
+  <symbol id="icon-chat" viewBox="0 0 24 24">
+    <path d="M20.5 11.1a8 8 0 0 1-8.4 8 9.2 9.2 0 0 1-3.3-.6L4 20l1.5-4.2a8 8 0 1 1 15-4.7Z"/>
+    <path d="M8.3 10.7h.1M12 10.7h.1M15.7 10.7h.1"/>
+  </symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24">
+    <path d="M4 20V4M4 20h16"/>
+    <path d="M7.5 16.5v-4.2M11.5 16.5V8.2M15.5 16.5v-2.7M19.5 16.5V5.8"/>
+  </symbol>
+  <symbol id="icon-clipboard-check" viewBox="0 0 24 24">
+    <rect x="5" y="4.5" width="14" height="16" rx="2.2"/>
+    <path d="M9 4.5V3.2h6v1.3M9.2 12l2 2 3.8-4.1"/>
+  </symbol>
+  <symbol id="icon-route" viewBox="0 0 24 24">
+    <circle cx="6" cy="6" r="2.4"/>
+    <circle cx="18" cy="18" r="2.4"/>
+    <path d="M8.4 6h4.4a3.2 3.2 0 0 1 0 6.4h-1.6a3.2 3.2 0 0 0 0 6.4h4.4"/>
+  </symbol>
+  <symbol id="icon-question" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.8"/>
+    <path d="M9.6 9.2a2.5 2.5 0 0 1 4.9.8c0 1.7-2.5 1.9-2.5 3.6M12 17.2h.1"/>
+  </symbol>
+  <symbol id="icon-doc-check" viewBox="0 0 24 24">
+    <path d="M14 3.5H6.8A1.8 1.8 0 0 0 5 5.3v13.4a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8V8Z"/>
+    <path d="M14 3.5V8h5M8.2 12.6l2.2 2.2 4.4-4.6"/>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24">
+    <path d="M12 3.2 5 6v5.2c0 4.3 2.9 7.6 7 9.2 4.1-1.6 7-4.9 7-9.2V6Z"/>
+    <path d="m8.8 11.7 2.2 2.2 4.3-4.5"/>
+  </symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24">
+    <path d="M3.8 5.2A2.2 2.2 0 0 1 6 3h4.2a2 2 0 0 1 2 2v15a2 2 0 0 0-2-2H6a2.2 2.2 0 0 1-2.2-2.2Z"/>
+    <path d="M20.2 5.2A2.2 2.2 0 0 0 18 3h-3.8a2 2 0 0 0-2 2v15a2 2 0 0 1 2-2H18a2.2 2.2 0 0 0 2.2-2.2Z"/>
+  </symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24">
+    <path d="M20.4 10.7a7.7 7.7 0 0 1-8 7.6 9.2 9.2 0 0 1-3-.5L4 20l2.1-4.1a7.7 7.7 0 1 1 14.3-5.2Z"/>
+    <path d="M8.6 10.2h6.8M8.6 13.4h4.2"/>
+  </symbol>
+  <symbol id="icon-heart-hand" viewBox="0 0 24 24">
+    <path d="M12 20.2S4 15.4 4 9.4a4 4 0 0 1 7-2.6l1 1.1 1-1.1a4 4 0 0 1 7 2.6c0 6-8 10.8-8 10.8Z"/>
+    <path d="M8.2 12h2l1-1.8 1.6 3.5 1-1.7h1.9"/>
+  </symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24">
+    <rect x="3.8" y="5.2" width="16.4" height="15" rx="2.4"/>
+    <path d="M7.8 3.2v4M16.2 3.2v4M3.8 9.8h16.4M8.2 13.5h.1M12 13.5h.1M15.8 13.5h.1M8.2 17h.1M12 17h.1"/>
+  </symbol>
+  <symbol id="icon-file-text" viewBox="0 0 24 24">
+    <path d="M14 3.5H6.8A1.8 1.8 0 0 0 5 5.3v13.4a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8V8Z"/>
+    <path d="M14 3.5V8h5M8.2 11.5h7.6M8.2 14.6h7.6M8.2 17.7h4.6"/>
+  </symbol>
+  <symbol id="icon-video" viewBox="0 0 24 24">
+    <rect x="3" y="6.2" width="12.6" height="11.6" rx="2.4"/>
+    <path d="m15.6 10.5 5.4-3v9l-5.4-3Z"/>
+  </symbol>
+  <symbol id="icon-check-circle" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="m7.8 12.2 2.6 2.6 5.8-6"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <path d="m5 12.5 4.4 4.4L19 6.8"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <path d="M4.5 12h15M13.5 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24">
+    <path d="M4.5 12h15M13.5 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+    <path d="M7 17 17 7M8 7h9v9"/>
+  </symbol>
+  <symbol id="icon-plus" viewBox="0 0 24 24">
+    <path d="M12 5v14M5 12h14"/>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24">
+    <path d="m6 6 12 12M18 6 6 18"/>
+  </symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24">
+    <path d="M4 7h16M4 12h16M4 17h16"/>
+  </symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24">
+    <path d="M8.2 5.8v12.4L19 12Z"/>
+  </symbol>
+  <symbol id="icon-download" viewBox="0 0 24 24">
+    <path d="M12 3.8v11.4M7.4 10.8 12 15.4l4.6-4.6M4.2 19.8h15.6"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.8"/>
+    <path d="M12 7.2V12l3.2 2"/>
+  </symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24">
+    <circle cx="12" cy="8.2" r="3.6"/>
+    <path d="M5.2 20.2a6.8 6.8 0 0 1 13.6 0"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path d="M7.1 3.8h2.4l1.1 4.2-2 1.4a12.4 12.4 0 0 0 5.9 5.9l1.4-2 4.2 1.1v2.4a2.5 2.5 0 0 1-2.7 2.5C10.6 18.7 5.3 13.4 4.6 6.5a2.5 2.5 0 0 1 2.5-2.7Z"/>
+  </symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path d="M20.3 11.7a8.2 8.2 0 0 1-12.1 7.2L3.8 20l1.2-4.3a8.2 8.2 0 1 1 15.3-4Z"/>
+    <path d="M8.8 7.7c.3-.1.7 0 .8.3l.8 1.6c.1.3 0 .5-.2.7l-.6.6a6.6 6.6 0 0 0 3.4 3.4l.6-.6c.2-.2.5-.3.7-.2l1.6.8c.3.1.4.5.3.8-.3.8-.9 1.4-1.8 1.5-3.8.3-7.4-3.2-7.1-7 .1-.9.7-1.6 1.5-1.9Z"/>
+  </symbol>
+  <symbol id="icon-telegram" viewBox="0 0 24 24">
+    <path d="m20.4 4.3-2.6 14.2c-.2 1-1 1.2-1.8.7l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.7 12.4l-4.7-1.5c-1-.3-1-1 .2-1.5L18.9 3.3c.8-.3 1.7.2 1.5 1Z"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24">
+    <rect x="3.2" y="5.2" width="17.6" height="13.6" rx="2.2"/>
+    <path d="m3.8 6.5 8.2 6 8.2-6"/>
+  </symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24">
+    <rect x="5" y="10.2" width="14" height="10" rx="2.2"/>
+    <path d="M8.2 10.2V7.8a3.8 3.8 0 0 1 7.6 0v2.4M12 14.2v2.4"/>
+  </symbol>
+  <symbol id="icon-info" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.8"/>
+    <path d="M12 10.8v5.1M12 7.8h.1"/>
+  </symbol>
+  <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+    <path d="m6 9 6 6 6-6"/>
+  </symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+    <path d="m14.5 6-6 6 6 6"/>
+  </symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24">
+    <circle cx="12" cy="9" r="5.2"/>
+    <path d="m8.7 13.2-1.4 7.1 4.7-2.6 4.7 2.6-1.4-7.1"/>
+  </symbol>
+  <symbol id="icon-graduation" viewBox="0 0 24 24">
+    <path d="m2.8 8.6 9.2-4.2 9.2 4.2-9.2 4.3Z"/>
+    <path d="M6.2 10.6v4.6c0 1.5 2.6 2.8 5.8 2.8s5.8-1.3 5.8-2.8v-4.6M21.2 8.6v5.2"/>
+  </symbol>
+  <symbol id="icon-briefcase" viewBox="0 0 24 24">
+    <rect x="3.2" y="7.2" width="17.6" height="12.4" rx="2.2"/>
+    <path d="M8.6 7.2V5.6a1.8 1.8 0 0 1 1.8-1.8h3.2a1.8 1.8 0 0 1 1.8 1.8v1.6M3.6 12.2h16.8M10.2 12.2v1.8h3.6v-1.8"/>
+  </symbol>
+  <symbol id="icon-quote" viewBox="0 0 24 24">
+    <path d="M9.4 6.2c-3 1-4.9 3.6-4.9 6.9v4.7h6.2v-6.2H7.5c.1-1.7 1-3 2.7-3.9ZM19.6 6.2c-3 1-4.9 3.6-4.9 6.9v4.7h6.2v-6.2h-3.2c.1-1.7 1-3 2.7-3.9Z"/>
+  </symbol>
+  <symbol id="icon-leaf" viewBox="0 0 24 24">
+    <path d="M20.2 3.9c-7.3-.8-12.6 1.4-14.8 5.2-2.3 4 .1 8 4 8.4 4.8.5 8.4-3.9 10.8-13.6Z"/>
+    <path d="M4.2 20.4c1.7-5.2 5.2-9 10.4-11.2"/>
+  </symbol>
+  <symbol id="icon-spark" viewBox="0 0 24 24">
+    <path d="M12 3.2c.5 4.8 2.9 7.2 7.7 7.7-4.8.5-7.2 2.9-7.7 7.7-.5-4.8-2.9-7.2-7.7-7.7 4.8-.5 7.2-2.9 7.7-7.7Z"/>
+  </symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24">
+    <circle cx="10.8" cy="10.8" r="6.8"/>
+    <path d="m16 16 4.2 4.2"/>
+  </symbol>
+
+  <!-- Duotone icons for the landing cards -->
+  <symbol id="icon-thyroid-fill" viewBox="0 0 24 24">
+    <path d="M12 10.3C10.9 7.4 8 6 5.4 7.1 2.7 8.2 1.5 11.8 2.9 15c1.3 3 4 4.8 6.2 3.6 1.6-.9 2.2-2.6 2.9-4.2.7 1.6 1.3 3.3 2.9 4.2 2.2 1.2 4.9-.6 6.2-3.6 1.4-3.2.2-6.8-2.5-7.9-2.6-1.1-5.5.3-6.6 3.2Z" fill="currentColor" stroke="none"/>
+    <path d="M12 10.3V5.8M10.3 5.8h3.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M6.4 10.4c-.8 1.4-.9 3.4-.2 5M17.6 10.4c.8 1.4.9 3.4.2 5" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity=".55"/>
+  </symbol>
+  <symbol id="icon-scale-fill" viewBox="0 0 24 24">
+    <rect x="3.2" y="4" width="17.6" height="17" rx="4.2" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M7.2 14.2a4.8 4.8 0 0 1 9.6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M12 7.8v3.3M12 11.1l1.9 1.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M9.2 18.1h5.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-glucose-fill" viewBox="0 0 24 24">
+    <path d="M12 2.6S5.6 9.4 5.6 13.7a6.4 6.4 0 0 0 12.8 0C18.4 9.4 12 2.6 12 2.6Z" fill="currentColor" stroke="none"/>
+    <path d="M8.7 14.4c.3 1.7 1.5 2.8 3.1 3" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".7"/>
+    <path d="M8.7 14.4h2l1-2 1.5 4 1-1.8h1.4" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-hormones-fill" viewBox="0 0 24 24">
+    <path d="M12 21.2V10.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M12 15C6.4 15 3.4 11.6 3.4 6.2c5.6 0 8.6 3.4 8.6 8.8Z" fill="currentColor" stroke="none"/>
+    <path d="M12 11.2c0-5.4 3-8.8 8.6-8.8 0 5.4-3 8.8-8.6 8.8Z" fill="currentColor" stroke="none" opacity=".55"/>
+    <path d="M6.8 17.8c1.4 1.3 3 1.9 5.2 1.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+  </symbol>
+  <symbol id="icon-wellbeing-fill" viewBox="0 0 24 24">
+    <circle cx="10.4" cy="6.5" r="2.9" fill="currentColor" stroke="none"/>
+    <path d="M4.4 20.8c0-4.1 2.7-6.6 6-6.6 1.2 0 2.3.3 3.2 1" fill="currentColor" stroke="none" opacity=".22"/>
+    <path d="M10.4 14.2c-3.3 0-6 2.5-6 6.6h8.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M17.1 12.2c-1.4-1.5-3.8-.5-3.8 1.3 0 1.8 2.5 3 3.8 4 1.3-1 3.8-2.2 3.8-4 0-1.8-2.4-2.8-3.8-1.3Z" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="icon-tests-fill" viewBox="0 0 24 24">
+    <path d="M6.2 3.1h8.1l4 4v12.6a1.5 1.5 0 0 1-1.5 1.5H6.2a1.5 1.5 0 0 1-1.5-1.5V4.6a1.5 1.5 0 0 1 1.5-1.5Z" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M14.3 3.1v4.2h4M8 11.2h6.2M8 14.2h4.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="16.2" cy="16.4" r="3.1" fill="currentColor" stroke="none"/>
+    <path d="m14.9 16.4 1 1 1.8-2.1" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-chat-fill" viewBox="0 0 24 24">
+    <path d="M4 6.2A3.2 3.2 0 0 1 7.2 3h9.6A3.2 3.2 0 0 1 20 6.2v6.4a3.2 3.2 0 0 1-3.2 3.2h-4.2L7.4 20v-4.2H7.2A3.2 3.2 0 0 1 4 12.6Z" fill="currentColor" stroke="none"/>
+    <circle cx="8.2" cy="9.4" r=".9" fill="#fff"/>
+    <circle cx="12" cy="9.4" r=".9" fill="#fff"/>
+    <circle cx="15.8" cy="9.4" r=".9" fill="#fff"/>
+  </symbol>
+  <symbol id="icon-chart-fill" viewBox="0 0 24 24">
+    <path d="M4 20.2h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M5.4 19.7v-5.1h3.1v5.1" fill="currentColor" opacity=".5" stroke="none"/>
+    <path d="M10.4 19.7V10h3.2v9.7" fill="currentColor" stroke="none"/>
+    <path d="M15.5 19.7V5.2h3.1v14.5" fill="currentColor" opacity=".75" stroke="none"/>
+    <path d="M6.9 11.2 10.9 7l2.7 2.2 4.2-4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+  </symbol>
+  <symbol id="icon-clipboard-fill" viewBox="0 0 24 24">
+    <rect x="4.5" y="4.8" width="15" height="16" rx="2.6" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M9 4.8V3.2h6v1.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <path d="m8.3 12.6 2.1 2.1 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.3 17.2h6.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+  </symbol>
+  <symbol id="icon-target-fill" viewBox="0 0 24 24">
+    <circle cx="11" cy="13" r="7.4" fill="currentColor" opacity=".14" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="11" cy="13" r="4.1" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="11" cy="13" r="1.6" fill="currentColor"/>
+    <path d="m12.2 11.8 6.1-6.1M15 5.7h3.4v3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-question-fill" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M9.5 9.2a2.6 2.6 0 0 1 5.1.9c0 1.8-2.6 2-2.6 3.7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    <circle cx="12" cy="17.2" r="1" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-doc-check-fill" viewBox="0 0 24 24">
+    <path d="M6.2 3.1h8.1l4 4v12.6a1.5 1.5 0 0 1-1.5 1.5H6.2a1.5 1.5 0 0 1-1.5-1.5V4.6a1.5 1.5 0 0 1 1.5-1.5Z" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M14.3 3.1v4.2h4M7.9 12.6l2.2 2.2 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 17h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+  </symbol>
+  <symbol id="icon-shield-fill" viewBox="0 0 24 24">
+    <path d="M12 2.6 4.6 5.8v5.5c0 4.6 3 8.2 7.4 10 4.4-1.8 7.4-5.4 7.4-10V5.8Z" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="m8.4 11.9 2.2 2.3 4.7-4.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-book-fill" viewBox="0 0 24 24">
+    <path d="M3.4 5.2A2.3 2.3 0 0 1 5.7 3h4.5a2 2 0 0 1 2 2v15a2 2 0 0 0-2-2H5.7a2.3 2.3 0 0 1-2.3-2.3Z" fill="currentColor" opacity=".35" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M20.6 5.2A2.3 2.3 0 0 0 18.3 3h-4.1a2 2 0 0 0-2 2v15a2 2 0 0 1 2-2h4.1a2.3 2.3 0 0 0 2.3-2.3Z" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M12 5v13" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".7"/>
+  </symbol>
+  <symbol id="icon-heart-fill" viewBox="0 0 24 24">
+    <path d="M12 20.4S3.6 15.2 3.6 9.2a4.2 4.2 0 0 1 7.3-2.8l1.1 1.2 1.1-1.2a4.2 4.2 0 0 1 7.3 2.8c0 6-8.4 11.2-8.4 11.2Z" fill="currentColor" stroke="none"/>
+    <path d="M7.2 11.9h2l1-1.8 1.6 3.6 1-1.8h2" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-calendar-fill" viewBox="0 0 24 24">
+    <rect x="3.6" y="5" width="16.8" height="15.2" rx="2.8" fill="currentColor" opacity=".15" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M3.6 9.5h16.8M7.8 3v4M16.2 3v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="8.2" cy="13.5" r=".9" fill="currentColor"/>
+    <circle cx="12" cy="13.5" r=".9" fill="currentColor"/>
+    <circle cx="15.8" cy="13.5" r=".9" fill="currentColor"/>
+    <circle cx="8.2" cy="17.2" r=".9" fill="currentColor"/>
+    <circle cx="12" cy="17.2" r=".9" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-video-fill" viewBox="0 0 24 24">
+    <rect x="3" y="6.2" width="12.6" height="11.6" rx="2.6" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6"/>
+    <path d="m15.6 10.5 5.4-3v9l-5.4-3Z" fill="currentColor" stroke="none"/>
+    <circle cx="9.2" cy="12" r="1.2" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-award-fill" viewBox="0 0 24 24">
+    <circle cx="12" cy="8.8" r="5.4" fill="currentColor" opacity=".16" stroke="currentColor" stroke-width="1.6"/>
+    <path d="m8.6 13.2-1.4 7.1 4.8-2.7 4.8 2.7-1.4-7.1" fill="currentColor" opacity=".55" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="m9.8 8.8 1.5 1.5 3-3.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-user-fill" viewBox="0 0 24 24">
+    <circle cx="12" cy="7.8" r="3.7" fill="currentColor" stroke="none"/>
+    <path d="M4.8 20.3c0-4.1 3-6.8 7.2-6.8s7.2 2.7 7.2 6.8" fill="currentColor" opacity=".25" stroke="none"/>
+    <path d="M4.8 20.3c0-4.1 3-6.8 7.2-6.8s7.2 2.7 7.2 6.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-clock-fill" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="currentColor" opacity=".14" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M12 6.8V12l3.4 2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-route-fill" viewBox="0 0 24 24">
+    <circle cx="6" cy="6" r="3" fill="currentColor" opacity=".25" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="18" cy="18" r="3" fill="currentColor" opacity=".25" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M9 6h3.6a3.4 3.4 0 0 1 0 6.8h-1.2a3.4 3.4 0 0 0 0 6.8H15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.4 3"/>
+  </symbol>
+</svg>
+
+<section class="profile-hero" aria-labelledby="profile-title">
+  <div class="container profile-hero-inner">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="../index.html">Главная</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">О враче</span></nav>
+    <div class="profile-hero-copy">
+      <h1 id="profile-title">Анна Викторовна <br>Миронова — <br><em>врач-эндокринолог</em></h1>
+      <p>Помогаю разобраться в причинах нарушений работы щитовидной железы, обмена веществ, углеводного обмена и гормональных изменений. Основа моей работы — доказательная медицина и понятные объяснения.</p>
+      <div class="profile-facts">
+        <span><svg aria-hidden="true"><use href="#icon-video"></use></svg><span><strong>Онлайн</strong><small>для взрослых</small></span></span>
+        <span><svg aria-hidden="true"><use href="#icon-calendar"></use></svg><span><strong>12 лет</strong><small>практики</small></span></span>
+        <span><svg aria-hidden="true"><use href="#icon-clock"></use></svg><span><strong>60 минут</strong><small>первая консультация</small></span></span>
       </div>
-      <div class="about-bio">
-        <p>Помогаю разобраться в изменениях щитовидной железы, обмена веществ, углеводного обмена и гормональных нарушениях. Работаю с опорой на доказательную медицину и понятное объяснение.</p>
-        <p>Моя задача — не назначить как можно больше обследований, а помочь понять, что происходит, какие данные действительно важны и какие шаги имеют смысл.</p>
-        <div class="about-facts">
-          <div class="about-fact"><strong>12 лет</strong><span>клинической практики</span></div>
-          <div class="about-fact"><strong>60 минут</strong><span>первичная консультация</span></div>
-          <div class="about-fact"><strong>Онлайн</strong><span>для взрослых</span></div>
-        </div>
-        <a class="btn btn-primary" href="../zapis/">Записаться на консультацию</a>
-      </div>
+      <div class="profile-hero-actions"><a class="btn btn-primary" href="../zapis/">Записаться на консультацию →</a><a class="btn btn-outline" href="../kontakty/">Связаться</a></div>
     </div>
   </div>
-  <div class="about-grid">
-    <section class="about-block"><h2>Биография и опыт</h2><p>Врач-эндокринолог, консультирую взрослых по вопросам щитовидной железы, метаболических и гормональных нарушений. В работе сочетаю клиническую оценку, интерпретацию анализов и внимание к контексту пациента.</p><p>Принимаю онлайн, чтобы консультация была доступна из разных городов. Если для решения вопроса нужен очный осмотр, объясняю, к кому и как обратиться.</p></section>
-    <section class="about-block"><h2>Образование и квалификация</h2><ul><li>Высшее медицинское образование, лечебное дело.</li><li>Ординатура по эндокринологии.</li><li>Действующая аккредитация по специальности «Эндокринология».</li><li>Регулярное повышение квалификации по профилю.</li></ul><p class="form-note">Реквизиты диплома и аккредитации уточняются; документы доступны по запросу.</p></section>
+</section>
+<div class="container profile-content">
+  <section class="profile-intro profile-card" aria-labelledby="profile-about-title">
+    <div class="profile-bio"><h2 id="profile-about-title">Обо мне</h2><span class="profile-heading-line"></span><p>Я врач-эндокринолог с 12-летним опытом клинической работы. Веду онлайн-консультации для взрослых, помогаю разобраться в сложных ситуациях, объясняю результаты анализов и подбираю понятный план дальнейших шагов.</p><p>Моя задача — не назначить как можно больше обследований, а вместе с вами понять, какие данные действительно важны и что делать дальше.</p></div>
+    <div class="profile-principles"><blockquote><svg aria-hidden="true"><use href="#icon-quote"></use></svg><p>Внимательно слушаю, подробно объясняю, помогаю найти решение.</p></blockquote><h3>Мои главные принципы</h3><div class="profile-principles-grid"><div class="profile-principle"><span><svg aria-hidden="true"><use href="#icon-heart-hand"></use></svg></span><b>Индивидуальный подход</b></div><div class="profile-principle"><span><svg aria-hidden="true"><use href="#icon-shield"></use></svg></span><b>Доказательная медицина</b></div><div class="profile-principle"><span><svg aria-hidden="true"><use href="#icon-chat-fill"></use></svg></span><b>Понятные объяснения</b></div></div></div>
+  </section>
+
+  <section class="profile-experience profile-card" aria-labelledby="profile-experience-title">
+    <div><h2 id="profile-experience-title">Клинический опыт</h2><ol><li><strong>Клиническая практика</strong><span>12 лет работы с эндокринологическими вопросами взрослых пациентов.</span></li><li><strong>Онлайн-консультации</strong><span>Разбор жалоб, обследований и плана дальнейших действий дистанционно.</span></li><li><strong>Постоянное развитие</strong><span>Изучение актуальных рекомендаций и повышение квалификации по профилю.</span></li></ol></div>
+    <div class="profile-experience-badge"><svg aria-hidden="true"><use href="#icon-calendar"></use></svg><strong>12 лет</strong><span>клинической практики</span></div>
+  </section>
+
+  <div class="profile-pair">
+    <section class="profile-education profile-card" aria-labelledby="profile-education-title"><h2 id="profile-education-title">Образование и квалификация</h2><div class="profile-education-grid"><div class="profile-education-item"><span><svg aria-hidden="true"><use href="#icon-book"></use></svg></span><div><strong>Высшее медицинское образование</strong><small>Лечебное дело</small></div></div><div class="profile-education-item"><span><svg aria-hidden="true"><use href="#icon-file-text"></use></svg></span><div><strong>Ординатура</strong><small>Эндокринология</small></div></div><div class="profile-education-item"><span><svg aria-hidden="true"><use href="#icon-shield"></use></svg></span><div><strong>Аккредитация</strong><small>По специальности «Эндокринология»</small></div></div><div class="profile-education-item"><span><svg aria-hidden="true"><use href="#icon-chart"></use></svg></span><div><strong>Повышение квалификации</strong><small>Регулярное обучение по профилю</small></div></div></div></section>
+    <section class="profile-approach profile-card" aria-labelledby="profile-approach-title"><h2 id="profile-approach-title">Мой подход к работе</h2><blockquote><svg aria-hidden="true"><use href="#icon-quote"></use></svg><p>Эффективное решение начинается с внимательного разговора. Я объясняю, что значат результаты обследований и какие шаги обоснованы в вашей ситуации.</p></blockquote><div class="profile-approach-tags"><span><svg aria-hidden="true"><use href="#icon-heart-hand"></use></svg>Внимательное отношение</span><span><svg aria-hidden="true"><use href="#icon-shield"></use></svg>Обоснованные решения</span></div></section>
   </div>
-  <section class="page-section"><h2>Подход к работе</h2><div class="prose"><p>Я стараюсь объяснять сложные вещи простым языком и не оставлять вопросы без ответа. В консультации важны не только цифры анализов, но и жалобы, история, образ жизни и то, что для вас действительно важно.</p><p>Не обещаю быстрых результатов и не назначаю лечение «на всякий случай». Если вопрос выходит за пределы моей компетенции, говорю об этом прямо и предлагаю следующий шаг.</p></div></section>
-  <section class="page-section"><h2>Профессиональные интересы</h2><div class="prose"><ul><li>Заболевания щитовидной железы и наблюдение узлов.</li><li>Предиабет, диабет 2 типа и метаболический синдром.</li><li>Инсулинорезистентность и вопросы веса.</li><li>Гормональные нарушения в пределах эндокринологии.</li><li>Объяснение анализов и подготовка к очному приёму.</li></ul></div></section>
-  <section class="page-section" id="documents"><h2>Документы</h2><p>Демонстрационные карточки. Нажмите, чтобы открыть увеличенный просмотр. Оригиналы предоставляются по запросу.</p><div class="doc-grid">
-<button class="doc-card" type="button" data-doc-preview data-doc-title="Диплом врача" data-doc-card>
-  <span class="doc-sheet"><span>РОССИЙСКАЯ ФЕДЕРАЦИЯ</span><strong>Диплом врача</strong><small>Лечебное дело</small></span>
-  <span class="doc-caption">Диплом врача</span>
-</button>
-<button class="doc-card" type="button" data-doc-preview data-doc-title="Аккредитация" data-doc-card>
-  <span class="doc-sheet"><span>РОССИЙСКАЯ ФЕДЕРАЦИЯ</span><strong>Аккредитация</strong><small>Эндокринология</small></span>
-  <span class="doc-caption">Аккредитация</span>
-</button>
-<button class="doc-card" type="button" data-doc-preview data-doc-title="Сертификат специалиста" data-doc-card>
-  <span class="doc-sheet"><span>РОССИЙСКАЯ ФЕДЕРАЦИЯ</span><strong>Сертификат специалиста</strong><small>Эндокринология</small></span>
-  <span class="doc-caption">Сертификат специалиста</span>
-</button>
-<button class="doc-card" type="button" data-doc-preview data-doc-title="Повышение квалификации" data-doc-card>
-  <span class="doc-sheet"><span>РОССИЙСКАЯ ФЕДЕРАЦИЯ</span><strong>Повышение квалификации</strong><small>Регулярное обучение</small></span>
-  <span class="doc-caption">Повышение квалификации</span>
-</button></div><p class="form-note">Перед публикацией сайта замените демонстрационные изображения на реальные сканы с проверенными данными.</p></section>
-  <section class="page-section"><h2>Видеообращение</h2><div class="cta-band"><div><h2>Видеообращение врача</h2><p>Видео можно добавить после записи. Сейчас доступна текстовая информация и онлайн-консультация.</p></div><a class="btn btn-ghost" href="../kontakty/">Связаться</a></div></section>
-  <section class="page-section"><h2>Отзывы</h2><p>Раздел отзывов работает без вымышленных оценок. Ознакомьтесь с порядком публикации и оставьте обратную связь.</p><a class="btn btn-ghost" href="../otzyvy/">Перейти к отзывам</a></section>
-  <section class="page-booking" id="booking"><div class="container page-booking-grid"><div class="page-booking-copy"><p class="page-kicker">Запись</p><h2>Записаться на консультацию</h2><p>Оставьте контакт — согласуем время и формат.</p><ul class="check-list"><li>Первичная консультация — 60 минут</li><li>Повторная — 30 минут</li><li>Оплата после подтверждения времени</li></ul></div>
+
+  <section class="profile-interests profile-card" aria-labelledby="profile-interests-title"><div><h2 id="profile-interests-title">Профессиональные интересы</h2><span class="profile-heading-line"></span><p>Помогаю взрослым пациентам с широким спектром эндокринных вопросов, особенно по следующим направлениям:</p></div><div class="profile-interest-grid"><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-thyroid"></use></svg></span><p>Заболевания щитовидной железы и узловые образования</p></div><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-glucose"></use></svg></span><p>Предиабет и сахарный диабет 2 типа</p></div><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-hormones"></use></svg></span><p>Гормональные нарушения у взрослых</p></div><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-scale"></use></svg></span><p>Нарушения обмена веществ и вопросы веса</p></div><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-file-search"></use></svg></span><p>Интерпретация анализов и подготовка к очному приёму</p></div><div class="profile-interest"><span><svg aria-hidden="true"><use href="#icon-heart-hand"></use></svg></span><p>Планирование беременности и эндокринное здоровье</p></div></div></section>
+
+  <section class="profile-documents profile-card" id="documents" aria-labelledby="profile-documents-title"><div><h2 id="profile-documents-title">Документы</h2><p>Реквизиты образования и аккредитации уточняются. Оригиналы документов доступны по запросу; изображения ниже — демонстрационные карточки.</p><a href="../dokumenty/">Подробнее о документах →</a></div><div class="profile-doc-grid"><a class="profile-doc" href="../dokumenty/" aria-label="Подробнее: Диплом"><span class="profile-doc-paper"><img src="../assets/img/about-document-01.webp" width="235" height="345" alt="" loading="lazy"><span>ОБРАЗЕЦ</span><strong>Диплом</strong><small>о высшем образовании</small></span><b>Диплом</b><small>о высшем образовании</small></a><a class="profile-doc" href="../dokumenty/" aria-label="Подробнее: Ординатура"><span class="profile-doc-paper"><img src="../assets/img/about-document-02.webp" width="235" height="345" alt="" loading="lazy"><span>ОБРАЗЕЦ</span><strong>Ординатура</strong><small>по эндокринологии</small></span><b>Ординатура</b><small>по эндокринологии</small></a><a class="profile-doc" href="../dokumenty/" aria-label="Подробнее: Аккредитация"><span class="profile-doc-paper"><img src="../assets/img/about-document-03.webp" width="235" height="345" alt="" loading="lazy"><span>ОБРАЗЕЦ</span><strong>Аккредитация</strong><small>по специальности</small></span><b>Аккредитация</b><small>по специальности</small></a><a class="profile-doc" href="../dokumenty/" aria-label="Подробнее: Обучение"><span class="profile-doc-paper"><img src="../assets/img/about-document-04.webp" width="235" height="345" alt="" loading="lazy"><span>ОБРАЗЕЦ</span><strong>Обучение</strong><small>повышение квалификации</small></span><b>Обучение</b><small>повышение квалификации</small></a></div></section>
+
+  <div class="profile-pair profile-media-row">
+    <section class="profile-video profile-card" aria-labelledby="profile-video-title"><div><h2 id="profile-video-title">Видеообращение врача</h2><p>Видеообращение пока не опубликовано. Обо мне и формате работы можно узнать на этой странице или задать организационный вопрос.</p><a href="../kontakty/">Задать вопрос →</a></div><img src="../assets/img/doctor-about-330.webp" width="330" height="412" alt="Портрет врача-эндокринолога" loading="lazy"></section>
+    <section class="profile-reviews profile-card" aria-labelledby="profile-reviews-title"><h2 id="profile-reviews-title">Отзывы пациентов</h2><p>Отзывы публикуются только после подтверждения согласия пациента. На сайте нет вымышленных историй и оценок.</p><a class="btn btn-outline" href="../otzyvy/">Перейти к отзывам →</a></section>
+  </div>
+
+  <section class="profile-booking" id="booking" aria-labelledby="profile-booking-title"><div class="profile-booking-copy"><h2 id="profile-booking-title">Записаться<br>на консультацию</h2><p>Выберите удобное время на странице записи или оставьте контакт здесь.</p><p>Первичная консультация — 60 минут. Оплата после подтверждения времени.</p></div>
 <div class="page-form-card final-form-card">
   <h2>Записаться на консультацию</h2>
   <p class="form-sub">Оставьте контакт — согласуем время и удобный формат связи.</p>
@@ -116,7 +400,7 @@
     <p class="form-error" data-form-error hidden>Проверьте имя, телефон и согласие на обработку данных.</p>
     <p class="form-note">Демонстрационная форма. Не отправляйте медицинские документы и подробности здоровья через этот сайт.</p>
   </form>
-</div></div></section>
+</div></section>
 </div>
 
   </main>
