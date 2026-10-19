@@ -980,76 +980,6 @@ body {
   line-height: 1.35;
 }
 
-/* Reviews */
-.review-empty {
-  padding: 26px;
-  border: 1px solid var(--site-border);
-  border-radius: 14px;
-  background: var(--site-mint);
-}
-.review-empty h2 {
-  margin: 0 0 8px;
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
-  font-weight: 650;
-}
-.review-empty p {
-  max-width: 640px;
-  margin: 0 0 10px;
-  color: #4d625e;
-  font-size: 14.5px;
-  line-height: 1.6;
-}
-.review-policy {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 18px 0;
-}
-.review-policy > div {
-  padding: 14px;
-  border: 1px solid var(--site-border);
-  border-radius: 10px;
-  background: #fff;
-}
-.review-policy strong {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 13.5px;
-}
-.review-policy p {
-  margin: 0;
-  color: var(--site-muted);
-  font-size: 12px;
-  line-height: 1.5;
-}
-.review-form-wrap {
-  max-width: 760px;
-  margin: 24px auto;
-  padding: 22px;
-  border: 1px solid var(--site-border);
-  border-radius: 14px;
-  background: #fff;
-}
-.review-form-wrap h2 {
-  margin: 0 0 5px;
-  font-family: "Inter", sans-serif;
-  font-size: 22px;
-  font-weight: 650;
-}
-.review-form-wrap > p {
-  margin: 0 0 14px;
-  color: var(--site-muted);
-  font-size: 12.5px;
-}
-.review-success {
-  padding: 12px;
-  border-radius: 8px;
-  background: #eef8f3;
-  color: var(--site-teal);
-  font-size: 13px;
-}
-
 /* Contacts */
 .contact-grid {
   display: grid;
@@ -1249,9 +1179,6 @@ body {
   }
   .cards-grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .review-policy {
-    grid-template-columns: 1fr;
   }
   .legal-layout {
     grid-template-columns: 1fr;

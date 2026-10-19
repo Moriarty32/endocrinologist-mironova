@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261020j"
+VERSION = "20261020k"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
@@ -761,7 +761,6 @@ def section_page(
         "zabolevaniya": "Эндокринологические темы",
         "stati": "Материалы врача",
         "ceny": "Стоимость консультации",
-        "otzyvy": "Обратная связь",
         "kontakty": "Связь с врачом",
         "faq": "Частые вопросы",
         "dokumenty": "Образование и квалификация",
@@ -967,7 +966,7 @@ def about_page() -> None:
 
   <div class="profile-pair profile-media-row">
     <section class="profile-video profile-card" aria-labelledby="profile-video-title"><div><h2 id="profile-video-title">Видеообращение врача</h2><p>{esc(profile['video_note'])}</p><a href="{base}kontakty/">Задать вопрос →</a></div><img src="{base}assets/img/doctor-about-330.webp" width="330" height="412" alt="Портрет врача-эндокринолога" loading="lazy"></section>
-    <section class="profile-reviews profile-card" aria-labelledby="profile-reviews-title"><h2 id="profile-reviews-title">Отзывы пациентов</h2><p>{esc(profile['reviews_note'])}</p><a class="btn btn-outline" href="{base}otzyvy/">Перейти к отзывам →</a></section>
+    <section class="profile-reviews profile-card" aria-labelledby="profile-reviews-title"><h2 id="profile-reviews-title">Отзывы пациентов</h2><p>{esc(profile['reviews_note'])}</p><a class="btn btn-outline" href="{base}kontakty/">Связаться →</a></section>
   </div>
 
   <section class="profile-booking" id="booking" aria-labelledby="profile-booking-title"><div class="profile-booking-copy"><h2 id="profile-booking-title">Записаться<br>на консультацию</h2><p>Выберите удобное время на странице записи или оставьте контакт здесь.</p><p>Первичная консультация — 60 минут. Оплата после подтверждения времени.</p></div>{booking_form('o-vrache', 'Консультация', base)}</section>
@@ -1254,47 +1253,6 @@ def prices_page() -> None:
     )
 
 
-def reviews_page() -> None:
-    base = "../"
-    body = f"""
-<div class="review-empty">
-  <h2>Отзывы без вымышленных историй</h2>
-  <p>На сайте публикуются только отзывы, которые можно подтвердить и на публикацию которых есть согласие автора. Пока подтверждённых отзывов нет — здесь не будет придуманных оценок, рейтингов и «историй успеха».</p>
-  <p>Если вы были на консультации и хотите оставить обратную связь, используйте форму ниже. Отзыв появится после модерации и проверки согласия.</p>
-</div>
-<div class="review-policy">
-  <div><strong>Что публикуем</strong><p>Текст отзыва, разрешённое автором имя или инициалы, дату и тему обращения без медицинских подробностей.</p></div>
-  <div><strong>Что не публикуем</strong><p>Диагнозы, результаты анализов, данные третьих лиц и обещания одинакового результата другим пациентам.</p></div>
-  <div><strong>Внешние площадки</strong><p>Ссылки на профили появятся после подтверждения. Сейчас можно проверить информацию о враче в открытых источниках.</p></div>
-</div>
-<div class="review-form-wrap">
-  <h2>Оставить отзыв</h2>
-  <p>Форма демонстрационная: текст сохраняется только в этой вкладке и не отправляется на сервер.</p>
-  <div class="review-success" data-review-success role="status" aria-live="polite" hidden>Спасибо. В рабочей версии отзыв уйдёт на модерацию, а мы свяжемся с вами для подтверждения согласия.</div>
-  <form class="page-form" data-review-form>
-    <div class="form-row-2">
-      <div class="page-field"><label for="review-name">Имя или инициалы</label><input id="review-name" name="review-name" type="text" required placeholder="Как подписать отзыв"></div>
-      <div class="page-field"><label for="review-topic">Тема обращения</label><select id="review-topic" name="review-topic"><option>Щитовидная железа</option><option>Вес и обмен веществ</option><option>Диабет</option><option>Гормоны</option><option>Другое</option></select></div>
-    </div>
-    <div class="page-field"><label for="review-text">Текст отзыва</label><textarea id="review-text" name="review-text" required placeholder="Что было важно для вас? Не указывайте диагнозы и личные медицинские данные."></textarea></div>
-    <label class="consent-line"><input type="checkbox" required><span>Согласен на публикацию отзыва после модерации и обработку персональных данных.</span></label>
-    <button class="btn btn-primary" type="submit">Отправить на модерацию</button>
-    <p class="form-note">Не публикуйте медицинские сведения, которые не хотите раскрывать.</p>
-  </form>
-  <button class="btn btn-ghost" type="button" data-review-reset hidden>Оставить ещё один отзыв</button>
-</div>
-<div class="cta-band"><div><h2>Хотите обсудить свой вопрос?</h2><p>Консультация — не публичный отзыв и не обещание результата.</p></div><a class="btn btn-primary" href="{base}zapis/">Записаться</a></div>
-<section class="page-booking" id="booking"><div class="container page-booking-grid"><div class="page-booking-copy"><p class="page-kicker">Запись</p><h2>Записаться на консультацию</h2><p>Оставьте контакт — согласуем время.</p>{lead_list(['Онлайн-формат', 'Без публикации ваших данных', 'Оплата после подтверждения'])}</div>{booking_form('otzyvy', 'Консультация', base)}</div></section>
-"""
-    section_page(
-        path="otzyvy",
-        title="Отзывы о консультациях — порядок публикации | Анна Миронова",
-        h1="Отзывы",
-        lead="Прозрачный порядок обратной связи без вымышленных оценок и медицинских подробностей.",
-        body=body, base=base,
-    )
-
-
 def contacts_page() -> None:
     base = "../"
     body = f"""
@@ -1481,7 +1439,7 @@ def write_site_data() -> None:
 def write_sitemap() -> None:
     urls = [f"{BASE_URL}/"]
     urls += [f"{BASE_URL}/{path}/" for path in [
-        "uslugi", "zabolevaniya", "o-vrache", "ceny", "otzyvy", "stati", "kontakty", "faq", "zapis",
+        "uslugi", "zabolevaniya", "o-vrache", "ceny", "stati", "kontakty", "faq", "zapis",
         "politika-konfidencialnosti", "soglasie-na-obrabotku-dannyh", "dokumenty",
     ]]
     urls += [f"{BASE_URL}/uslugi/{item['slug']}/" for item in C.SERVICES]
@@ -1520,7 +1478,6 @@ def main() -> None:
     about_page()
     booking_page()
     prices_page()
-    reviews_page()
     contacts_page()
     faq_page()
     documents_page()
@@ -1529,7 +1486,7 @@ def main() -> None:
     not_found_page()
     write_sitemap()
     write_redirects()
-    count = len(C.SERVICES) + len(C.DISEASES) + len(C.ARTICLES) + 13
+    count = len(C.SERVICES) + len(C.DISEASES) + len(C.ARTICLES) + 12
     print(f"OK: generated {count} pages + site-data.js + sitemap.xml")
 
 

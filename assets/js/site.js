@@ -45,8 +45,6 @@
 
     const nav = `
       <nav class="site-nav" aria-label="Основная навигация">
-        <a class="nav-link" href="${url("index.html")}">Главная</a>
-        <a class="nav-link nav-link-booking" href="${url("zapis/")}">Запись</a>
         <div class="nav-item nav-item-mega">
           <button class="nav-link nav-mega-toggle" type="button" data-mega-toggle="services" aria-expanded="false" aria-controls="mega-services" aria-haspopup="true">Услуги${chevron}</button>
           <div class="mega-panel" id="mega-services" data-mega-panel="services" hidden>
@@ -89,7 +87,6 @@
         </div>
         <a class="nav-link" href="${url("o-vrache/")}">О враче</a>
         <a class="nav-link" href="${url("ceny/")}">Цены</a>
-        <a class="nav-link" href="${url("otzyvy/")}">Отзывы</a>
         <a class="nav-link" href="${url("stati/")}">Статьи</a>
         <a class="nav-link" href="${url("kontakty/")}">Контакты</a>
       </nav>`;
@@ -120,8 +117,6 @@
           <button class="mobile-close" type="button" data-menu-close aria-label="Закрыть меню">${icon("icon-close")}</button>
         </div>
         <nav class="mobile-nav" aria-label="Мобильная навигация">
-          <a href="${url("index.html")}">Главная</a>
-          <a href="${url("zapis/")}">Онлайн-запись</a>
           <div class="mobile-group">
             <button type="button" class="mobile-group-toggle" data-mobile-accordion aria-expanded="false" aria-controls="mobile-services">Услуги${chevron}</button>
             <div class="mobile-submenu" id="mobile-services" hidden>
@@ -138,10 +133,8 @@
           </div>
           <a href="${url("o-vrache/")}">О враче</a>
           <a href="${url("ceny/")}">Цены</a>
-          <a href="${url("otzyvy/")}">Отзывы</a>
           <a href="${url("stati/")}">Статьи</a>
           <a href="${url("kontakty/")}">Контакты</a>
-          <a href="${url("faq/")}">Вопросы и ответы</a>
         </nav>
         <div class="mobile-menu-footer">
           <a class="btn btn-primary" href="${bookingHref}">Записаться на консультацию</a>
@@ -290,7 +283,6 @@
               <a href="${url("zabolevaniya/")}">Заболевания</a>
               <a href="${url("ceny/")}">Цены</a>
               <a href="${url("zapis/")}">Онлайн-запись</a>
-              <a href="${url("otzyvy/")}">Отзывы</a>
               <a href="${url("stati/")}">Статьи</a>
               <a href="${url("faq/")}">Вопросы и ответы</a>
             </div>
@@ -374,30 +366,6 @@
     dialog.addEventListener("close", () => document.body.classList.remove("dialog-open"));
   }
 
-  function initReviewForm() {
-    const form = $("[data-review-form]");
-    if (!form) return;
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const success = $("[data-review-success]");
-      if (!form.reportValidity()) return;
-      form.hidden = true;
-      if (success) success.hidden = false;
-      const resetButton = $("[data-review-reset]");
-      if (resetButton) resetButton.hidden = false;
-    });
-    const reset = $("[data-review-reset]");
-    if (reset) {
-      reset.addEventListener("click", () => {
-        form.reset();
-        form.hidden = false;
-        const success = $("[data-review-success]");
-        if (success) success.hidden = true;
-        reset.hidden = true;
-      });
-    }
-  }
-
   function initYear() {
     $$("[data-year]").forEach((element) => {
       element.textContent = String(new Date().getFullYear());
@@ -410,6 +378,5 @@
   initMobileAccordions();
   initPrices();
   initDocumentPreview();
-  initReviewForm();
   initYear();
 })();

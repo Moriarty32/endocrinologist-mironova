@@ -21,7 +21,7 @@
 
 ```powershell
 python tools/build_site.py          # генерация страниц, site-data.js, sitemap.xml
-python tools/check_multipage.py     # 34 страницы: ссылки, canonical, H1, описания, id
+python tools/check_multipage.py     # 33 страницы: ссылки, canonical, H1, описания, id
 python tools/check_assets.py        # все URL ассетов из CSS существуют
 python -m http.server 4173          # локальный просмотр: http://localhost:4173/
 ```
@@ -36,7 +36,7 @@ JS-синтаксис: `node --check app.js` (и `booking.js`, `assets/js/site.j
 - `content/site_content.py` — единственный источник данных: `BRAND`, `CONTACT`,
   `PRICES`, `SERVICES` (7), `DISEASES` (10), `ARTICLES` (3), `FAQ`.
 - `tools/build_site.py` — генератор. Перезаписывает `uslugi/**`, `zabolevaniya/**`,
-  `stati/**`, `zapis/`, разделы (`ceny/`, `otzyvy/`, `o-vrache/`, `kontakty/`, `faq/`,
+  `stati/**`, `zapis/`, разделы (`ceny/`, `o-vrache/`, `kontakty/`, `faq/`,
   `dokumenty/`, юридические страницы), `404.html`, `sitemap.xml`,
   `assets/js/site-data.js` и redirect-заглушки старых URL.
 - `index.html` — **ручной** файл (квиз, диалоги документов), генератором не
