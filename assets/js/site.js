@@ -11,7 +11,7 @@
   const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
   const icon = (name, className = "") =>
-    `<svg class="icon ${className}" aria-hidden="true"><use href="${url("assets/icons.svg")}#${name}"></use></svg>`;
+    `<svg class="icon ${className}" aria-hidden="true"><use href="${url("assets/icons.svg?v=20261020h")}#${name}"></use></svg>`;
   const chevron = '<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const formatPrice = (value) => new Intl.NumberFormat("ru-RU").format(value);
   const bookingHref = document.body.classList.contains("booking-page") ? "#booking-form" : url("zapis/");
@@ -109,7 +109,7 @@
             <a class="btn btn-primary header-cta" href="${bookingHref}">Записаться</a>
             <button class="menu-toggle" type="button" data-menu-toggle aria-controls="mobile-menu" aria-expanded="false">
               <span class="sr-only">Открыть меню</span>
-              <svg class="icon" aria-hidden="true"><use href="${url("assets/icons.svg")}#icon-menu"></use></svg>
+              <svg class="icon" aria-hidden="true"><use href="${url("assets/icons.svg?v=20261020h")}#icon-menu"></use></svg>
             </button>
           </div>
         </div>

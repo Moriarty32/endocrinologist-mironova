@@ -762,6 +762,18 @@ body {
   }
 }
 
+@media (max-width: 340px) {
+  .header-cta.btn {
+    display: none;
+  }
+  .header-inner {
+    gap: 6px;
+  }
+  .brand-text strong {
+    font-size: 14px !important;
+  }
+}
+
 @media (max-width: 900px) {
   .footer-top {
     grid-template-columns: 1fr 1fr;

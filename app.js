@@ -185,6 +185,7 @@
     const error = $("[data-form-error]", form);
     const nameInput = $('input[name="name"]', form);
     const phoneInput = $('input[name="phone"]', form);
+    const emailInput = $('input[name="email"]', form);
     const consent = $('input[name="consent"]', form);
     const dateInput = $('input[name="date"]', form);
     const timeInput = $('input[name="time"]', form);
@@ -196,12 +197,12 @@
       slotErrors.forEach((slotError) => {
         slotError.hidden = true;
       });
-      [nameInput, phoneInput].forEach((input) => {
+      [nameInput, phoneInput, emailInput].forEach((input) => {
         if (input) input.removeAttribute("aria-invalid");
       });
     }
 
-    [nameInput, phoneInput].forEach((input) => {
+    [nameInput, phoneInput, emailInput].forEach((input) => {
       if (!input) return;
       input.addEventListener("input", () => {
         input.removeAttribute("aria-invalid");
@@ -216,22 +217,24 @@
       clearError();
       const nameValid = nameInput.value.trim().length >= 2;
       const phoneValid = isValidPhone(phoneInput.value);
+      const emailValid = !emailInput || !emailInput.value.trim() || emailInput.checkValidity();
       const consentValid = consent.checked;
       const slotValid = !slotRequired || Boolean(dateInput?.value && timeInput?.value);
 
       if (!nameValid) nameInput.setAttribute("aria-invalid", "true");
       if (!phoneValid) phoneInput.setAttribute("aria-invalid", "true");
+      if (!emailValid) emailInput.setAttribute("aria-invalid", "true");
       if (!consentValid) consent.setAttribute("aria-invalid", "true");
       slotErrors.forEach((slotError) => {
         slotError.hidden = slotValid;
       });
 
-      if (!nameValid || !phoneValid || !consentValid || !slotValid) {
-        if (error) error.hidden = nameValid && phoneValid && consentValid;
+      if (!nameValid || !phoneValid || !emailValid || !consentValid || !slotValid) {
+        if (error) error.hidden = nameValid && phoneValid && emailValid && consentValid;
         if (!slotValid) {
           $("[data-booking-days] button:not(:disabled)")?.focus();
         } else {
-          const firstInvalid = !nameValid ? nameInput : !phoneValid ? phoneInput : consent;
+          const firstInvalid = !nameValid ? nameInput : !phoneValid ? phoneInput : !emailValid ? emailInput : consent;
           firstInvalid.focus();
         }
         track("form_error", { form: form.dataset.form });
@@ -242,6 +245,7 @@
       const lead = {
         name: String(data.get("name") || "").trim().slice(0, 80),
         phone: String(data.get("phone") || "").trim(),
+        email: String(data.get("email") || "").trim().slice(0, 120),
         contact: String(data.get("contact") || "Телефон"),
         date: String(data.get("date") || "").trim(),
         time: String(data.get("time") || "").trim(),

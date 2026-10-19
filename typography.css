@@ -441,6 +441,10 @@ body {
 }
 
 @media (max-width: 760px) {
+  .ref-lead {
+    font-size: 17px !important;
+    line-height: 1.5;
+  }
   .booking-day strong {
     font-size: 22px !important;
   }

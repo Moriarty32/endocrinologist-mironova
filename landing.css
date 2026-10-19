@@ -2515,6 +2515,13 @@ h2 {
   h1 {
     font-size: 28px;
   }
+  .ref-final-actions .btn {
+    height: auto;
+    min-height: 46px;
+    padding: 8px 12px;
+    white-space: normal;
+    text-align: center;
+  }
 }
 @media (max-width: 480px) {
   .ref-final-grid,

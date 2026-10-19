@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261020g"
+VERSION = "20261020j"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
@@ -122,8 +122,9 @@ def page_shell(
   <link rel="stylesheet" href="{base}pages.css?v={VERSION}">
   <link rel="stylesheet" href="{base}site.css?v={VERSION}">
   <link rel="stylesheet" href="{base}inner.css?v={VERSION}">
-  {extra_head}
   <link rel="stylesheet" href="{base}typography.css?v={VERSION}">
+  <link rel="stylesheet" href="{base}inner-theme.css?v={VERSION}">
+  {extra_head}
   {ld}
 </head>
 <body class="{esc(body_class)}" data-base="{esc(base)}">
@@ -334,7 +335,7 @@ def service_page(item: dict) -> None:
         <p>В стоимость входит разбор жалоб и результатов, объяснение показателей, план дальнейших шагов и краткое резюме. Оплата — после согласования времени. <a href="{base}ceny/">Все цены и условия</a>.</p>
       </section>
       <section class="doctor-mini-card">
-        <div class="doctor-mini-photo"><img src="{base}assets/img/doctor-about-660.webp?v=20261020b" alt="Анна Викторовна Миронова, врач-эндокринолог" width="660" height="825" loading="lazy"></div>
+        <div class="doctor-mini-photo"><img src="{base}assets/img/doctor-about-330.webp?v=20261020b" srcset="{base}assets/img/doctor-about-330.webp?v=20261020b 330w, {base}assets/img/doctor-about-660.webp?v=20261020b 660w" sizes="104px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="660" height="825" loading="lazy"></div>
         <div>
           <p class="page-kicker">Врач</p>
           <h2>Анна Викторовна Миронова</h2>
@@ -607,10 +608,21 @@ def section_page(
     json_ld: list[dict] | None = None,
 ) -> None:
     canonical = page_url(path)
+    kickers = {
+        "uslugi": "Онлайн-консультации для взрослых",
+        "zabolevaniya": "Эндокринологические темы",
+        "stati": "Материалы врача",
+        "ceny": "Стоимость консультации",
+        "otzyvy": "Обратная связь",
+        "kontakty": "Связь с врачом",
+        "faq": "Частые вопросы",
+        "dokumenty": "Образование и квалификация",
+    }
     content = f"""
 <div class="container">
   {breadcrumbs([("Главная", f"{base}index.html"), (h1, None)], base)}
   <header class="page-hero">
+    <p class="page-kicker">{esc(kickers.get(path, "Информация"))}</p>
     <h1>{esc(h1)}</h1>
     <p class="lead">{esc(lead)}</p>
   </header>
@@ -682,6 +694,7 @@ def diseases_index() -> None:
             continue
         cards = "".join(f"""
 <a class="disease-card" href="{base}zabolevaniya/{item['slug']}/">
+  <span class="disease-card-icon">{icon_placeholder(item['icon'])}</span>
   <h3>{esc(item['title'])}</h3>
   <p>{esc(item['lead'])}</p>
 </a>""" for item in items)
@@ -748,17 +761,21 @@ def about_page() -> None:
   <div class="about-hero">
     <div class="about-photo"><img src="{base}assets/img/doctor-hero-680.webp?v=20261020b" srcset="{base}assets/img/doctor-hero-340.webp?v=20261020b 340w, {base}assets/img/doctor-hero-680.webp?v=20261020b 680w" sizes="(max-width: 720px) 320px, 330px" alt="Анна Викторовна Миронова, врач-эндокринолог" width="680" height="850"></div>
     <div class="about-copy">
-      <p class="page-kicker">О враче</p>
-      <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
-      <p class="role">Онлайн-консультации для взрослых</p>
-      <p>Помогаю разобраться в изменениях щитовидной железы, обмена веществ, углеводного обмена и гормональных нарушениях. Работаю с опорой на доказательную медицину и понятное объяснение.</p>
-      <p>Моя задача — не назначить как можно больше обследований, а помочь понять, что происходит, какие данные действительно важны и какие шаги имеют смысл.</p>
-      <div class="about-facts">
-        <div class="about-fact"><strong>12 лет</strong><span>клинической практики</span></div>
-        <div class="about-fact"><strong>60 минут</strong><span>первичная консультация</span></div>
-        <div class="about-fact"><strong>Онлайн</strong><span>для взрослых</span></div>
+      <div class="about-intro">
+        <p class="page-kicker">О враче</p>
+        <h1>Анна Викторовна Миронова — врач-эндокринолог</h1>
+        <p class="role">Онлайн-консультации для взрослых</p>
       </div>
-      <a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию</a>
+      <div class="about-bio">
+        <p>Помогаю разобраться в изменениях щитовидной железы, обмена веществ, углеводного обмена и гормональных нарушениях. Работаю с опорой на доказательную медицину и понятное объяснение.</p>
+        <p>Моя задача — не назначить как можно больше обследований, а помочь понять, что происходит, какие данные действительно важны и какие шаги имеют смысл.</p>
+        <div class="about-facts">
+          <div class="about-fact"><strong>12 лет</strong><span>клинической практики</span></div>
+          <div class="about-fact"><strong>60 минут</strong><span>первичная консультация</span></div>
+          <div class="about-fact"><strong>Онлайн</strong><span>для взрослых</span></div>
+        </div>
+        <a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию</a>
+      </div>
     </div>
   </div>
   <div class="about-grid">
@@ -783,61 +800,53 @@ def about_page() -> None:
 def booking_page() -> None:
     base = "../"
     canonical = page_url("zapis")
-    faq = [
-        (
-            "Это уже подтверждённая запись?",
-            "Нет. Вы оставляете заявку на выбранное время. Я проверяю расписание и подтверждаю запись, после чего присылаю ссылку на оплату и инструкцию по подключению.",
-        ),
-        (
-            "Можно перенести или отменить запись?",
-            "Да, не позднее чем за 24 часа до согласованного времени. Напишите в WhatsApp, Telegram или на почту — подберём другое время.",
-        ),
-        (
-            "Как проходит онлайн-консультация?",
-            "По видеосвязи в согласованное время. Понадобятся устойчивый интернет, камера и, если есть, результаты анализов и заключения. Ссылку и инструкцию я отправляю заранее.",
-        ),
-        (
-            "Что делать, если не подошло ни одно время?",
-            "Напишите в мессенджер или позвоните. Иногда можно согласовать другое время вне опубликованного расписания.",
-        ),
-        (
-            "Можно ли оплатить сразу на сайте?",
-            "Оплата происходит после подтверждения времени. На этой странице нет онлайн-платежа: сначала заявка, затем ссылка на оплату и правила переноса.",
-        ),
-    ]
     faq_html = "".join(
         f'<details{" open" if index == 0 else ""}><summary>{esc(question)}</summary><p>{esc(answer)}</p></details>'
-        for index, (question, answer) in enumerate(faq)
+        for index, (question, answer) in enumerate(C.BOOKING["faq"])
     )
+    steps_html = "".join(
+        f'<div class="booking-step"><span>{index}</span><h3>{esc(title)}</h3><p>{esc(description)}</p></div>'
+        for index, (title, description) in enumerate(C.BOOKING["steps"], start=1)
+    )
+    benefits_html = "".join(
+        f'<div class="booking-benefit"><span class="booking-benefit-icon"><svg aria-hidden="true"><use href="{base}assets/icons.svg#{esc(icon)}"></use></svg></span>'
+        f'<h3>{esc(title)}</h3><p>{esc(description)}</p></div>'
+        for icon, title, description in C.BOOKING["benefits"]
+    )
+    prep_html = "".join(
+        f'<div class="booking-prep-card"><h3>{esc(title)}</h3><p>{esc(description)}</p></div>'
+        for title, description in C.BOOKING["prep"]
+    )
+    includes_html = "".join(f'<li>{esc(item)}</li>' for item in C.PRICES["primary_includes"])
     body = f"""
-<div class="container">
-  {breadcrumbs([("Главная", f"{base}index.html"), ("Онлайн-запись", None)], base)}
-
-  <section class="booking-hero" aria-labelledby="booking-title">
+<section class="booking-hero" aria-labelledby="booking-title">
+  <div class="container booking-hero-inner">
+    {breadcrumbs([("Главная", f"{base}index.html"), ("Онлайн-запись", None)], base)}
     <div class="booking-hero-grid">
-      <div>
-        <p class="page-kicker">Онлайн-запись</p>
+      <div class="booking-hero-copy">
+        <p class="page-kicker">Онлайн-консультация</p>
         <h1 id="booking-title">Выберите день и время консультации</h1>
-        <p class="lead">Первичная онлайн-консультация длится 60 минут. Выберите удобный слот, оставьте контакт — я подтвержу время и пришлю инструкцию по подключению.</p>
+        <p class="lead">{esc(C.BOOKING['hero_lead'])}</p>
         <div class="booking-meta" aria-label="Параметры консультации">
-          <span>Онлайн по видеосвязи</span>
-          <span>60 минут</span>
-          <span><strong data-price="primary">{price('primary')}</strong> ₽</span>
-          <span>МСК, UTC+3</span>
+          <span><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-video"></use></svg><span><strong>Онлайн</strong><small>по видеосвязи</small></span></span>
+          <span><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-clock"></use></svg><span><strong>{esc(C.PRICES['primary_duration'])}</strong><small>длительность</small></span></span>
+          <span><span class="booking-ruble" aria-hidden="true">₽</span><span><strong><span data-price="primary">{price('primary')}</span> ₽</strong><small>стоимость</small></span></span>
+          <span><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-calendar"></use></svg><span><strong>МСК, UTC+3</strong><small>часовой пояс</small></span></span>
         </div>
-        <p class="booking-hero-note">Не нашли удобное время? <a href="#booking-help">Напишите мне</a> — постараюсь подобрать вариант.</p>
       </div>
       <aside class="booking-hero-card" aria-label="Врач">
-        <img src="{base}assets/img/doctor-hero-clinic.webp?v=20261020b" width="490" height="700" alt="Анна Викторовна Миронова, врач-эндокринолог" loading="lazy">
         <div>
           <p class="booking-hero-name">Анна Викторовна Миронова</p>
-          <p class="booking-hero-role">Врач-эндокринолог · 12 лет практики</p>
-          <p class="booking-hero-card-note">Онлайн-консультации для взрослых. Разбор анализов, жалоб и понятный план следующих шагов.</p>
+          <p class="booking-hero-role">Врач-эндокринолог · стаж 12 лет</p>
+          <p class="booking-hero-card-note">Онлайн-консультации для взрослых · доказательный подход</p>
           <a class="text-link" href="{base}o-vrache/">Подробнее о враче →</a>
         </div>
       </aside>
     </div>
-  </section>
+  </div>
+</section>
+
+<div class="container booking-content">
 
   <section class="booking-section" id="booking-form" aria-labelledby="schedule-title">
     <div class="booking-layout">
@@ -849,12 +858,17 @@ def booking_page() -> None:
           </div>
           <span class="booking-tz">МСК, UTC+3</span>
         </div>
+        <p class="booking-schedule-intro">{esc(C.BOOKING['schedule_intro'])}</p>
 
-        <div class="booking-days" data-booking-days role="group" aria-label="Дни недели"></div>
+        <div class="booking-days-row">
+          <button class="booking-week-nav" type="button" data-booking-prev aria-label="Предыдущая неделя">‹</button>
+          <div class="booking-days" data-booking-days role="group" aria-label="Дни недели"></div>
+          <button class="booking-week-nav" type="button" data-booking-next aria-label="Следующая неделя">›</button>
+        </div>
         <noscript><p class="booking-empty">Для выбора дня и времени включите JavaScript или напишите мне в мессенджер.</p></noscript>
 
         <div class="booking-times-head">
-          <h3 data-booking-times-title>Свободное время</h3>
+          <h3 data-booking-times-title>Варианты времени</h3>
           <span class="booking-available" data-booking-available></span>
         </div>
         <div class="booking-slot-groups" data-booking-slots></div>
@@ -862,33 +876,32 @@ def booking_page() -> None:
         <p class="booking-empty" data-booking-empty hidden></p>
 
         <div class="booking-legend" aria-label="Обозначения">
-          <span><i class="booking-dot booking-dot-free"></i>Свободно</span>
+          <span><i class="booking-dot booking-dot-free"></i>Можно выбрать</span>
           <span><i class="booking-dot booking-dot-selected"></i>Выбрано</span>
           <span><i class="booking-dot booking-dot-closed"></i>Недоступно</span>
         </div>
-        <p class="booking-demo-note">Расписание демонстрационное: слоты не синхронизированы с календарём. Время подтверждается вручную после заявки. Запись на сегодня возможна не позднее чем за 2 часа.</p>
+        <p class="booking-demo-note">{esc(C.BOOKING['schedule_note'])}</p>
       </div>
 
       <aside class="booking-side" aria-labelledby="booking-form-title">
         <div class="page-form-card final-form-card booking-page-card">
           <div class="booking-summary" aria-live="polite">
             <div class="booking-summary-top">
-              <span>Вы выбрали</span>
-              <strong><span data-price="primary">{price('primary')}</span> ₽</strong>
+              <strong>Вы выбрали</strong>
+              <a class="booking-proceed" href="#booking-form" data-booking-proceed>Изменить</a>
             </div>
-            <p class="booking-summary-date" data-booking-summary-date>Сначала выберите день</p>
-            <p class="booking-summary-time" data-booking-summary-time>Затем — удобное время</p>
-            <p class="booking-summary-meta">60 минут · онлайн по видеосвязи</p>
-            <a class="booking-proceed" href="#booking-form" data-booking-proceed hidden>Заполнить данные →</a>
+            <p class="booking-summary-line"><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-calendar"></use></svg><span class="booking-summary-date" data-booking-summary-date>Сначала выберите день</span></p>
+            <p class="booking-summary-line"><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-clock"></use></svg><span class="booking-summary-time" data-booking-summary-time>Затем — удобное время</span></p>
+            <p class="booking-summary-line"><svg aria-hidden="true"><use href="{base}assets/icons.svg#icon-video"></use></svg><span>Онлайн-консультация (видеосвязь)</span></p>
+            <p class="booking-summary-line"><span class="booking-summary-ruble" aria-hidden="true">₽</span><strong><span data-price="primary">{price('primary')}</span> ₽</strong></p>
           </div>
 
-          <h2 id="booking-form-title">Данные для записи</h2>
-          <p class="form-sub">Проверьте выбранное время и оставьте контакт. Это заявка: запись подтверждается после ответа врача.</p>
+          <h2 id="booking-form-title">Ваши данные</h2>
 
           <div class="page-form-success" data-form-success tabindex="-1" hidden>
             <h3>Заявка сохранена</h3>
             <p>Вы выбрали: <strong data-booking-success-slot>время не выбрано</strong>.</p>
-            <p>Это демонстрационная версия: время не забронировано автоматически. В рабочей версии здесь появится подтверждение, ссылка на оплату и инструкция по подключению.</p>
+            <p>{esc(C.BOOKING['success'])}</p>
             <button class="btn btn-ghost" type="button" data-form-reset>Выбрать другое время</button>
           </div>
 
@@ -898,41 +911,17 @@ def booking_page() -> None:
             <input type="hidden" name="time" value="">
             <input type="hidden" name="weekday" value="">
 
-            <div class="form-row-2">
-              <div class="page-field">
-                <label for="booking-name">Ваше имя</label>
-                <input id="booking-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
-              </div>
-              <div class="page-field">
-                <label for="booking-phone">Телефон</label>
-                <input id="booking-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-phone required>
-              </div>
-            </div>
-
             <div class="page-field">
-              <label for="booking-topic">Тема обращения</label>
-              <select id="booking-topic" name="topic">
-                <option value="">Не знаю, с чего начать</option>
-                <option>Щитовидная железа</option>
-                <option>Вес и обмен веществ</option>
-                <option>Диабет и предиабет</option>
-                <option>Гормоны и самочувствие</option>
-                <option>Другое</option>
-              </select>
+              <label for="booking-name">Имя <span class="booking-required">*</span></label>
+              <input id="booking-name" name="name" type="text" autocomplete="name" placeholder="Например, Екатерина" required>
             </div>
-
             <div class="page-field">
-              <label for="booking-contact">Способ связи</label>
-              <select id="booking-contact" name="contact">
-                <option>WhatsApp</option>
-                <option>Telegram</option>
-                <option>Телефон</option>
-              </select>
+              <label for="booking-phone">Телефон <span class="booking-required">*</span></label>
+              <input id="booking-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-phone required>
             </div>
-
             <div class="page-field">
-              <label for="booking-comment">Что хотите обсудить? <span>Необязательно</span></label>
-              <textarea id="booking-comment" name="comment" maxlength="300" placeholder="Коротко о ситуации или вопросе"></textarea>
+              <label for="booking-email">Email <span>необязательно</span></label>
+              <input id="booking-email" name="email" type="email" autocomplete="email" placeholder="example@mail.ru">
             </div>
 
             <label class="consent-line">
@@ -941,40 +930,48 @@ def booking_page() -> None:
             </label>
 
             <button class="btn btn-primary booking-submit" type="submit" data-booking-submit disabled>Сначала выберите время</button>
-            <p class="form-error" data-form-error hidden>Проверьте имя, телефон и согласие на обработку данных.</p>
+            <p class="form-error" data-form-error hidden>Проверьте имя, телефон, email и согласие на обработку данных.</p>
             <p class="booking-slot-error" data-slot-error-form hidden>Выберите день и время в расписании.</p>
-            <p class="form-note">Демонстрационная форма: данные не отправляются на сервер. Не отправляйте медицинские документы и подробности здоровья через сайт.</p>
+            <p class="form-note">{esc(C.BOOKING['form_note'])}</p>
           </form>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="booking-section booking-steps" aria-labelledby="booking-steps-title">
-    <div class="booking-section-head">
-      <p class="page-kicker">После выбора</p>
-      <h2 id="booking-steps-title">Как проходит запись</h2>
+  <section class="booking-benefits" aria-label="Преимущества онлайн-консультации">
+    {benefits_html}
+  </section>
+
+  <section class="booking-section booking-process" aria-labelledby="booking-steps-title">
+    <img src="{base}assets/img/booking-video-v2.webp" width="1448" height="1086" alt="Иллюстрация видеоконсультации с врачом-эндокринологом" loading="lazy">
+    <div class="booking-process-content">
+      <p class="page-kicker">Просто и удобно</p>
+      <h2 id="booking-steps-title">Как проходит<br>онлайн-консультация</h2>
+      <div class="booking-steps-grid">{steps_html}</div>
     </div>
-    <div class="booking-steps-grid">
-      <div class="booking-step"><span>1</span><h3>Вы выбираете слот</h3><p>День и время из расписания. Это ещё не подтверждённая запись.</p></div>
-      <div class="booking-step"><span>2</span><h3>Оставляете контакт</h3><p>Имя, телефон и удобный мессенджер. Без медицинских документов.</p></div>
-      <div class="booking-step"><span>3</span><h3>Подтверждаете время</h3><p>Я проверяю расписание, присылаю подтверждение, ссылку на оплату и инструкцию.</p></div>
-      <div class="booking-step"><span>4</span><h3>Подключаетесь</h3><p>В согласованное время — по видеосвязи. Ссылка и памятка приходят заранее.</p></div>
+  </section>
+
+  <section class="booking-section booking-includes" aria-labelledby="booking-includes-title">
+    <div>
+      <p class="page-kicker">Стоимость консультации</p>
+      <h2 id="booking-includes-title">Что входит в первичный приём</h2>
+      <p>{esc(C.BOOKING['includes_intro'])}</p>
+      <a class="text-link" href="{base}ceny/">Все цены и условия →</a>
     </div>
+    <ul class="check-list">{includes_html}</ul>
   </section>
 
   <section class="booking-section booking-prep" aria-labelledby="booking-prep-title">
     <div class="booking-section-head">
       <p class="page-kicker">Подготовка</p>
       <h2 id="booking-prep-title">Что может пригодиться</h2>
-      <p>Не нужно сдавать дополнительные анализы специально к онлайн-консультации. Достаточно того, что уже есть.</p>
+      <p>{esc(C.BOOKING['prep_intro'])}</p>
     </div>
     <div class="booking-prep-grid">
-      <div class="booking-prep-card"><h3>Результаты обследований</h3><p>Анализы, УЗИ, заключения врачей — если они есть. Можно заранее сфотографировать или сохранить PDF.</p></div>
-      <div class="booking-prep-card"><h3>Лекарства и добавки</h3><p>Список препаратов, дозировки и схема приёма. Это помогает обсудить текущую ситуацию без лишних уточнений.</p></div>
-      <div class="booking-prep-card"><h3>Ваши вопросы</h3><p>Запишите 3–5 главных вопросов. Так консультация будет сфокусированной и полезной.</p></div>
+      {prep_html}
     </div>
-    <p class="booking-format-note">Онлайн-формат подходит для обсуждения жалоб, анализов и плана действий, но не заменяет очный осмотр. Если нужен осмотр, я объясню, к кому и как обратиться.</p>
+    <p class="booking-format-note">{esc(C.BOOKING['format_note'])}</p>
   </section>
 
   <section class="booking-section booking-info" aria-labelledby="booking-info-title">
@@ -983,10 +980,10 @@ def booking_page() -> None:
         <p class="page-kicker">Оплата и перенос</p>
         <h2 id="booking-info-title">Спокойно и без сюрпризов</h2>
         <ul class="check-list">
-          <li>Стоимость первичной консультации — <strong><span data-price="primary">{price('primary')}</span> ₽</strong> за 60 минут.</li>
-          <li>Оплата после подтверждения времени; ссылка приходит вместе с подтверждением.</li>
-          <li>Перенести или отменить можно не позднее чем за 24 часа.</li>
-          <li>Онлайн-консультация не заменяет экстренную помощь.</li>
+          <li>Стоимость первичной консультации — <strong><span data-price="primary">{price('primary')}</span> ₽</strong> за {esc(C.PRICES['primary_duration'])}.</li>
+          <li>{esc(C.PRICES['payment'])}</li>
+          <li>{esc(C.PRICES['cancel'])}</li>
+          <li>На демонстрационном сайте оплата недоступна.</li>
         </ul>
         <p class="booking-emergency">При острой боли, затруднении дыхания, потере сознания или другом неотложном состоянии звоните <a href="tel:103">103</a> или <a href="tel:112">112</a>.</p>
       </div>
@@ -1002,7 +999,7 @@ def booking_page() -> None:
     <div>
       <p class="page-kicker">Нужна помощь</p>
       <h2 id="booking-help-title">Не нашли удобное время?</h2>
-      <p>Напишите или позвоните — я подскажу, как выбрать формат и что подготовить. Отвечаю в рабочее время.</p>
+      <p>{esc(C.BOOKING['help'])}</p>
     </div>
     <div class="booking-help-links">
       <a class="btn btn-primary" href="https://wa.me/{esc(C.CONTACT['phone_href'].replace('+', ''))}" target="_blank" rel="noopener">WhatsApp</a>
@@ -1020,7 +1017,7 @@ def booking_page() -> None:
         body=body,
         body_class="inner-page booking-page",
         json_ld=[json_breadcrumbs([("Главная", f"{BASE_URL}/"), ("Онлайн-запись", canonical)])],
-        extra_head=f'  <link rel="stylesheet" href="{base}booking.css?v={VERSION}">',
+        extra_head=f'  <link rel="stylesheet" href="{base}booking.css?v=20261020m">',
         extra_scripts=f'  <script src="{base}booking.js?v={VERSION}" defer></script>',
     ))
 
@@ -1192,7 +1189,7 @@ def legal_page(path: str, title: str, lead: str, content: str, nav: list[tuple[s
     body = f"""
 <div class="container">
   {breadcrumbs([('Главная', f'{base}index.html'), (title, None)], base)}
-  <header class="page-hero"><h1>{esc(title)}</h1><p class="lead">{esc(lead)}</p></header>
+  <header class="page-hero"><p class="page-kicker">Правовая информация</p><h1>{esc(title)}</h1><p class="lead">{esc(lead)}</p></header>
   <div class="legal-layout">
     <nav class="legal-nav" aria-label="Содержание документа">{nav_html}</nav>
     <article class="prose">{content}</article>
@@ -1321,7 +1318,7 @@ def write_redirects() -> None:
     }
     for old, new in redirects.items():
         target = f"{BASE_URL}/{new}"
-        write(old, f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={target}"><link rel="canonical" href="{target}"><title>Переход…</title></head><body><p>Страница переехала: <a href="{target}">{target}</a></p></body></html>""")
+        write(old, f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><link rel="canonical" href="{target}"><title>Переход…</title></head><body><p>Страница переехала: <a href="{new}">{new}</a></p></body></html>""")
 
 
 def main() -> None:

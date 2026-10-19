@@ -1,0 +1,293 @@
+/* Inner pages share the home page's mint hero, quiet cards and clear actions. */
+.inner-page .page-main {
+  padding-top: 24px;
+  background: #fff;
+}
+
+.inner-page .breadcrumbs {
+  margin-bottom: 18px;
+}
+
+.inner-page .page-hero {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 290px;
+  max-width: none;
+  margin: 0 0 38px;
+  padding: 38px clamp(28px, 4vw, 54px);
+  overflow: hidden;
+  border: 1px solid #d8ebe1;
+  border-radius: 18px;
+  background: url("assets/inner-hero-mark.svg") right 5% center / 330px no-repeat,
+    linear-gradient(115deg, #ebf7f2 0%, #f4fbf7 68%, #fbfdfb 100%);
+}
+
+.inner-page .article-page .page-hero {
+  max-width: none;
+}
+
+.inner-page .page-hero > * {
+  position: relative;
+  z-index: 1;
+  max-width: min(760px, 72%);
+}
+
+.inner-page .page-hero .page-kicker {
+  margin: 0 0 12px;
+  color: #176b65;
+  font-size: 13px !important;
+  font-weight: 700;
+  letter-spacing: .075em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.inner-page .page-hero h1 {
+  margin: 0;
+  color: #203238;
+  font-size: clamp(36px, 3.75vw, 54px);
+  font-weight: 680;
+  letter-spacing: -.04em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.inner-page .page-hero .lead {
+  margin-top: 16px;
+  color: #4d625e;
+  font-size: 18px !important;
+  line-height: 1.55;
+}
+
+.inner-page .page-hero-actions {
+  margin-top: 22px;
+}
+
+.inner-page .page-hero-actions .btn {
+  min-height: 46px;
+  border-radius: 9px;
+}
+
+.inner-page .page-meta > span,
+.inner-page .page-meta > a {
+  border-color: #d5e8dd;
+  background: rgba(255,255,255,.88);
+}
+
+.inner-page .article-meta {
+  color: #587069;
+}
+
+.inner-page .service-card,
+.inner-page .disease-card,
+.inner-page .article-card,
+.inner-page .price-card,
+.inner-page .contact-card,
+.inner-page .review-policy > div,
+.inner-page .doc-card,
+.inner-page .aside-card,
+.inner-page .booking-schedule,
+.inner-page .booking-page-card,
+.inner-page .booking-step,
+.inner-page .booking-prep-card {
+  border-color: #dfebe5;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px -24px rgba(23, 107, 101, .38);
+}
+
+.inner-page .service-card-icon,
+.inner-page .disease-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e7f4ee;
+}
+
+.inner-page .service-card-icon .icon,
+.inner-page .disease-card-icon .icon {
+  width: 27px;
+  height: 27px;
+}
+
+.inner-page .disease-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-content: start;
+  gap: 4px 14px;
+  min-width: 0;
+  padding: 20px;
+}
+
+.inner-page .disease-card-icon {
+  grid-row: span 2;
+  margin: 0;
+}
+
+.inner-page .disease-card h3 {
+  align-self: end;
+  margin: 0;
+}
+
+.inner-page .disease-card p {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.inner-page .price-card-primary,
+.inner-page .aside-card-mint,
+.inner-page .booking-info-card {
+  background: linear-gradient(145deg, #edf8f3, #fbfdfb);
+  border-color: #cfe6da;
+}
+
+.inner-page .cta-band,
+.inner-page .booking-help {
+  border-color: #cfe6da;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #eaf7f1, #f6fbf8);
+}
+
+.inner-page .page-booking {
+  margin-top: 38px;
+  border-color: #dfede5;
+  background: linear-gradient(180deg, #f0f9f5, #f9fcfa);
+}
+
+.inner-page .page-form-card.final-form-card {
+  border-color: #d8e9e0;
+  border-radius: 16px;
+  box-shadow: 0 20px 42px -32px rgba(23, 107, 101, .45);
+}
+
+.inner-page .faq-accordion details {
+  border-radius: 12px;
+}
+
+.inner-page .about-hero {
+  align-items: center;
+  gap: clamp(26px, 4vw, 58px);
+  margin-bottom: 38px;
+  padding: 28px;
+  border: 1px solid #d8ebe1;
+  border-radius: 18px;
+  background: linear-gradient(115deg, #e9f6f0, #f8fcfa);
+}
+
+.inner-page .about-photo {
+  border-radius: 14px;
+}
+
+.inner-page .about-copy h1 {
+  font-size: clamp(36px, 3.35vw, 48px);
+}
+
+.inner-page .about-bio {
+  margin-top: 16px;
+}
+
+.inner-page .about-fact {
+  border-color: #d9e9e0;
+  background: #fff;
+}
+
+.booking-page .booking-hero {
+  margin-bottom: 34px;
+  padding: 34px clamp(26px, 4vw, 48px);
+  border: 1px solid #d8ebe1;
+  border-radius: 18px;
+  background: linear-gradient(115deg, #eaf7f1, #f8fcfa);
+}
+
+.booking-page .booking-hero-card {
+  border-color: #d6e7dd;
+  background: #fff;
+  box-shadow: 0 12px 28px -24px rgba(23, 107, 101, .38);
+}
+
+@media (max-width: 900px) {
+  .inner-page .page-hero {
+    min-height: 0;
+    padding: 30px 32px;
+    background: linear-gradient(115deg, #ebf7f2, #f8fcfa);
+  }
+  .inner-page .page-hero > * {
+    max-width: 100%;
+  }
+  .inner-page .page-hero .lead {
+    max-width: 620px;
+  }
+  .inner-page .about-hero {
+    align-items: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .inner-page .page-main {
+    padding-top: 18px;
+  }
+  .inner-page .breadcrumbs {
+    margin-bottom: 14px;
+  }
+  .inner-page .page-hero {
+    margin-bottom: 28px;
+    padding: 26px 22px;
+    border-radius: 14px;
+  }
+  .inner-page .page-hero h1 {
+    font-size: clamp(30px, 7.6vw, 39px);
+  }
+  .inner-page .page-hero .lead {
+    font-size: 16.5px !important;
+  }
+  .inner-page .page-hero-actions {
+    gap: 8px;
+  }
+  .inner-page .page-hero-actions .btn {
+    width: 100%;
+  }
+  .inner-page .prose h2 {
+    font-size: clamp(25px, 7vw, 30px) !important;
+  }
+  .inner-page .about-hero {
+    gap: 24px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+  .inner-page .about-copy {
+    display: contents;
+  }
+  .inner-page .about-intro {
+    order: 1;
+  }
+  .inner-page .about-photo {
+    order: 2;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .inner-page .about-bio {
+    order: 3;
+    margin-top: 0;
+  }
+  .inner-page .about-copy h1 {
+    font-size: clamp(30px, 7.6vw, 38px);
+  }
+  .booking-page .booking-hero {
+    margin-bottom: 26px;
+    padding: 26px 22px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .inner-page .page-hero,
+  .booking-page .booking-hero,
+  .inner-page .about-hero {
+    padding-inline: 18px;
+  }
+  .inner-page .disease-card {
+    gap: 4px 10px;
+    padding: 16px;
+  }
+}
