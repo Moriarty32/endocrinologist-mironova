@@ -1,0 +1,98 @@
+/* Online endocrinology consultation. Shared navigation and footer come from site.js. */
+.service-online-page {
+  --online-ink: #103346;
+  --online-teal: #087d73;
+  --online-line: #deece9;
+  color: var(--online-ink);
+}
+.online-icon-sprite {position:absolute;width:0;height:0;overflow:hidden}
+.service-online-page .page-main {padding:0 0 64px;background:linear-gradient(#fff 0,#f5fbf8 70%)}
+.service-online-page .page-main .container {width:min(100% - 80px,1280px);max-width:none}
+.service-online-page .page-main h1,
+.service-online-page .page-main h2,
+.service-online-page .page-main h3 {color:var(--online-ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.035em}
+.service-online-page .page-main h2 {font-size:clamp(27px,2.6vw,36px);font-weight:700;line-height:1.14}
+.service-online-page .page-main p {line-height:1.5}
+.service-online-page .page-main .btn {min-height:48px;border-radius:8px;font-size:15px}
+.service-online-page .page-main .btn-primary {background:#087e72;color:#fff}
+.service-online-page .page-main .btn-primary:hover {background:#075f58}
+.online-pill {display:inline-flex;align-items:center;width:max-content;margin:0 0 12px!important;padding:5px 12px;border-radius:99px;background:#dcefeb;color:#08746d;font-size:12px;font-weight:700;line-height:1.2!important;text-transform:uppercase;letter-spacing:.035em}
+.online-hero {min-height:410px;background:linear-gradient(90deg,rgba(249,253,252,.95) 0%,rgba(249,253,252,.84) 34%,rgba(249,253,252,.08) 59%,rgba(249,253,252,.2) 100%),url("assets/img/service-online-hero.webp") center 26%/cover no-repeat}
+.online-hero-inner {display:flex;flex-direction:column;min-height:410px}
+.service-online-page .online-hero .breadcrumbs {margin:16px 0 0;font-size:12px}
+.online-hero-grid {display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:20px;flex:1;align-items:end;padding:23px 0 22px}
+.online-hero-copy {align-self:center;max-width:660px}
+.online-hero h1 {max-width:620px;margin:0;font-size:clamp(39px,4vw,54px);font-weight:730;line-height:1.04;text-wrap:balance}
+.online-hero-lead {max-width:570px;margin:12px 0 0;color:#405d6a;font-size:17px;line-height:1.45!important}
+.online-meta {display:flex;flex-wrap:wrap;gap:11px;margin-top:23px}
+.online-meta>span {display:flex;align-items:center;gap:7px;color:#06394b;white-space:nowrap}
+.online-meta svg,.online-ruble {display:grid;place-items:center;flex:none;width:35px;height:35px;padding:7px;border:1px solid #58aea4;border-radius:50%;color:#087d73;fill:none;stroke:currentColor;stroke-width:1.7;font-size:23px;font-style:normal;line-height:1}
+.online-meta>span>span {display:grid;gap:1px}
+.online-meta strong {font-size:12px;font-weight:700;line-height:1.25}
+.online-meta small {font-size:10px;line-height:1.2}
+.online-hero-actions {display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:24px}
+.online-hero-actions .btn {padding-inline:24px}
+.online-text-link {color:#087d73;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.online-doctor-card {display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px;padding:14px 20px;border:1px solid var(--online-line);border-radius:13px;background:#fff;box-shadow:0 9px 26px rgba(24,71,68,.035)}
+.online-doctor-card h2 {margin:0!important;font-size:18px!important;line-height:1.1!important}
+.online-doctor-card p {margin:5px 0 0;color:#526978;font-size:12px}
+.online-doctor-card ul {display:flex;flex-wrap:wrap;gap:14px;margin:0;padding:0;list-style:none}
+.online-doctor-card li {display:flex;gap:9px;align-items:center;font-size:12px;line-height:1.25}
+.online-doctor-card svg {width:17px;height:17px;flex:none;color:#07877a;fill:none;stroke:currentColor;stroke-width:1.8}
+.online-doctor-card a {flex:none;color:#087d73;font-size:12px;font-weight:650;text-decoration:underline;text-underline-offset:2px}
+.online-content {padding-top:22px}
+.online-panel,.online-detail-card {border:1px solid var(--online-line);border-radius:15px;background:#fff;box-shadow:0 9px 26px rgba(24,71,68,.035)}
+.online-concerns {display:grid;grid-template-columns:minmax(0,1.75fr) minmax(285px,.95fr);gap:14px;padding:15px}
+.online-concerns-main {padding:2px 2px 8px}
+.online-concerns h2 {max-width:570px;margin:0 0 17px}
+.online-concerns-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.online-concern {display:flex;gap:9px;min-height:122px;padding:12px 9px;border:1px solid #e2edeb;border-radius:10px;background:#fff}
+.online-concern-icon,.online-step-icon {display:grid;place-items:center;flex:none;width:37px;height:37px;border-radius:50%;background:#e6f3ef;color:#087d73}
+.online-concern svg,.online-step-icon svg {width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.online-concern h3 {margin:0 0 7px;font-size:13px;line-height:1.22;font-weight:700}
+.online-concern p {margin:0;color:#587080;font-size:11px;line-height:1.38!important}
+.online-feature {position:relative;min-height:353px;overflow:hidden;border-radius:11px;background:#034c52}
+.online-feature:after {position:absolute;inset:0;content:"";background:linear-gradient(180deg,transparent 25%,rgba(0,42,49,.88) 100%)}
+.online-feature img {width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 38%}
+.online-feature-copy {position:absolute;z-index:1;right:18px;bottom:16px;left:18px;color:white}
+.online-feature-copy .online-pill {background:rgba(198,238,225,.85);color:#085c58}
+.online-feature-copy h3 {margin:0 0 8px;color:#fff!important;font-size:23px;line-height:1.06}
+.online-feature-copy>p:last-child {margin:0;color:#e2f3ef;font-size:14px;line-height:1.3!important}
+.online-process {margin-top:16px;padding:19px 22px 24px}
+.online-process h2 {margin:0 0 20px}
+.online-process-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:23px}
+.online-process-step {position:relative;min-width:0;padding:0 4px}
+.online-process-step:not(:last-child):after {position:absolute;top:25px;right:-16px;width:24px;height:1px;content:"";background:#b9dcd5}
+.online-step-number {display:inline-grid;place-items:center;width:29px;height:29px;margin-right:10px;border-radius:50%;background:#087d73;color:white;font-size:13px;font-weight:700;vertical-align:middle}
+.online-step-icon {display:inline-grid;width:46px;height:46px;vertical-align:middle}
+.online-process-step h3 {margin:11px 0 5px;font-size:15px;line-height:1.25}
+.online-process-step p {margin:0;color:#587080;font-size:13px;line-height:1.35!important}
+.online-details {display:grid;grid-template-columns:1.26fr 1fr .9fr;gap:14px;margin-top:16px}
+.online-detail-card {min-width:0;padding:20px}
+.online-detail-card h2 {margin:0 0 12px;font-size:21px!important}
+.online-price-line {display:flex;align-items:center;gap:22px;margin:11px 0}
+.online-price-line strong {font-size:32px;line-height:1;font-weight:750;white-space:nowrap}
+.online-price-line>span {color:#587080;font-size:13px;line-height:1.35}
+.online-checks {display:grid;gap:7px;margin:15px 0;padding:0;list-style:none}
+.online-checks li {position:relative;padding-left:24px;color:#4c6473;font-size:13px;line-height:1.28}
+.online-checks li:before {position:absolute;top:1px;left:1px;content:"✓";color:#087d73;font-size:15px;font-weight:800}
+.online-price .btn {width:100%;margin-top:2px}
+.online-price-note {margin:8px 0 0;color:#6d8087;font-size:11px}
+.online-result-text {margin:0;color:#4b6472;font-size:15px}
+.online-privacy ul {display:grid;gap:14px;margin:17px 0 0;padding:0;list-style:none}
+.online-privacy li {display:flex;align-items:flex-start;gap:11px;color:#526e79;font-size:13px;line-height:1.35}
+.online-privacy svg {width:19px;height:19px;flex:none;color:#087d73;fill:none;stroke:currentColor;stroke-width:1.7}
+.online-help {display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:150px;margin-top:18px;padding:20px clamp(26px,7vw,110px);border:1px solid #deece9;border-radius:15px;background:linear-gradient(90deg,rgba(239,249,246,.92),rgba(239,249,246,.6)),url("assets/img/service-online-banner.webp") center/cover no-repeat}
+.online-help>div:first-child {max-width:460px}
+.online-help h2 {margin:0 0 7px;font-size:21px!important;line-height:1.15}
+.online-help p:last-child {margin:0;color:#4f6b75;font-size:13px}
+.online-help-links {display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.online-help-links .btn {font-size:13px!important;white-space:nowrap}
+.online-help-links .btn-outline {border-color:#087d73;background:rgba(255,255,255,.75);color:#087d73}
+.online-faq {max-width:850px;margin:48px auto 0}
+.online-faq h2 {margin:0 0 20px}
+@media(max-width:1100px){.online-hero{background-position:57% 26%}.online-concerns{grid-template-columns:minmax(0,1.7fr) minmax(275px,.95fr)}.online-concern{min-height:124px}.online-meta{gap:8px}.online-meta strong{font-size:11px}.online-details{grid-template-columns:1.2fr 1fr .9fr}.online-detail-card{padding:17px}}
+@media(max-width:900px){.service-online-page .page-main .container{width:min(100% - 48px,760px)}.online-hero{background-position:60% center}.online-hero-grid{grid-template-columns:minmax(0,1fr)}.online-doctor-card{flex-wrap:wrap}.online-doctor-card ul{order:3;width:100%}.online-hero-copy{max-width:520px;margin-right:auto}.online-hero h1{font-size:clamp(36px,5vw,46px)}.online-hero-lead{max-width:470px}.online-concerns{grid-template-columns:1fr}.online-feature{min-height:300px}.online-feature img{object-position:center 40%}.online-concerns-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.online-details{grid-template-columns:repeat(2,minmax(0,1fr))}.online-privacy{grid-column:1/-1}.online-privacy ul{grid-template-columns:repeat(2,minmax(0,1fr))}.online-help{padding:24px}}
+@media(max-width:650px){.service-online-page .page-main .container{width:min(100% - 32px,560px)}.online-hero{background:#eff8f5}.online-hero-inner{min-height:0}.online-hero-grid{display:flex;flex-direction:column;gap:0;padding:0 0 27px}.online-hero-grid:before{display:block;width:calc(100% + 32px);height:280px;margin:0 -16px 22px;content:"";background:url("assets/img/service-online-hero.webp") 65% 18%/cover no-repeat}.online-hero-copy{align-self:stretch;max-width:none}.online-hero h1{font-size:clamp(35px,8vw,44px)}.online-hero-lead{font-size:16px}.online-meta{gap:12px 16px}.online-meta>span{width:calc(50% - 8px)}.online-meta strong{font-size:12px}.online-meta small{font-size:11px}.online-hero-actions{gap:14px}.online-hero-actions .btn{width:100%}.online-concerns{padding:15px}.online-concerns-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.online-concern{min-height:138px}.online-process-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.online-process-step:nth-child(2):after{display:none}.online-details{grid-template-columns:1fr}.online-privacy{grid-column:auto}.online-help{display:block}.online-help-links{justify-content:flex-start;margin-top:18px}.online-help-links .btn{white-space:normal}}
+@media(max-width:420px){.online-hero-grid:before{height:235px}.online-concerns-grid{grid-template-columns:1fr}.online-concern{min-height:0;padding:13px}.online-concern h3{font-size:14px}.online-concern p{font-size:12px}.online-process-grid{grid-template-columns:1fr}.online-process-step{display:grid;grid-template-columns:31px 48px minmax(0,1fr);column-gap:9px;align-items:center}.online-process-step:after{display:none}.online-step-number{margin:0}.online-process-step h3{grid-column:3;margin:0}.online-process-step p{grid-column:3;margin-top:-9px}.online-privacy ul{grid-template-columns:1fr}.online-help-links .btn{width:100%}}
+@media(max-width:650px){.online-doctor-card{display:grid;grid-template-columns:1fr;gap:10px;padding:16px}.online-doctor-card ul{order:0;display:grid;gap:8px}.online-doctor-card a{font-size:13px}}

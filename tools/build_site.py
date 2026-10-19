@@ -273,7 +273,155 @@ def json_breadcrumbs(items: list[tuple[str, str]]) -> dict:
     }
 
 
+def online_service_page(item: dict) -> None:
+    base = "../../"
+    canonical = page_url("uslugi/endokrinolog-online")
+    content = C.ONLINE_SERVICE
+    icon_sprite = (ROOT / "assets/icons.svg").read_text(encoding="utf-8").replace(
+        '<svg xmlns=', '<svg class="online-icon-sprite" aria-hidden="true" xmlns=', 1
+    )
+
+    def symbol(name: str) -> str:
+        return f'<svg aria-hidden="true"><use href="#{esc(name)}"></use></svg>'
+
+    concern_cards = "".join(
+        f'<div class="online-concern"><span class="online-concern-icon">{symbol(icon)}</span><div><h3>{esc(title)}</h3><p>{esc(description)}</p></div></div>'
+        for icon, title, description in content["concerns"]
+    )
+    process_cards = "".join(
+        f'<div class="online-process-step"><span class="online-step-number">{index}</span><span class="online-step-icon">{symbol(icon)}</span>'
+        f'<h3>{esc(title)}</h3><p>{esc(description)}</p></div>'
+        for index, (icon, title, description) in enumerate(content["process"], start=1)
+    )
+    included_items = "".join(f'<li>{esc(value)}</li>' for value in C.PRICES["primary_includes"])
+    privacy_items = "".join(
+        f'<li>{symbol(icon)}<span>{esc(description)}</span></li>'
+        for icon, description in content["privacy"]
+    )
+    body = f"""
+{icon_sprite}
+<section class="online-hero" aria-labelledby="online-title">
+  <div class="container online-hero-inner">
+    {breadcrumbs([("Главная", f"{base}index.html"), ("Услуги", f"{base}uslugi/"), ("Эндокринолог онлайн", None)], base)}
+    <div class="online-hero-grid">
+      <div class="online-hero-copy">
+        <p class="online-pill">Онлайн-консультация</p>
+        <h1 id="online-title">{esc(content['hero_title'])}</h1>
+        <p class="online-hero-lead">{esc(content['hero_lead'])}</p>
+        <div class="online-meta" aria-label="Параметры консультации">
+          <span>{symbol('icon-video')}<span><strong>Онлайн</strong><small>по видеосвязи</small></span></span>
+          <span>{symbol('icon-clock')}<span><strong>{esc(C.PRICES['primary_duration'])}</strong><small>длительность</small></span></span>
+          <span><i class="online-ruble" aria-hidden="true">₽</i><span><strong><span data-price="primary">{price('primary')}</span> ₽</strong><small>стоимость</small></span></span>
+          <span>{symbol('icon-shield')}<span><strong>Конфиденциально</strong><small>личные вопросы</small></span></span>
+        </div>
+        <div class="online-hero-actions">
+          <a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию <span aria-hidden="true">→</span></a>
+          <a class="online-text-link" href="#process">Как проходит консультация <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container online-content">
+      <aside class="online-doctor-card" aria-label="Врач">
+        <div class="online-doctor-identity"><h2>{esc(C.BRAND['full_name'])}</h2><p>{esc(C.BRAND['role'])}</p></div>
+        <ul>
+          <li>{symbol('icon-calendar')}<span>{esc(content['doctor_experience'])}</span></li>
+          <li>{symbol('icon-video')}<span>Онлайн-консультации для взрослых</span></li>
+          <li>{symbol('icon-shield')}<span>Доказательный подход</span></li>
+        </ul>
+        <a href="{base}o-vrache/">Подробнее о враче →</a>
+      </aside>
+  <section class="online-concerns online-panel" id="for-whom" aria-labelledby="concerns-title">
+    <div class="online-concerns-main">
+      <p class="online-pill">Когда стоит обратиться</p>
+      <h2 id="concerns-title">{esc(content['concerns_title'])}</h2>
+      <div class="online-concerns-grid">{concern_cards}</div>
+    </div>
+    <div class="online-feature" id="questions">
+      <img src="{base}assets/img/service-online-thyroid.webp" width="1024" height="1536" alt="Иллюстрация щитовидной железы" loading="lazy">
+      <div class="online-feature-copy">
+        <p class="online-pill">{esc(content['feature_kicker'])}</p>
+        <h3>{esc(content['feature_title'])}</h3>
+        <p>{esc(content['feature_text'])}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="online-process online-panel" id="process" aria-labelledby="process-title">
+    <p class="online-pill">Просто и удобно</p>
+    <h2 id="process-title">Как проходит онлайн-консультация</h2>
+    <div class="online-process-grid">{process_cards}</div>
+  </section>
+
+  <section class="online-details" aria-label="Стоимость, результат и конфиденциальность">
+    <div class="online-detail-card online-price" id="price">
+      <p class="online-pill">Первичная консультация</p>
+      <h2>Стоимость и формат</h2>
+      <div class="online-price-line"><strong><span data-price="primary">{price('primary')}</span> ₽</strong><span>{esc(C.PRICES['primary_duration'])}<br>по видеосвязи</span></div>
+      <ul class="online-checks">{included_items}</ul>
+      <a class="btn btn-primary" href="{base}zapis/">Записаться на консультацию →</a>
+      <p class="online-price-note">{esc(C.PRICES['payment'])}</p>
+    </div>
+    <div class="online-detail-card online-result" id="outcomes">
+      <p class="online-pill">Результат консультации</p>
+      <h2>{esc(content['result_title'])}</h2>
+      <p class="online-result-text">{esc(content['result_text'])}</p>
+      <ul class="online-checks">{''.join(f'<li>{esc(value)}</li>' for value in item['outcomes'])}</ul>
+    </div>
+    <div class="online-detail-card online-privacy">
+      <p class="online-pill">Важно</p>
+      <h2>{esc(content['privacy_title'])}</h2>
+      <ul>{privacy_items}</ul>
+    </div>
+  </section>
+
+  <section class="online-help" aria-labelledby="online-help-title">
+    <div>
+      <p class="online-pill">Есть вопросы?</p>
+      <h2 id="online-help-title">{esc(content['help_title'])}</h2>
+      <p>{esc(content['help_text'])}</p>
+    </div>
+    <div class="online-help-links">
+      <a class="btn btn-primary" href="{esc(C.CONTACT['whatsapp'])}" target="_blank" rel="noopener">Задать вопрос в WhatsApp</a>
+      <a class="btn btn-outline" href="{base}kontakty/">Все контакты →</a>
+    </div>
+  </section>
+
+  <section class="online-faq" id="faq" aria-labelledby="online-faq-title">
+    <h2 id="online-faq-title">Частые вопросы</h2>
+    {faq_html(item['faq'], 'faq-' + item['slug'])}
+  </section>
+</div>
+"""
+    ld = [
+        json_breadcrumbs([("Главная", f"{BASE_URL}/"), ("Услуги", page_url("uslugi")), (item["title"], canonical)]),
+        {
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": item["title"],
+            "description": content["hero_lead"],
+            "url": canonical,
+            "inLanguage": "ru-RU",
+            "about": {"@type": "MedicalProcedure", "name": item["title"]},
+            "provider": {"@type": "Physician", "name": C.BRAND["full_name"]},
+            "audience": {"@type": "Patient"},
+        },
+    ]
+    write("uslugi/endokrinolog-online/index.html", page_shell(
+        title=f"{item['title']} — Анна Миронова, врач-эндокринолог",
+        description=f"{content['hero_lead']} Стоимость — {price('primary')} ₽ за {C.PRICES['primary_duration']}.",
+        canonical=canonical, base=base, body=body, body_class="inner-page service-online-page",
+        json_ld=ld, og_type="article",
+        extra_head=f'  <link rel="stylesheet" href="{base}service-online.css?v=20261020b">',
+    ))
+
+
 def service_page(item: dict) -> None:
+    if item["slug"] == "endokrinolog-online":
+        online_service_page(item)
+        return
     base = "../../"
     canonical = page_url(f"uslugi/{item['slug']}")
     title = f"{item['title']} — Анна Миронова, врач-эндокринолог"
