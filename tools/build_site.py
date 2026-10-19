@@ -1395,7 +1395,9 @@ def consent_page() -> None:
 
 
 def not_found_page() -> None:
-    base = ""
+    # GitHub Pages serves this file for any unknown path without rewriting the URL,
+    # so relative asset paths would resolve against the missing directory and 404 too.
+    base = f"{BASE_URL}/"
     body = f"""
 <div class="container">
   <header class="page-hero"><p class="page-kicker">404</p><h1>Страница не найдена</h1><p class="lead">Возможно, ссылка устарела или в адресе есть опечатка. Начните с главной или выберите нужный раздел.</p></header>
