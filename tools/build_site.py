@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "content"))
 import site_content as C  # noqa: E402
 
 BASE_URL = "https://moriarty32.github.io/endocrinologist-mironova"
-VERSION = "20261020l"
+VERSION = "20261020m"
 ASSETS = "assets"
 
 SERVICES_BY_SLUG = {item["slug"]: item for item in C.SERVICES}
@@ -104,6 +104,7 @@ def page_shell(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("has-motion");setTimeout(function(){{if(!window.__dshMotion)document.documentElement.classList.remove("has-motion")}},1500)</script>
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}">
   <link rel="canonical" href="{esc(canonical)}">
@@ -124,6 +125,7 @@ def page_shell(
   <link rel="stylesheet" href="{base}inner.css?v={VERSION}">
   <link rel="stylesheet" href="{base}typography.css?v={VERSION}">
   <link rel="stylesheet" href="{base}inner-theme.css?v={VERSION}">
+  <link rel="stylesheet" href="{base}motion.css?v={VERSION}">
   {extra_head}
   {ld}
 </head>
@@ -138,6 +140,7 @@ def page_shell(
   <script src="{base}assets/js/site-data.js?v={VERSION}" defer></script>
   <script src="{base}assets/js/site.js?v={VERSION}" defer></script>
   <script src="{base}app.js?v={VERSION}" defer></script>
+  <script src="{base}motion.js?v={VERSION}" defer></script>
   {extra_scripts}
 </body>
 </html>

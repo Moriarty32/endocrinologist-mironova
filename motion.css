@@ -1,0 +1,556 @@
+/* ==========================================================================
+   Motion layer — premium, quiet movement for the whole site.
+   Loads last so it can refine hover/reveal states of earlier sheets.
+   Everything is transform/opacity only; nothing animates layout except the
+   FAQ accordion, which has to animate height to behave like a real accordion.
+   ========================================================================== */
+
+:root {
+  --m-hover: 240ms;
+  --m-base: 320ms;
+  --m-reveal: 640ms;
+  --m-hero: 820ms;
+  --e-premium: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --e-hero: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --m-shadow: 0 18px 38px -30px rgba(17, 92, 84, 0.45);
+  --m-shadow-hover: 0 26px 50px -32px rgba(17, 92, 84, 0.42);
+  --m-ring: 0 0 0 4px rgba(23, 107, 101, 0.1);
+  --m-border-hover: #bcd9cb;
+}
+
+/* The inline head script flips this class before first paint. If the motion
+   script never runs, it is removed again and the page is simply static. */
+.has-motion .m-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity var(--m-reveal) var(--e-premium),
+    transform var(--m-reveal) var(--e-premium);
+  transition-delay: var(--m-delay, 0ms);
+}
+
+.has-motion .m-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optional soft focus pull for photographs. Used sparingly: blur is costly. */
+.has-motion .m-reveal--photo {
+  filter: blur(5px);
+  transition:
+    opacity var(--m-reveal) var(--e-premium),
+    transform var(--m-reveal) var(--e-premium),
+    filter var(--m-reveal) var(--e-premium);
+}
+
+.has-motion .m-reveal--photo.is-in {
+  filter: blur(0);
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+
+@keyframes m-rise {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes m-rise-soft {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes m-photo {
+  from { opacity: 0; transform: translate3d(0, 26px, 0) scale(1.015); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+@keyframes m-pop {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes m-drawer {
+  from { opacity: 0; transform: translate3d(0, -8px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes m-scrim {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Hero intro
+   Text blocks rise in reading order; the portrait, the form and the quiz
+   follow with their own timing so the first screen settles instead of jumping.
+   -------------------------------------------------------------------------- */
+
+.has-motion .m-hero-item { opacity: 0; }
+
+.has-motion.m-hero-in .m-hero-item {
+  animation: m-rise var(--m-hero) var(--e-hero) both;
+  animation-delay: var(--m-hero-delay, 60ms);
+}
+
+.has-motion .m-hero-photo { opacity: 0; }
+
+.has-motion.m-hero-in .m-hero-photo {
+  animation: m-photo 1000ms var(--e-hero) both;
+  animation-delay: var(--m-hero-delay, 260ms);
+}
+
+.has-motion.m-hero-in .m-hero-fade {
+  animation: m-rise-soft var(--m-hero) var(--e-hero) both;
+  animation-delay: var(--m-hero-delay, 200ms);
+}
+
+/* The badges under the landing headline arrive one by one. */
+.has-motion .m-hero-cascade > * { opacity: 0; }
+
+.has-motion.m-hero-in .m-hero-cascade > * {
+  animation: m-fade-up-sm 560ms var(--e-premium) both;
+  animation-delay: var(--m-hero-delay, 400ms);
+}
+
+.has-motion.m-hero-in .m-hero-cascade > :nth-child(2) { animation-delay: 470ms; }
+.has-motion.m-hero-in .m-hero-cascade > :nth-child(3) { animation-delay: 540ms; }
+
+@keyframes m-fade-up-sm {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Header — compresses on scroll and turns into frosted glass.
+   `.is-scrolled` is toggled in app.js; this only refines what it looks like.
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  transition:
+    box-shadow var(--m-base) var(--e-premium),
+    background-color var(--m-base) var(--e-premium),
+    border-color var(--m-base) var(--e-premium);
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: rgba(219, 234, 227, 0.75);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px -30px rgba(17, 92, 84, 0.5);
+}
+
+.header-inner {
+  transition: min-height var(--m-base) var(--e-premium);
+}
+
+.nav-link {
+  transition:
+    background-color var(--m-hover) var(--e-premium),
+    color var(--m-hover) var(--e-premium),
+    box-shadow var(--m-hover) var(--e-premium);
+}
+
+.brand-mark {
+  transition: transform var(--m-base) var(--e-premium);
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+.header-phone .icon {
+  transition: transform var(--m-hover) var(--e-premium);
+}
+
+.header-phone:hover .icon {
+  transform: scale(1.08);
+}
+
+/* Mega menu panel */
+.mega-panel:not([hidden]) {
+  animation: m-drawer var(--m-base) var(--e-premium) both;
+}
+
+/* Mobile drawer: a calm fade and 8px settle instead of a hard slide,
+   plus a soft scrim that keeps focus on the menu. */
+.mobile-menu {
+  animation: m-drawer 380ms var(--e-premium) both;
+}
+
+body.menu-open::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 85;
+  background: rgba(14, 47, 43, 0.24);
+  animation: m-scrim var(--m-base) var(--e-premium) both;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — tactile, slow, no bounce.
+   -------------------------------------------------------------------------- */
+
+.btn {
+  transition:
+    background-color var(--m-hover) var(--e-premium),
+    border-color var(--m-hover) var(--e-premium),
+    color var(--m-hover) var(--e-premium),
+    box-shadow var(--m-base) var(--e-premium),
+    transform var(--m-hover) var(--e-premium);
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px -18px rgba(17, 92, 84, 0.55);
+  }
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow: 0 6px 14px -12px rgba(17, 92, 84, 0.5);
+  transition-duration: 120ms;
+}
+
+.btn:focus-visible,
+.text-link:focus-visible,
+.nav-link:focus-visible,
+.mobile-nav a:focus-visible,
+.footer-col a:focus-visible {
+  outline: 2px solid var(--site-teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.btn .icon,
+.mobile-menu-footer .btn .icon {
+  transition: transform var(--m-hover) var(--e-premium);
+}
+
+@media (hover: hover) {
+  .btn:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+.text-link {
+  transition: color var(--m-hover) var(--e-premium), text-underline-offset var(--m-hover) var(--e-premium);
+}
+
+@media (hover: hover) {
+  .text-link:hover {
+    text-underline-offset: 4px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cards — one consistent lift across every list and grid on the site.
+   The earlier per-sheet hover rules are deliberately superseded here.
+   -------------------------------------------------------------------------- */
+
+:is(.service-card, .disease-card, .article-card, .price-card, .contact-card, .doc-card,
+    .ref-problem, .ref-value-card, .ref-article, .online-concern, .online-detail-card,
+    .booking-step, .booking-prep-card, .profile-intro, .profile-experience,
+    .profile-education, .profile-approach, .profile-interests, .profile-documents,
+    .profile-video, .profile-reviews) {
+  transition:
+    transform var(--m-base) var(--e-premium),
+    box-shadow var(--m-base) var(--e-premium),
+    border-color var(--m-base) var(--e-premium),
+    background-color var(--m-base) var(--e-premium);
+}
+
+@media (hover: hover) {
+  :is(.service-card, .disease-card, .article-card, .price-card, .contact-card, .doc-card,
+      .ref-problem, .ref-value-card, .ref-article, .online-concern, .online-detail-card,
+      .booking-step, .booking-prep-card, .profile-intro, .profile-experience,
+      .profile-education, .profile-approach, .profile-interests, .profile-documents,
+      .profile-video, .profile-reviews):hover {
+    transform: translateY(-3px);
+    border-color: var(--m-border-hover);
+    box-shadow: var(--m-shadow-hover);
+  }
+
+  /* Icons lean in with the card instead of jumping. */
+  :is(.service-card, .disease-card):hover :is(.service-card-icon, .disease-card-icon),
+  .online-concern:hover .online-concern-icon,
+  .ref-value-card:hover .ref-value-icon,
+  .booking-benefit:hover .booking-benefit-icon {
+    transform: translateY(-2px) scale(1.04);
+    background: #dff0e9;
+  }
+
+  .profile-interest:hover .profile-interest > span,
+  .profile-education-item:hover > span {
+    transform: translateY(-1px) scale(1.05);
+  }
+}
+
+:is(.service-card-icon, .disease-card-icon, .online-concern-icon, .ref-value-icon,
+    .booking-benefit-icon, .profile-education-item > span, .profile-interest > span) {
+  transition:
+    transform var(--m-base) var(--e-premium),
+    background-color var(--m-base) var(--e-premium),
+    color var(--m-base) var(--e-premium);
+}
+
+/* Links inside cards stay crisp: no underline jump, just a tone change. */
+.article-card h3 a,
+.ref-article h3 a {
+  transition: color var(--m-hover) var(--e-premium);
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumbs
+   -------------------------------------------------------------------------- */
+
+.has-motion .breadcrumbs {
+  animation: m-rise-soft 620ms var(--e-premium) both;
+  animation-delay: 40ms;
+}
+
+/* --------------------------------------------------------------------------
+   FAQ accordion
+   Height is animated in motion.js because <details> hides its content when
+   closed. The icon is drawn with gradients so it can rotate into a minus.
+   -------------------------------------------------------------------------- */
+
+:is(.faq-accordion, .ref-faq-list) details > div {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: height 360ms var(--e-premium);
+}
+
+/* Two-column FAQ pages stretch the accordions to equal height; without this
+   the auto rows grow and closed items look padded. */
+.faq-accordion {
+  align-content: start;
+}
+
+/* Bottom breathing room moves to the last paragraph so a collapsed panel is
+   exactly zero pixels tall and the height transition starts from 0. */
+:is(.faq-accordion, .ref-faq-list) details > div > p:last-child {
+  padding-bottom: 12px;
+}
+
+.faq-accordion summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  margin-top: 3px;
+  border-radius: 2px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 11px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 11px no-repeat;
+  color: var(--site-teal);
+  transition:
+    background-size var(--m-base) var(--e-premium),
+    transform var(--m-base) var(--e-premium),
+    opacity var(--m-base) var(--e-premium);
+}
+
+.faq-accordion details[open] summary::after {
+  content: "";
+  background-size: 11px 1.5px, 1.5px 0;
+  transform: rotate(180deg);
+  opacity: 0.85;
+}
+
+.faq-accordion summary,
+.ref-faq-list summary {
+  transition: color var(--m-hover) var(--e-premium), background-color var(--m-hover) var(--e-premium);
+}
+
+@media (hover: hover) {
+  .faq-accordion summary:hover {
+    color: var(--site-teal);
+  }
+}
+
+/* The landing accordion ships an inline plus icon; the drawn one keeps both
+   accordions identical and lets the same rotation read as "open". */
+.ref-faq-list summary .icon {
+  display: none;
+}
+
+.ref-faq-list summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 12px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 12px no-repeat;
+  color: var(--site-teal);
+  transition:
+    background-size var(--m-base) var(--e-premium),
+    transform var(--m-base) var(--e-premium),
+    opacity var(--m-base) var(--e-premium);
+}
+
+.ref-faq-list details[open] summary::after {
+  background-size: 12px 1.5px, 1.5px 0;
+  transform: rotate(180deg);
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   Forms — calm focus, quiet errors, premium confirmation.
+   -------------------------------------------------------------------------- */
+
+.page-field input,
+.page-field select,
+.page-field textarea,
+.ref-input input,
+.ref-select select {
+  transition:
+    border-color var(--m-hover) var(--e-premium),
+    box-shadow var(--m-base) var(--e-premium),
+    background-color var(--m-hover) var(--e-premium);
+}
+
+.page-field input:focus-visible,
+.page-field select:focus-visible,
+.page-field textarea:focus-visible,
+.ref-input input:focus-visible,
+.ref-select select:focus-visible {
+  border-color: rgba(23, 107, 101, 0.55);
+  box-shadow: var(--m-ring);
+}
+
+.page-field:focus-within label,
+.ref-select:focus-within label {
+  color: var(--site-teal);
+}
+
+.page-field label,
+.ref-select label {
+  transition: color var(--m-hover) var(--e-premium);
+}
+
+.page-form .page-field.has-error input,
+.page-form .page-field.has-error textarea,
+.ref-input.has-error input {
+  border-color: rgba(156, 63, 48, 0.45);
+  box-shadow: 0 0 0 4px rgba(156, 63, 48, 0.08);
+}
+
+.consent input,
+.consent-line input {
+  transition: transform var(--m-hover) var(--e-premium), box-shadow var(--m-base) var(--e-premium);
+}
+
+.consent input:focus-visible,
+.consent-line input:focus-visible {
+  box-shadow: var(--m-ring);
+  outline: none;
+}
+
+.consent input:checked,
+.consent-line input:checked {
+  transform: scale(1.06);
+}
+
+/* Confirmation states appear with a single soft pop, never a jump. */
+.form-success:not([hidden]),
+.page-form-success:not([hidden]) {
+  animation: m-pop 520ms var(--e-premium) both;
+}
+
+.form-success .success-icon,
+.page-form-success .success-icon {
+  animation: m-pop 600ms 80ms var(--e-premium) both;
+}
+
+.form-error:not([hidden]) {
+  animation: m-fade-in 260ms var(--e-premium) both;
+}
+
+@keyframes m-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer-col a,
+.footer-legal-links a,
+.footer-quote {
+  transition: color var(--m-hover) var(--e-premium);
+}
+
+.site-footer .brand-mark {
+  transition: transform var(--m-base) var(--e-premium);
+}
+
+.site-footer .brand:hover .brand-mark {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+.footer-cta .icon {
+  transition: transform var(--m-hover) var(--e-premium);
+}
+
+@media (hover: hover) {
+  .footer-cta:hover .icon {
+    transform: translateX(3px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Anchors land below the sticky header instead of under it.
+   -------------------------------------------------------------------------- */
+
+main [id] {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 720px) {
+  main [id] {
+    scroll-margin-top: 84px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: no movement at all, content simply present.
+   styles.css already neutralises durations; this also drops the hidden states
+   so nothing can stay invisible.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .has-motion .m-reveal,
+  .has-motion .m-hero-item,
+  .has-motion .m-hero-photo,
+  .has-motion .m-hero-cascade > * {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+    animation: none;
+  }
+
+  .has-motion .breadcrumbs {
+    animation: none;
+  }
+
+  .mobile-menu,
+  .mega-panel:not([hidden]),
+  body.menu-open::after,
+  .form-success:not([hidden]),
+  .page-form-success:not([hidden]) {
+    animation: none;
+  }
+
+  @media (hover: hover) {
+    :is(.btn, .service-card, .disease-card, .article-card, .price-card, .contact-card,
+        .doc-card, .ref-problem, .ref-value-card, .ref-article, .online-concern,
+        .online-detail-card, .booking-step, .booking-prep-card):hover {
+      transform: none;
+    }
+  }
+}

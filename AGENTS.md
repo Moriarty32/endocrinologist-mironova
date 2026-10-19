@@ -26,7 +26,7 @@ python tools/check_assets.py        # все URL ассетов из CSS сущ�
 python -m http.server 4173          # локальный просмотр: http://localhost:4173/
 ```
 
-JS-синтаксис: `node --check app.js` (и `booking.js`, `assets/js/site.js`, `assets/js/site-data.js`).
+JS-синтаксис: `node --check app.js` (и `booking.js`, `assets/js/site.js`, `assets/js/site-data.js`, `motion.js`).
 
 `build_site.py` идемпотентен: повторный запуск не должен менять рабочее дерево
 (кроме `content/__pycache__`, см. ниже).
@@ -44,6 +44,9 @@ JS-синтаксис: `node --check app.js` (и `booking.js`, `assets/js/site.j
 - `assets/js/site.js` — шапка, mega menu, мобильное меню, футер, подстановка цен.
 - `app.js` — формы, маска телефона, квиз, `<dialog>`, `track()` → `window.dataLayer`.
 - `booking.js` + `booking.css` — страница `/zapis/`: 7 дней, слоты, сводка выбора.
+- `motion.js` + `motion.css` — анимационный слой на всех страницах: интро героя,
+  scroll-reveal через IntersectionObserver, аккордеон FAQ, параллакс портрета,
+  состояния шапки. Без библиотек; грузится последним CSS-слоем и последним скриптом.
 - CSS-слои: `styles.css` (база и формы) → `landing.css` (главная) +
   `inner.css`/`pages.css` (внутренние) + `site.css` (шапка/футер) → `typography.css`
   (переопределяет размеры текста на всех страницах).
@@ -53,6 +56,10 @@ JS-синтаксис: `node --check app.js` (и `booking.js`, `assets/js/site.j
 - Правки контента и цен — только в `content/site_content.py`, затем
   `python tools/build_site.py`. Сгенерированные HTML руками не редактировать.
 - Правки общей шапки, меню и футера — в `assets/js/site.js`.
+- Анимации — только в `motion.css` / `motion.js`, чтобы не размазывать тайминги
+  по страничным стилям. Новые блоки подхватываются reveal автоматически, если их
+  контейнер добавлен в `REVEAL_GROUPS`; всё движение обязано отключаться при
+  `prefers-reduced-motion: reduce` (карточки и герой это уже учитывают).
 - Абсолютных путей в коде нет; `BASE_URL` в `build_site.py` задаёт канонические URL
   (жёстко привязан к GitHub Pages этого репозитория).
 - Аналитика не должна получать медицинские данные: в события идут только имена
