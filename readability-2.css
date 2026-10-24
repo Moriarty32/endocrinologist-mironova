@@ -1,0 +1,480 @@
+
+/* Final readability pass: +1px base and larger supporting text. */
+body {
+  font-size: 19px !important;
+}
+.ref-lead,
+.page-hero .lead {
+  font-size: 21px !important;
+  line-height: 1.55;
+}
+.ref-problem li,
+.ref-value-card p,
+.ref-step p,
+.ref-principle p,
+.ref-faq-list details p,
+.ref-article-body > p,
+.ref-approach > p,
+.ref-final-copy p {
+  font-size: 18px !important;
+}
+.ref-problem h3 {
+  font-size: 22px !important;
+}
+.ref-value-card h3,
+.ref-step h3 {
+  font-size: 19px !important;
+}
+.ref-principle h3 {
+  font-size: 18px !important;
+}
+.ref-faq-list summary {
+  font-size: 19px !important;
+}
+.ref-article h3 {
+  font-size: 18px !important;
+}
+.ref-facts strong {
+  font-size: 17.5px !important;
+}
+.ref-facts span {
+  font-size: 18px !important;
+}
+.ref-hero-includes li {
+  font-size: 15px !important;
+}
+.ref-form-sub {
+  font-size: 15px !important;
+}
+.ref-select label {
+  font-size: 15px !important;
+}
+.ref-consent {
+  font-size: 14.5px !important;
+}
+.ref-form-note {
+  font-size: 14px !important;
+}
+.ref-form-price {
+  font-size: 15.5px !important;
+}
+.ref-form-schedule {
+  font-size: 14px !important;
+}
+.ref-input input,
+.ref-select select {
+  font-size: 17.5px !important;
+}
+.ref-quiz-copy strong {
+  font-size: 19px !important;
+}
+.ref-quiz-copy p {
+  font-size: 16px !important;
+}
+.ref-chip,
+.ref-role {
+  font-size: 16px !important;
+}
+.ref-credentials strong {
+  font-size: 14px !important;
+}
+.ref-credentials span {
+  font-size: 13px !important;
+}
+.ref-doc-caption,
+.ref-tag,
+.ref-category,
+.ref-article-meta,
+.ref-article-meta a {
+  font-size: 14px !important;
+}
+.ref-price-left > p:not(.ref-price-value) {
+  font-size: 16px !important;
+}
+.ref-price-side > p:not(.ref-price-value) {
+  font-size: 15px !important;
+}
+.ref-price-right .ref-list li,
+.ref-price-side .ref-list li {
+  font-size: 17px !important;
+}
+.prose p,
+.prose li {
+  font-size: 18.5px !important;
+}
+.service-card p {
+  font-size: 17px !important;
+}
+.aside-card > p,
+.aside-card .aside-duration,
+.aside-links a {
+  font-size: 15px !important;
+}
+.page-form-card h2 {
+  font-size: 26px !important;
+}
+.page-form-card .form-sub {
+  font-size: 15px !important;
+}
+.page-field label {
+  font-size: 15px !important;
+}
+.page-field input,
+.page-field select,
+.page-field textarea {
+  font-size: 17.5px !important;
+}
+.consent-line {
+  font-size: 14.5px !important;
+}
+.form-note {
+  font-size: 14px !important;
+}
+.about-copy p,
+.about-bio p {
+  font-size: 18.5px !important;
+}
+.doc-caption {
+  font-size: 14px !important;
+}
+.review-policy p,
+.review-policy li {
+  font-size: 16px !important;
+}
+.page-kicker,
+.page-meta span,
+.breadcrumbs {
+  font-size: 14.5px !important;
+}
+.footer-col a,
+.footer-col span {
+  font-size: 16px !important;
+}
+.footer-quote {
+  font-size: 15px !important;
+}
+.footer-legal p,
+.footer-copy {
+  font-size: 14.5px !important;
+}
+.site-header .site-nav .nav-link {
+  font-size: 15px !important;
+}
+.header-cta.btn,
+.btn {
+  font-size: 15px !important;
+}
+@media (max-width: 1320px) {
+  .header-phone {
+    display: none !important;
+  }
+}
+@media (max-width: 760px) {
+  .ref-lead,
+  .page-hero .lead {
+    font-size: 19.5px !important;
+  }
+  .ref-problem li,
+  .ref-value-card p,
+  .ref-step p,
+  .ref-principle p,
+  .ref-faq-list details p,
+  .ref-article-body > p,
+  .ref-approach > p,
+  .ref-final-copy p {
+    font-size: 17px !important;
+  }
+  .ref-faq-list summary {
+    font-size: 18px !important;
+  }
+  .ref-form-sub,
+  .ref-select label,
+  .ref-consent,
+  .ref-form-note,
+  .ref-form-schedule {
+    font-size: 14px !important;
+  }
+  .footer-col a,
+  .footer-col span {
+    font-size: 15px !important;
+  }
+  .prose p,
+  .prose li {
+    font-size: 17.5px !important;
+  }
+}
+/* New inner-page themes: service, doctor profile and booking. */
+.site-header .brand-text small {
+  font-size: 13.5px !important;
+}
+.site-header .header-phone small {
+  font-size: 13px !important;
+}
+.site-header .mega-kicker {
+  font-size: 13.5px !important;
+}
+.site-header .mega-column-title {
+  font-size: 13px !important;
+}
+.site-header .mega-link strong {
+  font-size: 15px !important;
+}
+.site-header .mega-link small,
+.site-header .mega-all {
+  font-size: 13.5px !important;
+}
+.service-online-page .online-hero-lead {
+  font-size: 20px !important;
+  line-height: 1.5;
+}
+.service-online-page .online-pill {
+  font-size: 13.5px !important;
+}
+.service-online-page .online-meta strong {
+  font-size: 15px !important;
+}
+.service-online-page .online-meta small {
+  font-size: 12.5px !important;
+}
+.service-online-page .online-text-link {
+  font-size: 15px !important;
+}
+.service-online-page .online-doctor-card p,
+.service-online-page .online-doctor-card li,
+.service-online-page .online-doctor-card a {
+  font-size: 14.5px !important;
+}
+.service-online-page .online-concern h3 {
+  font-size: 17px !important;
+}
+.service-online-page .online-concern p {
+  font-size: 15.5px !important;
+}
+.service-online-page .online-feature-copy > p:last-child {
+  font-size: 16.5px !important;
+}
+.service-online-page .online-process-step h3 {
+  font-size: 18px !important;
+}
+.service-online-page .online-process-step p {
+  font-size: 16px !important;
+}
+.service-online-page .online-price-line > span,
+.service-online-page .online-checks li,
+.service-online-page .online-privacy li {
+  font-size: 16px !important;
+}
+.service-online-page .online-price-note {
+  font-size: 14px !important;
+}
+.service-online-page .online-result-text {
+  font-size: 17px !important;
+}
+.service-online-page .online-help p:last-child {
+  font-size: 16px !important;
+}
+.service-online-page .online-help-links .btn {
+  font-size: 15px !important;
+}
+.about-profile-page .profile-hero-copy > p,
+.about-profile-page .profile-bio p,
+.about-profile-page .profile-principles blockquote p {
+  font-size: 18px !important;
+}
+.about-profile-page .profile-facts strong {
+  font-size: 14.5px !important;
+}
+.about-profile-page .profile-facts small {
+  font-size: 12.5px !important;
+}
+.about-profile-page .profile-principles b {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-experience li {
+  font-size: 15.5px !important;
+}
+.about-profile-page .profile-experience li strong {
+  font-size: 17px !important;
+}
+.about-profile-page .profile-experience-badge span {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-education-item strong {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-education-item small {
+  font-size: 13px !important;
+}
+.about-profile-page .profile-approach blockquote p {
+  font-size: 17px !important;
+}
+.about-profile-page .profile-approach-tags span {
+  font-size: 13px !important;
+}
+.about-profile-page .profile-interests p {
+  font-size: 16px !important;
+}
+.about-profile-page .profile-interest p {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-documents > div:first-child p {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-documents a:not(.profile-doc) {
+  font-size: 15px !important;
+}
+.about-profile-page .profile-doc > b {
+  font-size: 14px !important;
+}
+.about-profile-page .profile-doc > small {
+  font-size: 12px !important;
+}
+.about-profile-page .profile-video p,
+.about-profile-page .profile-reviews p {
+  font-size: 15px !important;
+}
+.about-profile-page .profile-video a {
+  font-size: 15px !important;
+}
+.about-profile-page .profile-booking-copy p {
+  font-size: 16px !important;
+}
+.about-profile-page .profile-booking .page-form-card .form-note {
+  font-size: 13px !important;
+}
+.about-profile-page .page-main .btn {
+  font-size: 15px !important;
+}
+.booking-page .booking-hero .lead {
+  font-size: 21px !important;
+}
+.booking-page .booking-hero-role,
+.booking-page .booking-hero-card-note,
+.booking-page .booking-hero .text-link {
+  font-size: 15px !important;
+}
+.booking-page .booking-hero .page-kicker {
+  font-size: 14.5px !important;
+}
+.booking-page .booking-tz {
+  font-size: 13.5px !important;
+}
+.booking-page .booking-day-name,
+.booking-page .booking-day-month {
+  font-size: 12px !important;
+}
+.booking-page .booking-day-tag {
+  font-size: 12px !important;
+}
+.booking-page .booking-day strong {
+  font-size: 26px !important;
+}
+.booking-page .booking-slot small {
+  font-size: 13px !important;
+}
+.booking-page .booking-legend,
+.booking-page .booking-demo-note {
+  font-size: 14px !important;
+}
+.booking-page .booking-summary-top {
+  font-size: 13px !important;
+}
+.booking-page .booking-summary-meta {
+  font-size: 14px !important;
+}
+.booking-page .booking-page-card .form-sub,
+.booking-page .booking-page-card .page-field label {
+  font-size: 15px !important;
+}
+.booking-page .booking-page-card .consent-line,
+.booking-page .booking-page-card .form-note {
+  font-size: 14px !important;
+}
+.booking-page .booking-step p,
+.booking-page .booking-prep-card p {
+  font-size: 15px !important;
+}
+.booking-page .booking-info-card .check-list li {
+  font-size: 16px !important;
+}
+.booking-page .booking-faq summary {
+  font-size: 17px !important;
+}
+.booking-page .booking-faq details p,
+.booking-page .booking-help p:last-child {
+  font-size: 16px !important;
+}
+@media (max-width: 760px) {
+  .booking-page .booking-hero .lead {
+    font-size: 19.5px !important;
+  }
+  .service-online-page .online-hero-lead {
+    font-size: 18px !important;
+  }
+  .about-profile-page .profile-hero-copy > p {
+    font-size: 17px !important;
+  }
+  .booking-page .booking-day strong {
+    font-size: 23px !important;
+  }
+}
+/* Service page supporting copy: keep the new theme above mobile-small sizes. */
+.service-online-page .online-pill {
+  font-size: 14px !important;
+}
+.service-online-page .online-meta strong {
+  font-size: 16px !important;
+}
+.service-online-page .online-meta small {
+  font-size: 13.5px !important;
+}
+.service-online-page .online-concern p {
+  font-size: 17px !important;
+}
+.service-online-page .online-feature-copy > p:last-child {
+  font-size: 18px !important;
+}
+.service-online-page .online-process-step p {
+  font-size: 17px !important;
+}
+.service-online-page .online-checks li,
+.service-online-page .online-privacy li {
+  font-size: 17px !important;
+}
+.service-online-page .online-price-note {
+  font-size: 15px !important;
+}
+.service-online-page .online-result-text {
+  font-size: 18px !important;
+}
+.service-online-page .online-help p:last-child {
+  font-size: 17px !important;
+}
+.about-profile-page .profile-facts strong {
+  font-size: 15px !important;
+}
+.about-profile-page .profile-facts small {
+  font-size: 13px !important;
+}
+@media (max-width: 650px) {
+  .service-online-page .online-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+  .service-online-page .online-meta > span {
+    width: auto;
+    min-width: 0;
+  }
+  .service-online-page .online-meta strong {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 650px) {
+  .service-online-page .online-meta {
+    grid-template-columns: 1fr;
+  }
+  .service-online-page .online-meta > span {
+    width: 100%;
+  }
+}
